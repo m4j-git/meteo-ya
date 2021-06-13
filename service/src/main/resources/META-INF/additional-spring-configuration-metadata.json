@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "meteo.scheduling.enabled",
+      "type": "java.lang.String",
+      "description": "Description for meteo.scheduling.enabled."
+    },
+    {
+      "name": "meteo.test.data.path",
+      "type": "java.lang.String",
+      "description": "Description for meteo.test.data.path."
+    },
+    {
+      "name": "maven.branch-name",
+      "type": "java.lang.String",
+      "description": "Description for maven.branch-name."
+    },
+    {
+      "name": "maven.application.version",
+      "type": "java.lang.String",
+      "description": "Description for maven.application.version."
+    },
+    {
+      "name": "maven.build-number",
+      "type": "java.lang.String",
+      "description": "Description for maven.build-number."
+    },
+    {
+      "name": "meteo.client",
+      "type": "java.lang.String",
+      "description": "Description for meteo.client."
+    }
+  ]
+}

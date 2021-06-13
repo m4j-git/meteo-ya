@@ -1,0 +1,322 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1620385889358-1
+      author: alex (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: fact_id
+                  type: BIGINT
+              - column:
+                  name: condition_
+                  type: VARCHAR(255)
+              - column:
+                  name: daytime
+                  type: VARCHAR(1)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: feels_like
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: humidity
+                  type: SMALLINT
+              - column:
+                  name: icon
+                  type: VARCHAR(255)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: obs_time
+                  type: datetime
+              - column:
+                  defaultValueBoolean: false
+                  name: polar
+                  type: BIT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: pressure_mm
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: pressure_pa
+                  type: SMALLINT
+              - column:
+                  name: season
+                  type: VARCHAR(8)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: temp
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: temp_water
+                  type: SMALLINT
+              - column:
+                  name: wind_dir
+                  type: VARCHAR(3)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: wind_gust
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: wind_speed
+                  type: SMALLINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: message_id
+                  type: BIGINT
+            tableName: ya_fact
+  - changeSet:
+      id: 1620385889358-2
+      author: alex (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: forecast_id
+                  type: BIGINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: date
+                  type: date
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: date_ts
+                  type: datetime
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: moon_code
+                  type: TINYINT
+              - column:
+                  name: moon_text
+                  type: VARCHAR(255)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: sunrise
+                  type: time
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: sunset
+                  type: time
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: week
+                  type: TINYINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: message_id
+                  type: BIGINT
+            tableName: ya_forecast
+  - changeSet:
+      id: 1620385889358-3
+      author: alex (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: message_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: current_timestamp()
+                  name: created_on
+                  type: timestamp
+              - column:
+                  constraints:
+                    nullable: false
+                  name: geoname_id
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                  name: message_uuid
+                  type: BINARY(16)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: now
+                  type: datetime
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: now_dt
+                  type: datetime
+            tableName: ya_message
+  - changeSet:
+      id: 1620385889358-4
+      author: alex (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: part_id
+                  type: BIGINT
+              - column:
+                  name: condition_
+                  type: VARCHAR(255)
+              - column:
+                  name: daytime
+                  type: VARCHAR(1)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: feels_like
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: humidity
+                  type: SMALLINT
+              - column:
+                  name: icon
+                  type: VARCHAR(255)
+              - column:
+                  name: part_name
+                  type: VARCHAR(8)
+              - column:
+                  defaultValueBoolean: false
+                  name: polar
+                  type: BIT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: prec_mm
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: prec_period
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: prec_prob
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: pressure_mm
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: pressure_pa
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: temp_avg
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: temp_max
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: temp_min
+                  type: SMALLINT
+              - column:
+                  name: wind_dir
+                  type: VARCHAR(3)
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: wind_gust
+                  type: SMALLINT
+              - column:
+                  defaultValueComputed: 'NULL'
+                  name: wind_speed
+                  type: SMALLINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: forecast_id
+                  type: BIGINT
+            tableName: ya_part
+  - changeSet:
+      id: 1620385889358-5
+      author: alex (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: forecast_id
+            indexName: FKbj02led3amti0rergy400cg9v
+            tableName: ya_part
+  - changeSet:
+      id: 1620385889358-6
+      author: alex (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: message_id
+            indexName: FKc01am26kkqdlllo37lp08u0im
+            tableName: ya_forecast
+  - changeSet:
+      id: 1620385889358-7
+      author: alex (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: message_id
+            indexName: FKe1rxnofix37ud5s0syiqdr568
+            tableName: ya_fact
+  - changeSet:
+      id: 1620385889358-8
+      author: alex (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: forecast_id
+            baseTableName: ya_part
+            constraintName: FKbj02led3amti0rergy400cg9v
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: forecast_id
+            referencedTableName: ya_forecast
+            validate: true
+  - changeSet:
+      id: 1620385889358-9
+      author: alex (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: message_id
+            baseTableName: ya_forecast
+            constraintName: FKc01am26kkqdlllo37lp08u0im
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: message_id
+            referencedTableName: ya_message
+            validate: true
+  - changeSet:
+      id: 1620385889358-10
+      author: alex (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: message_id
+            baseTableName: ya_fact
+            constraintName: FKe1rxnofix37ud5s0syiqdr568
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: message_id
+            referencedTableName: ya_message
+            validate: true
+
