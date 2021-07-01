@@ -1,3 +1,4 @@
+[![Java CI with Maven](https://github.com/woodapiary/meteo-ya/actions/workflows/maven.yml/badge.svg)](https://github.com/woodapiary/meteo-ya/actions/workflows/maven.yml)
 # Spring Boot App for Yandex Weather
 
 ### Environment variables
