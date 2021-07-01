@@ -58,7 +58,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <maven.test.failure.ignore>true</maven.test.failure.ignore>
+        <maven.test.failure.ignore>false</maven.test.failure.ignore>
         <maven.javadoc.skip>false</maven.javadoc.skip>
         <skip.tests>true</skip.tests>
         <dependency.locations.enabled>false</dependency.locations.enabled>
