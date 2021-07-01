@@ -1,1 +1,13 @@
 # Spring Boot App for Yandex Weather
+
+### Environment variables
+
+* METEO_USER
+* METEO_PASSWD
+
+* MYSQL_HOST
+* MYSQL_PORT
+* MYSQL_USER
+* MYSQL_PASSWD
+
+* YANDEX_API_KEY
