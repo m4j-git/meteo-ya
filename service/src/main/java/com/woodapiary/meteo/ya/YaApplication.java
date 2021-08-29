@@ -16,8 +16,6 @@ import org.springframework.context.annotation.Profile;
 @ComponentScan(basePackages = "com.woodapiary.meteo")
 public class YaApplication extends SpringBootServletInitializer {
 
-    private static final Logger log = LoggerFactory.getLogger(YaApplication.class);
-
     public static void main(final String[] args) {
         SpringApplication.run(YaApplication.class, args);
     }
