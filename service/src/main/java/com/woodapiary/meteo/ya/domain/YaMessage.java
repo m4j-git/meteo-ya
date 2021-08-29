@@ -38,7 +38,7 @@ public class YaMessage implements Serializable {
     private LocalDateTime createdOn;
 
     @NotNull
-    @Column(nullable = false, updatable = false, unique = true, columnDefinition = "binary(16)")
+    @Column(nullable = false, updatable = false, unique = true, columnDefinition = "varbinary")
     private UUID messageUuid;
 
     @NotNull
