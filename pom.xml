@@ -9,14 +9,14 @@
     <name>meteo-ya</name>
 
     <parent>
-        <groupId>com.woodapiary.meteo</groupId>
+        <groupId>ru.m4j.meteo</groupId>
         <artifactId>meteo-bom</artifactId>
         <version>21.3.4-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
     <description>Spring Boot App for Yandex Weather</description>
-    <url>https://woodapiary.com/meteo-ya</url>
+    <url>https://m4j.ru/meteo-ya</url>
     <inceptionYear>2021</inceptionYear>
 
     <modules>
@@ -25,8 +25,8 @@
     </modules>
 
     <scm>
-        <connection>scm:git:https://github.com/woodapiary/meteo-ya</connection>
-        <url>https://github.com/woodapiary/meteo-ya</url>
+        <connection>scm:git:https://github.com/m4j-git/meteo-ya</connection>
+        <url>https://github.com/m4j-git/meteo-ya</url>
     </scm>
 
     <build>

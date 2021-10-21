@@ -51,7 +51,7 @@ logging:
       springframework:
         security: INFO
     com:
-      woodapiary: INFO
+      m4j: INFO
 
 ##################
 #   Meteo Settings

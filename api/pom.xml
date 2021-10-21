@@ -6,7 +6,7 @@
     <name>meteo-ya-api</name>
 
     <parent>
-        <groupId>com.woodapiary.meteo</groupId>
+        <groupId>ru.m4j.meteo</groupId>
         <artifactId>meteo-ya</artifactId>
         <version>21.3.3-SNAPSHOT</version>
     </parent>
