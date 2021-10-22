@@ -4,13 +4,6 @@
 package ru.m4j.meteo.ya.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.m4j.meteo.ya.YaTestApplication;
-import ru.m4j.meteo.ya.model.YaFactDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.repo.YaFactRepository;
-import ru.m4j.meteo.ya.repo.YaForecastRepository;
-import ru.m4j.meteo.ya.repo.YaMessageRepository;
-import ru.m4j.meteo.ya.repo.YaPartRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import ru.m4j.meteo.ya.YaTestApplication;
+import ru.m4j.meteo.ya.model.YaFactDto;
+import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.repo.YaFactRepository;
+import ru.m4j.meteo.ya.repo.YaForecastRepository;
+import ru.m4j.meteo.ya.repo.YaMessageRepository;
+import ru.m4j.meteo.ya.repo.YaPartRepository;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

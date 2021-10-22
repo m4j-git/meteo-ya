@@ -3,8 +3,8 @@
  */
 package ru.m4j.meteo.ya.repo;
 
-import ru.m4j.meteo.ya.domain.YaForecast;
 import org.springframework.data.jpa.repository.JpaRepository;
+import ru.m4j.meteo.ya.domain.YaForecast;
 
 public interface YaForecastRepository extends JpaRepository<YaForecast, Long> {
 

@@ -3,13 +3,13 @@
  */
 package ru.m4j.meteo.ya.requester;
 
-import ru.m4j.meteo.ya.model.GeonameDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.service.YaMessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
+import ru.m4j.meteo.ya.model.GeonameDto;
+import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.service.YaMessageService;
 
 import java.net.URI;
 

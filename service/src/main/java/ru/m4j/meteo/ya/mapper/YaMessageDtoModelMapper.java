@@ -3,17 +3,17 @@
  */
 package ru.m4j.meteo.ya.mapper;
 
-import ru.m4j.meteo.ya.domain.*;
-import ru.m4j.meteo.ya.model.YaFactDto;
-import ru.m4j.meteo.ya.model.YaForecastDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.model.YaPartDto;
 import org.modelmapper.AbstractConverter;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.modelmapper.spi.MappingContext;
 import org.springframework.stereotype.Component;
+import ru.m4j.meteo.ya.domain.*;
+import ru.m4j.meteo.ya.model.YaFactDto;
+import ru.m4j.meteo.ya.model.YaForecastDto;
+import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.model.YaPartDto;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Type;

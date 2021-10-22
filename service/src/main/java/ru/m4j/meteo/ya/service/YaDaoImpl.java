@@ -3,14 +3,14 @@
  */
 package ru.m4j.meteo.ya.service;
 
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Repository;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.repo.YaFactRepository;
 import ru.m4j.meteo.ya.repo.YaForecastRepository;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.repo.YaPartRepository;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.Join;
 import javax.transaction.Transactional;

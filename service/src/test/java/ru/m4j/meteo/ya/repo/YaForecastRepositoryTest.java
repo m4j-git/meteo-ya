@@ -3,9 +3,6 @@
  */
 package ru.m4j.meteo.ya.repo;
 
-import ru.m4j.meteo.ya.YaTestApplication;
-import ru.m4j.meteo.ya.domain.YaForecast;
-import ru.m4j.meteo.ya.domain.YaMessage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import ru.m4j.meteo.ya.YaTestApplication;
+import ru.m4j.meteo.ya.domain.YaForecast;
+import ru.m4j.meteo.ya.domain.YaMessage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;

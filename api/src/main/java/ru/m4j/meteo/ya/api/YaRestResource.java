@@ -3,13 +3,13 @@
  */
 package ru.m4j.meteo.ya.api;
 
-import ru.m4j.meteo.ya.model.YaFactDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.m4j.meteo.ya.model.YaFactDto;
+import ru.m4j.meteo.ya.model.YaMessageDto;
 
 import java.util.List;
 

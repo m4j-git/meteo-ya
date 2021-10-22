@@ -3,13 +3,6 @@
  */
 package ru.m4j.meteo.ya.rest;
 
-import ru.m4j.meteo.ya.YaTestApplication;
-import ru.m4j.meteo.ya.domain.YaMessage;
-import ru.m4j.meteo.ya.model.YaFactDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.repo.YaFactRepository;
-import ru.m4j.meteo.ya.repo.YaMessageRepository;
-import ru.m4j.meteo.ya.service.YaDao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +15,13 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
+import ru.m4j.meteo.ya.YaTestApplication;
+import ru.m4j.meteo.ya.domain.YaMessage;
+import ru.m4j.meteo.ya.model.YaFactDto;
+import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.repo.YaFactRepository;
+import ru.m4j.meteo.ya.repo.YaMessageRepository;
+import ru.m4j.meteo.ya.service.YaDao;
 
 import java.net.URI;
 

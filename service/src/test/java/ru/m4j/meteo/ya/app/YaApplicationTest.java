@@ -3,12 +3,12 @@
  */
 package ru.m4j.meteo.ya.app;
 
-import ru.m4j.meteo.ya.YaTestApplication;
-import ru.m4j.meteo.ya.config.YaConstants;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import ru.m4j.meteo.ya.YaTestApplication;
+import ru.m4j.meteo.ya.config.YaConstants;
 
 
 @SpringBootTest(classes = YaTestApplication.class)

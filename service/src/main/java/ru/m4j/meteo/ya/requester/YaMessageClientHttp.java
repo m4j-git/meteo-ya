@@ -4,10 +4,10 @@
 package ru.m4j.meteo.ya.requester;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.m4j.meteo.ya.model.YaMessageDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import ru.m4j.meteo.ya.model.YaMessageDto;
 
 import java.io.BufferedReader;
 import java.io.IOException;
