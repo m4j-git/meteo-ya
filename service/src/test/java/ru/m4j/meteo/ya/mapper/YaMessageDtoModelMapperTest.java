@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.m4j.meteo.ya.YaTestApplication;
 import ru.m4j.meteo.ya.app.YaTestConstants;
@@ -41,7 +40,7 @@ class YaMessageDtoModelMapperTest {
     }
 
     private YaMessageDto readJson() throws IOException {
-        final FileInputStream fis = new FileInputStream(YaTestConstants.testDataPath  + testDataFile);
+        final FileInputStream fis = new FileInputStream(YaTestConstants.testDataPath + testDataFile);
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
             return jacksonMapper.readValue(rd, YaMessageDto.class);
         }
