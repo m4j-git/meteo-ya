@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.transaction.annotation.Transactional;
 import ru.m4j.meteo.ya.YaTestApplication;
+import ru.m4j.meteo.ya.app.YaTestConstants;
 import ru.m4j.meteo.ya.model.GeonameDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
@@ -41,8 +42,6 @@ class YaMessageRequesterTest {
     private ObjectMapper jacksonMapper;
     @Autowired
     private YaDao dao;
-    @Value("${meteo.test.data.path}")
-    private String testDataPath;
     @Autowired
     private YaMessageRepository msgRepo;
 
@@ -60,7 +59,7 @@ class YaMessageRequesterTest {
     }
 
     private YaMessageDto readJson() throws IOException {
-        final FileInputStream fis = new FileInputStream(testDataPath + testDataFile);
+        final FileInputStream fis = new FileInputStream(YaTestConstants.testDataPath + testDataFile);
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
             return jacksonMapper.readValue(rd, YaMessageDto.class);
         }
