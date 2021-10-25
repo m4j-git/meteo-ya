@@ -13,3 +13,6 @@
 * MYSQL_PASSWD
 
 * YANDEX_API_KEY
+
+### Hosts
+meteohost
