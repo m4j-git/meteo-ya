@@ -3,13 +3,14 @@
  */
 package ru.m4j.meteo.ya.task;
 
+import java.util.List;
+
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
 import ru.m4j.meteo.ya.model.GeonameDto;
 import ru.m4j.meteo.ya.requester.YaMessageRequester;
-
-import java.util.List;
 
 @Service
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")

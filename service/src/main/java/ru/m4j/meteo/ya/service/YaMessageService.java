@@ -3,10 +3,10 @@
  */
 package ru.m4j.meteo.ya.service;
 
+import java.util.List;
+
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
-
-import java.util.List;
 
 public interface YaMessageService {
     void saveMessageToDb(YaMessageDto dto, Integer geonameId);

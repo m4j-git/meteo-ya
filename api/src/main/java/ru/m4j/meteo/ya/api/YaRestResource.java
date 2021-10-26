@@ -3,15 +3,16 @@
  */
 package ru.m4j.meteo.ya.api;
 
-import io.swagger.annotations.ApiOperation;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import io.swagger.annotations.ApiOperation;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
-
-import java.util.List;
 
 @RequestMapping("/api/v1/ya")
 public interface YaRestResource {

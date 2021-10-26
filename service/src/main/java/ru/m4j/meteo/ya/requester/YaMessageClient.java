@@ -3,9 +3,9 @@
  */
 package ru.m4j.meteo.ya.requester;
 
-import ru.m4j.meteo.ya.model.YaMessageDto;
-
 import java.net.URI;
+
+import ru.m4j.meteo.ya.model.YaMessageDto;
 
 public interface YaMessageClient {
 

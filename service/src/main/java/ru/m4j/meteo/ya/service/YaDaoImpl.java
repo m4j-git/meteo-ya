@@ -3,20 +3,22 @@
  */
 package ru.m4j.meteo.ya.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+
+import javax.persistence.criteria.Join;
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
+
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.repo.YaFactRepository;
 import ru.m4j.meteo.ya.repo.YaForecastRepository;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.repo.YaPartRepository;
-
-import javax.persistence.criteria.Join;
-import javax.transaction.Transactional;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 
 @Repository
 public class YaDaoImpl implements YaDao {

@@ -3,12 +3,12 @@
  */
 package ru.m4j.meteo.ya.service;
 
-import ru.m4j.meteo.ya.domain.YaFact;
-import ru.m4j.meteo.ya.domain.YaMessage;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import ru.m4j.meteo.ya.domain.YaFact;
+import ru.m4j.meteo.ya.domain.YaMessage;
 
 public interface YaDao {
 

@@ -3,13 +3,14 @@
  */
 package ru.m4j.meteo.ya.rest;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
+
 import ru.m4j.meteo.ya.api.YaRestResource;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaMessageService;
-
-import java.util.List;
 
 @SuppressWarnings("unused")
 @RestController

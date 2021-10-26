@@ -3,17 +3,22 @@
  */
 package ru.m4j.meteo.ya.domain;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
-import ru.m4j.meteo.ya.model.GeonameDto;
 
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.UUID;
+import ru.m4j.meteo.ya.model.GeonameDto;
 
 @Configuration
 public class YaTestBeanFactory {

@@ -3,6 +3,10 @@
  */
 package ru.m4j.meteo.ya.app;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Optional;
+
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +15,8 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import ru.m4j.meteo.ya.YaApplication;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Optional;
+import ru.m4j.meteo.ya.YaApplication;
 
 @Component
 public class YaAppInfo {

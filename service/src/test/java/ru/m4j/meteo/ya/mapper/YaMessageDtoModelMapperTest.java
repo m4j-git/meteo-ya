@@ -3,11 +3,23 @@
  */
 package ru.m4j.meteo.ya.mapper;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import ru.m4j.meteo.ya.YaTestApplication;
 import ru.m4j.meteo.ya.app.YaTestConstants;
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -16,14 +28,6 @@ import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaForecastDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = YaTestApplication.class)
 class YaMessageDtoModelMapperTest {

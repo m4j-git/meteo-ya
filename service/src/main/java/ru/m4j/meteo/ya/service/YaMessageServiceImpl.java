@@ -3,21 +3,23 @@
  */
 package ru.m4j.meteo.ya.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-import ru.m4j.meteo.ya.domain.YaFact;
-import ru.m4j.meteo.ya.domain.YaMessage;
-import ru.m4j.meteo.ya.mapper.YaMessageDtoModelMapper;
-import ru.m4j.meteo.ya.model.YaFactDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
-
-import javax.transaction.Transactional;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
+
+import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import ru.m4j.meteo.ya.domain.YaFact;
+import ru.m4j.meteo.ya.domain.YaMessage;
+import ru.m4j.meteo.ya.mapper.YaMessageDtoModelMapper;
+import ru.m4j.meteo.ya.model.YaFactDto;
+import ru.m4j.meteo.ya.model.YaMessageDto;
 
 @Service
 public class YaMessageServiceImpl implements YaMessageService {

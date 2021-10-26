@@ -3,14 +3,15 @@
  */
 package ru.m4j.meteo.ya.repo;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import ru.m4j.meteo.ya.domain.YaFact;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import ru.m4j.meteo.ya.domain.YaFact;
 
 public interface YaFactRepository extends JpaRepository<YaFact, Long>, JpaSpecificationExecutor<YaFact> {
 
