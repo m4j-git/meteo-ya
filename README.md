@@ -15,4 +15,5 @@
 * YANDEX_API_KEY
 
 ### Hosts
+
 meteohost
