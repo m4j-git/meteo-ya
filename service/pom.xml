@@ -133,6 +133,9 @@
     <profiles>
         <profile>
             <id>dev</id>
+                        <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
 
         <profile>
@@ -167,6 +170,9 @@
         </profile>
         <profile>
             <id>h2</id>
+                        <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>com.h2database</groupId>
