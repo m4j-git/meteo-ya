@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 
-import ru.m4j.meteo.ya.aop.YaLoggingAspect;
+import ru.m4j.meteo.aop.LoggingAspect;
 
 @Configuration
 @EnableAspectJAutoProxy
@@ -17,7 +17,7 @@ public class YaLoggingAspectConfiguration {
 
     @Bean
     @Profile("dev")
-    public YaLoggingAspect loggingAspect(Environment env) {
-        return new YaLoggingAspect(env);
+    public LoggingAspect loggingAspect(Environment env) {
+        return new LoggingAspect(env);
     }
 }
