@@ -3,26 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>meteo-ya</artifactId>
-    <packaging>pom</packaging>
-    <name>meteo-ya</name>
-
-    <parent>
-        <groupId>ru.m4j.meteo</groupId>
-        <artifactId>meteo-bom</artifactId>
-        <version>21.4.5-SNAPSHOT</version>
-        <relativePath>../meteo-bom</relativePath>
-    </parent>
+	<groupId>ru.m4j.meteo</groupId>
+	<artifactId>meteo-ya</artifactId>
+	<version>21.4.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>meteo-ya</name>
 
     <description>Spring Boot App for Yandex Weather</description>
     <url>https://m4j.ru/meteo-ya</url>
     <inceptionYear>2021</inceptionYear>
 
     <modules>
-        <module>service</module>
+        <module>bom</module>
         <module>api</module>
+        <module>service</module>
     </modules>
-
+ 
     <scm>
         <connection>scm:git:https://github.com/m4j-git/meteo-ya</connection>
         <url>https://github.com/m4j-git/meteo-ya</url>
@@ -30,40 +26,7 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-            </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-            </plugin>
 
         </plugins>
     </build>
