@@ -12,8 +12,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,8 +33,6 @@ class YaFactRepositoryTest {
     private YaFactRepository repo;
     @Autowired
     private YaMessageRepository repoM;
-    @Autowired
-    private EntityManager em;
 
     @BeforeEach
     public void setUp() {

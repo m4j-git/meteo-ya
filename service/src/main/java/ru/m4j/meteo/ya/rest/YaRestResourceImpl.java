@@ -12,7 +12,6 @@ import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
-@SuppressWarnings("unused")
 @RestController
 public class YaRestResourceImpl implements YaRestResource {
 
