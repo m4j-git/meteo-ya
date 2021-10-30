@@ -23,8 +23,9 @@ public class GeonameDto implements Serializable {
 
     private Integer geonameId;
     private String geoname;
-    private Double lon;
     private Double lat;
+    private Double lon;
+
 
     @Override
     public String toString() {
