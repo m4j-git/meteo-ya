@@ -16,7 +16,7 @@ import ru.m4j.meteo.ya.requester.YaMessageRequester;
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")
 public class YaProviderScheduler {
 
-    private static final int mFixedRate = 3600 * 4;
+    private static final int mFixedRate = 3600 * 2;
 
     private final YaMessageRequester requester;
 
@@ -36,7 +36,9 @@ public class YaProviderScheduler {
     private List<GeonameDto> requestGeonames() {
         return List.of(new GeonameDto(1, "Moscow", 55.75, 37.6),
                 new GeonameDto(2, "Shilovo", 54.571705, 41.083740),
-                new GeonameDto(3, "Kaliningrad", 54.710157, 20.510137));
+                new GeonameDto(3, "Kaliningrad", 54.710157, 20.510137),
+                new GeonameDto(4, "Magadan", 59.5638, 150.803)
+                );
     }
 
 
