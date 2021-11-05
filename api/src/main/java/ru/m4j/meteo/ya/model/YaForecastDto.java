@@ -115,6 +115,9 @@ public class YaForecastDto implements Serializable {
      * Объект
      */
     private List<YaPartDto> parts = null;
+    
+    @JsonProperty("forecast_id")
+    private Long forecastId;
 
     @Override
     public String toString() {

@@ -71,6 +71,9 @@ public class YaMessageDto implements Serializable {
      */
     private YaForecastDto forecast;
 
+    @JsonProperty("message_id")
+    private Long messageId;
+    
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);

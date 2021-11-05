@@ -163,6 +163,9 @@ public class YaFactDto implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.NUMBER)
     private Instant obsTime;
 
+    @JsonProperty("fact_id")
+    private Long factId;
+    
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
