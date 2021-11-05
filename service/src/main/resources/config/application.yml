@@ -51,7 +51,7 @@ logging:
       springframework:
         security: INFO
     com:
-      m4j: INFO
+      m4j: DEBUG
 
 ##################
 #   Meteo Settings

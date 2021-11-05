@@ -47,6 +47,7 @@ public class YaMessageRequester {
             dto = client.request(getUri(geo));
             service.saveMessageToDb(dto, geo.getGeonameId());
             log.info("read yandex weather message ok for {}", geo);
+            log.debug(dto.toString());
         } catch (Exception e) {
             e.printStackTrace();
             log.error("ya message is {}", (dto == null ? "null" : dto.toString()));
