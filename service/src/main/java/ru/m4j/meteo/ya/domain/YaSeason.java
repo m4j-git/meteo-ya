@@ -15,10 +15,7 @@ package ru.m4j.meteo.ya.domain;
  */
 public enum YaSeason {
 
-    SUMMER("summer"),
-    AUTUMN("autumn"),
-    WINTER("winter"),
-    SPRING("spring");
+    SUMMER("summer"), AUTUMN("autumn"), WINTER("winter"), SPRING("spring");
 
     private final String value;
 
@@ -27,8 +24,11 @@ public enum YaSeason {
     }
 
     public static YaSeason fromString(String value) {
-        for (YaSeason v : values())
-            if (v.getValue().equalsIgnoreCase(value)) return v;
+        for (YaSeason v : values()) {
+            if (v.getValue().equalsIgnoreCase(value)) {
+                return v;
+            }
+        }
         throw new IllegalArgumentException();
     }
 

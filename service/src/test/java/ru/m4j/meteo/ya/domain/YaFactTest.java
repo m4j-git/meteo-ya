@@ -22,5 +22,4 @@ class YaFactTest {
         assertThat(fact.toString().length()).isGreaterThan(100);
     }
 
-
 }

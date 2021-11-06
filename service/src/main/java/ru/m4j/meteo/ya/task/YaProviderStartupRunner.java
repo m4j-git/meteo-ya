@@ -3,7 +3,6 @@
  */
 package ru.m4j.meteo.ya.task;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +18,6 @@ public class YaProviderStartupRunner implements CommandLineRunner {
 
     @Value("${spring.application.name}")
     private String appName;
-
 
     @Override
     public void run(String... args) {

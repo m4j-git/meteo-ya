@@ -181,7 +181,7 @@ public class YaPartDto implements Serializable {
      */
     @JsonProperty("prec_prob")
     private Integer precProb;
-    
+
     @JsonProperty("part_id")
     private Long partId;
 

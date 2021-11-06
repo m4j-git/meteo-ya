@@ -61,9 +61,7 @@ class YaMessageRepositoryTest {
     public void testFindMessages(@Qualifier("message_skinny") YaMessage mes) {
         mes = repo.save(mes);
         assertEquals(1, repo.count());
-        final List<YaMessage> findMessages = repo.findMessages(geonameId,
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
+        final List<YaMessage> findMessages = repo.findMessages(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()), LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertEquals(1, findMessages.size());
         assertEquals(mes, findMessages.get(0));
     }

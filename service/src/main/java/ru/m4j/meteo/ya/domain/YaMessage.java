@@ -72,11 +72,11 @@ public class YaMessage implements Serializable {
     private OffsetDateTime nowDt;
 
     @Setter(value = AccessLevel.NONE)
-    @OneToOne(mappedBy = "message", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, orphanRemoval = true)
+    @OneToOne(mappedBy = "message", cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, orphanRemoval = true)
     private YaFact fact;
 
     @Setter(value = AccessLevel.NONE)
-    @OneToOne(mappedBy = "message", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, orphanRemoval = true)
+    @OneToOne(mappedBy = "message", cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, orphanRemoval = true)
     private YaForecast forecast;
 
     public void addFact(final YaFact fact) {
@@ -98,8 +98,7 @@ public class YaMessage implements Serializable {
             return false;
         }
         YaMessage other = (YaMessage) o;
-        return messageId != null &&
-                messageId.equals(other.getMessageId());
+        return (messageId != null) && messageId.equals(other.getMessageId());
     }
 
     @Override

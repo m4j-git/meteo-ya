@@ -23,5 +23,4 @@ class YaForecastTest {
         assertThat(fore.toString().length()).isGreaterThan(100);
     }
 
-
 }

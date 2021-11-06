@@ -223,8 +223,7 @@ public class YaFact implements Serializable {
             return false;
         }
         YaFact other = (YaFact) o;
-        return factId != null &&
-                factId.equals(other.getFactId());
+        return (factId != null) && factId.equals(other.getFactId());
     }
 
     @Override

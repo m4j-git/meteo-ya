@@ -27,12 +27,7 @@ package ru.m4j.meteo.ya.domain;
 
 public enum YaConditional {
 
-    CLEAR("clear"),
-    OVERCAST("overcast"),
-    CLOUDY("cloudy"),
-    PARTLY_CLOUDY("partly-cloudy"),
-    PARTLY_CLOUDY_AND_LIGHT_RAIN("partly-cloudy-and-light-rain"),
-    OVERCAST_AND_LIGHT_RAIN("overcast-and-light-rain");
+    CLEAR("clear"), OVERCAST("overcast"), CLOUDY("cloudy"), PARTLY_CLOUDY("partly-cloudy"), PARTLY_CLOUDY_AND_LIGHT_RAIN("partly-cloudy-and-light-rain"), OVERCAST_AND_LIGHT_RAIN("overcast-and-light-rain");
 
     private final String value;
 
@@ -41,8 +36,11 @@ public enum YaConditional {
     }
 
     public static YaConditional fromString(String value) {
-        for (YaConditional v : values())
-            if (v.getValue().equalsIgnoreCase(value)) return v;
+        for (YaConditional v : values()) {
+            if (v.getValue().equalsIgnoreCase(value)) {
+                return v;
+            }
+        }
         throw new IllegalArgumentException();
     }
 

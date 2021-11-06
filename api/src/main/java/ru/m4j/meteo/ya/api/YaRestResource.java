@@ -19,8 +19,7 @@ public interface YaRestResource {
 
     @ApiOperation(notes = "Yandex messages", value = "get list of weather messages")
     @GetMapping("/messages")
-    List<YaMessageDto> getMessages(@RequestParam Integer geonameId,
-                                   @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo);
+    List<YaMessageDto> getMessages(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo);
 
     @ApiOperation(notes = "Yandex messages", value = "get weather message")
     @GetMapping("/messages/{uuid}")
@@ -32,6 +31,5 @@ public interface YaRestResource {
 
     @ApiOperation(notes = "Yandex messages", value = "get fact weather messages")
     @GetMapping("/messages/facts")
-    List<YaFactDto> getFacts(@RequestParam Integer geonameId,
-                             @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo);
+    List<YaFactDto> getFacts(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo);
 }

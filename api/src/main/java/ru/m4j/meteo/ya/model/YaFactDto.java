@@ -165,7 +165,7 @@ public class YaFactDto implements Serializable {
 
     @JsonProperty("fact_id")
     private Long factId;
-    
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);

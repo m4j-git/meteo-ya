@@ -11,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import ru.m4j.meteo.ya.YaTestApplication;
 import ru.m4j.meteo.ya.config.YaConstants;
 
-
 @SpringBootTest(classes = YaTestApplication.class)
 class YaApplicationTest {
 

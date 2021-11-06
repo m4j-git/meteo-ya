@@ -20,12 +20,7 @@ public class YaSwaggerConfig {
 
     @Bean
     public Docket productApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("ru.m4j.meteo.ya"))
-                .paths(PathSelectors.any())
-                .build();
+        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("ru.m4j.meteo.ya")).paths(PathSelectors.any()).build();
     }
-
 
 }

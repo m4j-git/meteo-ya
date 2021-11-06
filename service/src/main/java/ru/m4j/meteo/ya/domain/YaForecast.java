@@ -94,14 +94,13 @@ public class YaForecast implements Serializable {
     private String moonText;
 
     @Setter(value = AccessLevel.NONE)
-    @OneToMany(mappedBy = "forecast", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, orphanRemoval = true)
-    private List<YaPart> parts = new ArrayList<>();
+    @OneToMany(mappedBy = "forecast", cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, orphanRemoval = true)
+    private final List<YaPart> parts = new ArrayList<>();
 
     @NotNull
     @OneToOne
     @JoinColumn(name = "message_id", referencedColumnName = "message_id", nullable = false, unique = true, updatable = false)
     private YaMessage message;
-
 
     public void addParts(final Iterable<YaPart> parts) {
         parts.forEach(this::addPart);
@@ -122,8 +121,7 @@ public class YaForecast implements Serializable {
             return false;
         }
         YaForecast other = (YaForecast) o;
-        return forecastId != null &&
-                forecastId.equals(other.getForecastId());
+        return (forecastId != null) && forecastId.equals(other.getForecastId());
     }
 
     @Override

@@ -66,5 +66,4 @@ class YaMessageJsonTest {
         assertTrue(json.length() > 10);
     }
 
-
 }

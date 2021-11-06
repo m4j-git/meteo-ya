@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import ru.m4j.meteo.ya.model.GeonameDto;
 import ru.m4j.meteo.ya.requester.YaMessageRequester;
+import ru.m4j.meteo.ya.service.YaGeonameService;
 
 @Service
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")
@@ -19,27 +20,19 @@ public class YaProviderScheduler {
     private static final int mFixedRate = 3600 * 2;
 
     private final YaMessageRequester requester;
+    private final YaGeonameService geo;
 
-    public YaProviderScheduler(YaMessageRequester requester) {
+    public YaProviderScheduler(YaMessageRequester requester, YaGeonameService geo) {
         this.requester = requester;
+        this.geo = geo;
     }
 
     @Scheduled(fixedRate = 1000 * mFixedRate, initialDelay = 1000)
     public void run() {
-        List<GeonameDto> gns = requestGeonames();
+        List<GeonameDto> gns = geo.requestGeonames();
         for (final GeonameDto gn : gns) {
             requester.requestProvider(gn);
         }
     }
-
-    //FIXME via service
-    private List<GeonameDto> requestGeonames() {
-        return List.of(new GeonameDto(1, "Moscow", 55.75, 37.6),
-                new GeonameDto(2, "Shilovo", 54.571705, 41.083740),
-                new GeonameDto(3, "Kaliningrad", 54.710157, 20.510137),
-                new GeonameDto(4, "Magadan", 59.5638, 150.803)
-                );
-    }
-
 
 }

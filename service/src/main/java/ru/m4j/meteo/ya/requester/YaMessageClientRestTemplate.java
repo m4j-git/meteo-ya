@@ -23,12 +23,10 @@ public class YaMessageClientRestTemplate implements YaMessageClient {
     private String apiKey;
 
     public YaMessageClientRestTemplate(RestTemplateBuilder rtBuilder) {
-        this.restTemplate = rtBuilder
-                .additionalInterceptors((request, body, execution) -> {
-                    request.getHeaders().add("X-Yandex-API-Key", apiKey);
-                    return execution.execute(request, body);
-                })
-                .build();
+        this.restTemplate = rtBuilder.additionalInterceptors((request, body, execution) -> {
+            request.getHeaders().add("X-Yandex-API-Key", apiKey);
+            return execution.execute(request, body);
+        }).build();
     }
 
     @Override

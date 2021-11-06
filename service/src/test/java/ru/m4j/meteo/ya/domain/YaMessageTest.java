@@ -15,7 +15,6 @@ import ru.m4j.meteo.ya.YaTestApplication;
 @SpringBootTest(classes = YaTestApplication.class)
 class YaMessageTest {
 
-
     @Test
     public void testMessageSkinny(@Qualifier("message_skinny") YaMessage mes) {
         assertNotNull(mes);
@@ -30,6 +29,5 @@ class YaMessageTest {
         assertNotNull(mes.getFact());
         assertNotNull(mes.getForecast());
     }
-
 
 }

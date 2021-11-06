@@ -14,8 +14,7 @@ package ru.m4j.meteo.ya.domain;
 
 public enum YaDaytime {
 
-    D("d"),
-    N("n");
+    D("d"), N("n");
 
     private final String value;
 
@@ -24,8 +23,11 @@ public enum YaDaytime {
     }
 
     public static YaDaytime fromString(String value) {
-        for (YaDaytime v : values())
-            if (v.getValue().equalsIgnoreCase(value)) return v;
+        for (YaDaytime v : values()) {
+            if (v.getValue().equalsIgnoreCase(value)) {
+                return v;
+            }
+        }
         throw new IllegalArgumentException();
     }
 

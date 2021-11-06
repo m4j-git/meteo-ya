@@ -114,5 +114,4 @@ class YaMessageServiceTest {
         assertEquals(0, msgRepo.count());
     }
 
-
 }

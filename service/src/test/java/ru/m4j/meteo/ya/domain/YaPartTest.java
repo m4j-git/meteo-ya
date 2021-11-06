@@ -22,5 +22,4 @@ class YaPartTest {
         assertThat(part.toString().length()).isGreaterThan(100);
     }
 
-
 }

@@ -12,7 +12,6 @@ import javax.persistence.criteria.Join;
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -30,9 +29,8 @@ public class YaDaoImpl implements YaDao {
     private final YaForecastRepository foreRepo;
     private final YaPartRepository partRepo;
     private final EntityManager em;
-    private final static String queryLastMessage = "select msg from YaMessage as msg where msg.geonameId=:geoname_id " +
-            "ORDER BY msg.createdOn desc";
-    
+    private final static String queryLastMessage = "select msg from YaMessage as msg where msg.geonameId=:geoname_id " + "ORDER BY msg.createdOn desc";
+
     public YaDaoImpl(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo, EntityManager em) {
         this.messageRepo = messageRepo;
         this.factRepo = factRepo;
@@ -81,7 +79,7 @@ public class YaDaoImpl implements YaDao {
     @Override
     @Transactional
     public YaMessage findLastMessage(Integer geonameId) {
-        return (YaMessage)em.createQuery(queryLastMessage).setMaxResults(1).setParameter("geoname_id",geonameId).getSingleResult();
+        return (YaMessage) em.createQuery(queryLastMessage).setMaxResults(1).setParameter("geoname_id", geonameId).getSingleResult();
     }
 
     @Override
@@ -104,19 +102,12 @@ public class YaDaoImpl implements YaDao {
     public Specification<YaFact> factSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
         return (root, query, builder) -> {
             Join<YaFact, YaMessage> join = root.join("message");
-            return builder.and(
-                    builder.equal(join.get("geonameId"), geonameId),
-                    builder.between(join.get("createdOn"), dateFrom, dateTo));
+            return builder.and(builder.equal(join.get("geonameId"), geonameId), builder.between(join.get("createdOn"), dateFrom, dateTo));
         };
     }
 
     public Specification<YaMessage> messageSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
-        return (root, query, builder) -> builder.and(
-                builder.equal(root.get("geonameId"), geonameId),
-                builder.between(root.get("createdOn"), dateFrom, dateTo));
+        return (root, query, builder) -> builder.and(builder.equal(root.get("geonameId"), geonameId), builder.between(root.get("createdOn"), dateFrom, dateTo));
     }
 
 }
-
-
-

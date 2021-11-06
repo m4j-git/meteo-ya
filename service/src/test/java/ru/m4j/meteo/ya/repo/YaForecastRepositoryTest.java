@@ -52,5 +52,4 @@ class YaForecastRepositoryTest {
         assertEquals(0, repoM.count());
     }
 
-
 }

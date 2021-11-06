@@ -211,8 +211,7 @@ public class YaPart implements Serializable {
             return false;
         }
         YaPart other = (YaPart) o;
-        return partId != null &&
-                partId.equals(other.getPartId());
+        return (partId != null) && partId.equals(other.getPartId());
     }
 
     @Override

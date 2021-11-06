@@ -56,8 +56,7 @@ class YaFactRepositoryTest {
     public void testFindFacts(@Qualifier("message") YaMessage mes) {
         mes = repoM.save(mes);
         assertEquals(1, repo.count());
-        final List<YaFact> findFacts = repo.findFacts(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
+        final List<YaFact> findFacts = repo.findFacts(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()), LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertEquals(1, findFacts.size());
         assertEquals(mes.getFact(), findFacts.get(0));
     }
