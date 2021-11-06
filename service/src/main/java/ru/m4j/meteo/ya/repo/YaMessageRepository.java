@@ -17,8 +17,6 @@ import ru.m4j.meteo.ya.domain.YaMessage;
 
 public interface YaMessageRepository extends JpaRepository<YaMessage, Long>, JpaSpecificationExecutor<YaMessage> {
 
-    YaMessage findTopByGeonameIdOrderByCreatedOnDesc(Integer geonameId);
-
     @Query(value = "select msg from YaMessage as msg  where msg.geonameId=:geoname_id " +
             "and msg.createdOn BETWEEN :date_from AND :date_to ORDER BY msg.createdOn desc")
     List<YaMessage> findMessages(@Param("geoname_id") Integer geonameId, @Param("date_from") LocalDateTime dateFrom, @Param("date_to") LocalDateTime dateTo);

@@ -31,7 +31,8 @@ spring:
     user:
       name: ${METEO_USER}
       password: ${METEO_PASSWD}
-
+#  main:
+#    lazy-initialization: true
 ##################
 #   Server Settings
 ##################

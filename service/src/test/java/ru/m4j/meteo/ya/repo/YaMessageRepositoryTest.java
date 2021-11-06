@@ -48,14 +48,6 @@ class YaMessageRepositoryTest {
     }
 
     @Test
-    public void testFindLastMessage(@Qualifier("message_skinny") YaMessage mes) {
-        final YaMessage ent1 = repo.save(mes);
-        assertEquals(1, repo.count());
-        final YaMessage ent2 = repo.findTopByGeonameIdOrderByCreatedOnDesc(geonameId);
-        assertEquals(ent1, ent2);
-    }
-
-    @Test
     public void testFindIdByUuid(@Qualifier("message_skinny") YaMessage mes) {
         final YaMessage ent = repo.save(mes);
         assertEquals(1, repo.count());

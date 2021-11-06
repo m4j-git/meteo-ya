@@ -7,10 +7,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.EntityManager;
 import javax.persistence.criteria.Join;
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -27,12 +29,16 @@ public class YaDaoImpl implements YaDao {
     private final YaFactRepository factRepo;
     private final YaForecastRepository foreRepo;
     private final YaPartRepository partRepo;
-
-    public YaDaoImpl(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo) {
+    private final EntityManager em;
+    private final static String queryLastMessage = "select msg from YaMessage as msg where msg.geonameId=:geoname_id " +
+            "ORDER BY msg.createdOn desc";
+    
+    public YaDaoImpl(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo, EntityManager em) {
         this.messageRepo = messageRepo;
         this.factRepo = factRepo;
         this.foreRepo = foreRepo;
         this.partRepo = partRepo;
+        this.em = em;
     }
 
     @Override
@@ -75,7 +81,7 @@ public class YaDaoImpl implements YaDao {
     @Override
     @Transactional
     public YaMessage findLastMessage(Integer geonameId) {
-        return messageRepo.findTopByGeonameIdOrderByCreatedOnDesc(geonameId);
+        return (YaMessage)em.createQuery(queryLastMessage).setMaxResults(1).setParameter("geoname_id",geonameId).getSingleResult();
     }
 
     @Override
