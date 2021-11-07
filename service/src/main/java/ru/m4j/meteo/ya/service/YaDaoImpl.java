@@ -29,9 +29,11 @@ public class YaDaoImpl implements YaDao {
     private final YaForecastRepository foreRepo;
     private final YaPartRepository partRepo;
     private final EntityManager em;
-    private final static String queryLastMessage = "select msg from YaMessage as msg where msg.geonameId=:geoname_id " + "ORDER BY msg.createdOn desc";
+    private final static String queryLastMessage = "select msg from YaMessage as msg where msg.geonameId=:geoname_id "
+            + "ORDER BY msg.createdOn desc";
 
-    public YaDaoImpl(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo, EntityManager em) {
+    public YaDaoImpl(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo,
+            EntityManager em) {
         this.messageRepo = messageRepo;
         this.factRepo = factRepo;
         this.foreRepo = foreRepo;
@@ -107,7 +109,8 @@ public class YaDaoImpl implements YaDao {
     }
 
     public Specification<YaMessage> messageSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
-        return (root, query, builder) -> builder.and(builder.equal(root.get("geonameId"), geonameId), builder.between(root.get("createdOn"), dateFrom, dateTo));
+        return (root, query, builder) -> builder.and(builder.equal(root.get("geonameId"), geonameId),
+                builder.between(root.get("createdOn"), dateFrom, dateTo));
     }
 
 }

@@ -63,7 +63,8 @@ class YaRestResourceTest {
 
     @Test
     public void testGetFacts() {
-        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/facts").queryParam("geonameId", geonameId).buildAndExpand().toUri();
+        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/facts")
+                .queryParam("geonameId", geonameId).buildAndExpand().toUri();
         ResponseEntity<YaFactDto[]> response = restTemplate.getForEntity(uri, YaFactDto[].class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
@@ -72,7 +73,8 @@ class YaRestResourceTest {
 
     @Test
     public void testGetLastMessage() {
-        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/last").queryParam("geonameId", geonameId).buildAndExpand().toUri();
+        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/last")
+                .queryParam("geonameId", geonameId).buildAndExpand().toUri();
         ResponseEntity<YaMessageDto> response = restTemplate.getForEntity(uri, YaMessageDto.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
@@ -80,7 +82,8 @@ class YaRestResourceTest {
 
     @Test
     public void testGetMessages() {
-        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages").queryParam("geonameId", geonameId).buildAndExpand().toUri();
+        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages")
+                .queryParam("geonameId", geonameId).buildAndExpand().toUri();
         ResponseEntity<YaMessageDto[]> response = restTemplate.getForEntity(uri, YaMessageDto[].class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
@@ -89,7 +92,8 @@ class YaRestResourceTest {
 
     @Test
     public void testGetMessage() {
-        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/{messageUuid}").buildAndExpand(messageUuid).toUri();
+        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/{messageUuid}")
+                .buildAndExpand(messageUuid).toUri();
         ResponseEntity<YaMessageDto> response = restTemplate.getForEntity(uri, YaMessageDto.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();

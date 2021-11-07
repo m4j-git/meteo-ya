@@ -37,7 +37,8 @@ public class YaMessageClientHttp implements YaMessageClient {
         try {
             URLConnection connection = uri.toURL().openConnection();
             connection.setRequestProperty("X-Yandex-API-Key", apiKey);
-            try (InputStream is = connection.getInputStream(); BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+            try (InputStream is = connection.getInputStream();
+                    BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
                 final YaMessageDto owDto = jacksonMapper.readValue(rd, YaMessageDto.class);
                 rd.close();
                 return owDto;
