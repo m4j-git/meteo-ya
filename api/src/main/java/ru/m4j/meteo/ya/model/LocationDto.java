@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 @AllArgsConstructor
-public class GeonameDto implements Serializable {
+public class LocationDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

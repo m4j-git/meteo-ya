@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
-import ru.m4j.meteo.ya.model.GeonameDto;
+import ru.m4j.meteo.ya.model.LocationDto;
 
 @Configuration
 public class YaTestBeanFactory {
@@ -27,8 +27,8 @@ public class YaTestBeanFactory {
 
     @Bean
     @Scope("prototype")
-    GeonameDto createGeoname() {
-        return new GeonameDto(geonameId, "Moscow", 55.75, 37.6);
+    LocationDto createLocation() {
+        return new LocationDto(geonameId, "Moscow", 55.75, 37.6);
     }
 
     @Bean(name = "message_skinny")

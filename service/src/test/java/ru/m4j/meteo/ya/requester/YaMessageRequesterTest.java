@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ru.m4j.meteo.ya.YaTestApplication;
 import ru.m4j.meteo.ya.app.YaTestConstants;
-import ru.m4j.meteo.ya.model.GeonameDto;
+import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.service.YaDao;
@@ -53,9 +53,9 @@ class YaMessageRequesterTest {
     }
 
     @Test
-    public void testRequestProvider(@Autowired GeonameDto geoname) throws IOException {
-        when(client.request(requester.getUri(geoname))).thenReturn(readJson());
-        final YaMessageDto result = requester.requestProvider(geoname);
+    public void testRequestProvider(@Autowired LocationDto location) throws IOException {
+        when(client.request(requester.getUri(location))).thenReturn(readJson());
+        final YaMessageDto result = requester.requestProvider(location);
         assertNotNull(result.getNow());
     }
 

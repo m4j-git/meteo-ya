@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ru.m4j.meteo.ya.model.GeonameDto;
+import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
@@ -41,7 +41,7 @@ public class YaMessageRequester {
     }
 
     //50 on day.
-    public YaMessageDto requestProvider(GeonameDto geo) {
+    public YaMessageDto requestProvider(LocationDto geo) {
         YaMessageDto dto = null;
         try {
             dto = client.request(getUri(geo));
@@ -55,7 +55,7 @@ public class YaMessageRequester {
         return dto;
     }
 
-    URI getUri(GeonameDto geo) {
+    URI getUri(LocationDto geo) {
         return UriComponentsBuilder.newInstance().scheme(scheme).host(host).path(path).queryParam("lat", geo.getLat()).queryParam("lon", geo.getLon())
                 .buildAndExpand().toUri();
     }
