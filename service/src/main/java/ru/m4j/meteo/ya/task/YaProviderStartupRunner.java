@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")
-//@Profile("!dev")
 public class YaProviderStartupRunner implements CommandLineRunner {
     private static final Logger log = LoggerFactory.getLogger(YaProviderStartupRunner.class);
 
