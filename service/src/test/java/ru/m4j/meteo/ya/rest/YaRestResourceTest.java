@@ -36,7 +36,7 @@ class YaRestResourceTest {
     private final Integer geonameId = 1;
     private final String host = "localhost";
     private final String scheme = "http";
-    private final String path = "/api/v1/ya";
+    private final String path = "/api/v1";
 
     @LocalServerPort
     private int randomServerPort;
@@ -92,7 +92,7 @@ class YaRestResourceTest {
 
     @Test
     public void testGetMessage() {
-        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/{messageUuid}")
+        URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/one/{messageUuid}")
                 .buildAndExpand(messageUuid).toUri();
         ResponseEntity<YaMessageDto> response = restTemplate.getForEntity(uri, YaMessageDto.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
