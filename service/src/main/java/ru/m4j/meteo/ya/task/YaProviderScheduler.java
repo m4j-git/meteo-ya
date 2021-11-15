@@ -17,7 +17,7 @@ import ru.m4j.meteo.ya.service.YaLocationService;
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")
 public class YaProviderScheduler {
 
-    private static final int mFixedRate = 3600 * 2;
+    private static final int mFixedRate = 3600 * 4;
 
     private final YaMessageRequester requester;
     private final YaLocationService locationService;
