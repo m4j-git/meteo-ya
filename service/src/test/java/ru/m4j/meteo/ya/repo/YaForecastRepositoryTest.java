@@ -35,7 +35,7 @@ class YaForecastRepositoryTest {
     }
 
     @Test
-    public void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes, @Qualifier("forecast_skinny") YaForecast fore) {
+    void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes, @Qualifier("forecast_skinny") YaForecast fore) {
         mes = repoM.save(mes);
         mes.addForecast(fore);
         fore = repo.save(fore);

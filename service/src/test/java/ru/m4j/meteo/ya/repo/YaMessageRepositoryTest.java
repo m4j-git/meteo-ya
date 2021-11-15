@@ -38,7 +38,7 @@ class YaMessageRepositoryTest {
     }
 
     @Test
-    public void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes) {
+    void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes) {
         YaMessage ent1 = repo.save(mes);
         assertEquals(1, repo.count());
         assertNotNull(ent1.getMessageId());
@@ -48,7 +48,7 @@ class YaMessageRepositoryTest {
     }
 
     @Test
-    public void testFindIdByUuid(@Qualifier("message_skinny") YaMessage mes) {
+    void testFindIdByUuid(@Qualifier("message_skinny") YaMessage mes) {
         final YaMessage ent = repo.save(mes);
         assertEquals(1, repo.count());
         assertNotNull(ent.getMessageUuid());
@@ -58,7 +58,7 @@ class YaMessageRepositoryTest {
     }
 
     @Test
-    public void testFindMessages(@Qualifier("message_skinny") YaMessage mes) {
+    void testFindMessages(@Qualifier("message_skinny") YaMessage mes) {
         mes = repo.save(mes);
         assertEquals(1, repo.count());
         final List<YaMessage> findMessages = repo.findMessages(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),

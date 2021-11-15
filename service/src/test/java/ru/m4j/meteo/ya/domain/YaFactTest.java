@@ -16,9 +16,9 @@ import ru.m4j.meteo.ya.YaTestApplication;
 class YaFactTest {
 
     @Test
-    public void testFact(@Autowired YaFact fact) {
+    void testFact(@Autowired YaFact fact) {
         assertNotNull(fact);
-        assertThat(fact.hashCode()).isEqualTo(0);
+        assertThat(fact.hashCode()).isZero();
         assertThat(fact.toString().length()).isGreaterThan(100);
     }
 

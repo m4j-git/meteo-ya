@@ -53,7 +53,7 @@ class YaMessageRequesterTest {
     }
 
     @Test
-    public void testRequestProvider(@Autowired LocationDto location) throws IOException {
+    void testRequestProvider(@Autowired LocationDto location) throws IOException {
         when(client.request(requester.getUri(location))).thenReturn(readJson());
         final YaMessageDto result = requester.requestProvider(location);
         assertNotNull(result.getNow());

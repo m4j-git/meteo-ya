@@ -16,15 +16,15 @@ import ru.m4j.meteo.ya.YaTestApplication;
 class YaMessageTest {
 
     @Test
-    public void testMessageSkinny(@Qualifier("message_skinny") YaMessage mes) {
+    void testMessageSkinny(@Qualifier("message_skinny") YaMessage mes) {
         assertNotNull(mes);
         assertNotNull(mes.getMessageUuid());
-        assertThat(mes.hashCode()).isEqualTo(0);
+        assertThat(mes.hashCode()).isZero();
         assertThat(mes.toString().length()).isGreaterThan(100);
     }
 
     @Test
-    public void testMessage(@Qualifier("message") YaMessage mes) {
+    void testMessage(@Qualifier("message") YaMessage mes) {
         assertNotNull(mes);
         assertNotNull(mes.getFact());
         assertNotNull(mes.getForecast());

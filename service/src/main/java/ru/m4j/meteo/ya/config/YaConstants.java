@@ -8,7 +8,7 @@ package ru.m4j.meteo.ya.config;
  */
 public final class YaConstants {
 
-    public static final String module = "ya";
+    public static final String MODULE = "ya";
 
     private YaConstants() {
     }

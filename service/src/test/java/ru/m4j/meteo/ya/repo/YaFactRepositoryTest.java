@@ -42,7 +42,7 @@ class YaFactRepositoryTest {
     }
 
     @Test
-    public void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes, @Autowired YaFact fact) {
+    void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes, @Autowired YaFact fact) {
         mes = repoM.save(mes);
         mes.addFact(fact);
         fact = repo.save(fact);
@@ -53,7 +53,7 @@ class YaFactRepositoryTest {
     }
 
     @Test
-    public void testFindFacts(@Qualifier("message") YaMessage mes) {
+    void testFindFacts(@Qualifier("message") YaMessage mes) {
         mes = repoM.save(mes);
         assertEquals(1, repo.count());
         final List<YaFact> findFacts = repo.findFacts(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),

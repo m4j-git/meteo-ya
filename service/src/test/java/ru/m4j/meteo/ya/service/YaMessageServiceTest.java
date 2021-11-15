@@ -78,7 +78,7 @@ class YaMessageServiceTest {
     }
 
     @Test
-    public void testGetLastMessage() {
+    void testGetLastMessage() {
         final YaMessageDto dto = service.getLastMessage(geonameId);
         assertNotNull(dto);
         assertNotNull(dto.getCreatedOn());
@@ -86,21 +86,21 @@ class YaMessageServiceTest {
     }
 
     @Test
-    public void testGetFacts() {
+    void testGetFacts() {
         final List<YaFactDto> fact2List = service.getFacts(geonameId, null, null);
         assertEquals(1, fact2List.size());
         assertNotNull(fact2List.get(0));
     }
 
     @Test
-    public void testGetMessages() {
+    void testGetMessages() {
         final List<YaMessageDto> ent2List = service.getMessages(geonameId, null, null);
         assertEquals(1, ent2List.size());
         assertNotNull(ent2List.get(0));
     }
 
     @Test
-    public void testGetMessage() {
+    void testGetMessage() {
         final YaMessageDto dto = service.getMessage("11111111-1111-1111-1111-111111111111");
         assertNotNull(dto);
     }

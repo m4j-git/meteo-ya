@@ -62,17 +62,17 @@ class YaRestResourceTest {
     }
 
     @Test
-    public void testGetFacts() {
+    void testGetFacts() {
         URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/facts")
                 .queryParam("geonameId", geonameId).buildAndExpand().toUri();
         ResponseEntity<YaFactDto[]> response = restTemplate.getForEntity(uri, YaFactDto[].class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
-        assertThat(response.getBody().length == 1).isTrue();
+        assertThat(response.getBody().length).isSameAs(1);
     }
 
     @Test
-    public void testGetLastMessage() {
+    void testGetLastMessage() {
         URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/last")
                 .queryParam("geonameId", geonameId).buildAndExpand().toUri();
         ResponseEntity<YaMessageDto> response = restTemplate.getForEntity(uri, YaMessageDto.class);
@@ -81,17 +81,17 @@ class YaRestResourceTest {
     }
 
     @Test
-    public void testGetMessages() {
+    void testGetMessages() {
         URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages")
                 .queryParam("geonameId", geonameId).buildAndExpand().toUri();
         ResponseEntity<YaMessageDto[]> response = restTemplate.getForEntity(uri, YaMessageDto[].class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
-        assertThat(response.getBody().length == 1).isTrue();
+        assertThat(response.getBody().length).isSameAs(1);
     }
 
     @Test
-    public void testGetMessage() {
+    void testGetMessage() {
         URI uri = UriComponentsBuilder.newInstance().scheme(scheme).host(host).port(randomServerPort).path(path).pathSegment("messages/one/{messageUuid}")
                 .buildAndExpand(messageUuid).toUri();
         ResponseEntity<YaMessageDto> response = restTemplate.getForEntity(uri, YaMessageDto.class);

@@ -51,7 +51,7 @@ class YaMessageDtoModelMapperTest {
     }
 
     @Test
-    public void testMessageMapper() throws IOException {
+    void testMessageMapper() throws IOException {
         YaMessageDto dto = readJson();
         dto.setInfo(null);
         dto.setFact(null);
@@ -67,7 +67,7 @@ class YaMessageDtoModelMapperTest {
     }
 
     @Test
-    public void testFactMapper() throws IOException {
+    void testFactMapper() throws IOException {
         YaMessageDto dto = readJson();
         final YaFactDto dto1 = dto.getFact();
         final YaFact entity = mapper.factDtoToFact(dto1);
@@ -79,7 +79,7 @@ class YaMessageDtoModelMapperTest {
     }
 
     @Test
-    public void testForecastMapper() throws IOException {
+    void testForecastMapper() throws IOException {
         YaMessageDto dto = readJson();
         final YaForecastDto dto1 = dto.getForecast();
         final YaForecast entity = mapper.forecastDtoToForecast(dto1);
@@ -90,7 +90,7 @@ class YaMessageDtoModelMapperTest {
     }
 
     @Test
-    public void testFullMessageMapper() throws IOException {
+    void testFullMessageMapper() throws IOException {
         YaMessageDto dto = readJson();
         dto.setInfo(null);
         final YaMessage entity = mapper.messageDtoToMessage(dto);

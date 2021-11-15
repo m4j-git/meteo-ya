@@ -5,11 +5,10 @@ package ru.m4j.meteo.ya.requester;
 
 import java.net.URI;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaMessageService;
@@ -24,13 +23,12 @@ import ru.m4j.meteo.ya.service.YaMessageService;
  */
 
 @Service
+@Slf4j
 public class YaMessageRequester {
 
-    private static final Logger log = LoggerFactory.getLogger(YaMessageRequester.class);
-
-    private final static String scheme = "https";
-    private final static String host = "api.weather.yandex.ru";
-    private final static String path = "/v1/informers/";
+    private static final String SCHEME = "https";
+    private static final String HOST = "api.weather.yandex.ru";
+    private static final String PATH = "/v1/informers/";
 
     private final YaMessageService service;
     private final YaMessageClient client;
@@ -56,7 +54,7 @@ public class YaMessageRequester {
     }
 
     URI getUri(LocationDto geo) {
-        return UriComponentsBuilder.newInstance().scheme(scheme).host(host).path(path).queryParam("lat", geo.getLat()).queryParam("lon", geo.getLon())
+        return UriComponentsBuilder.newInstance().scheme(SCHEME).host(HOST).path(PATH).queryParam("lat", geo.getLat()).queryParam("lon", geo.getLon())
                 .buildAndExpand().toUri();
     }
 

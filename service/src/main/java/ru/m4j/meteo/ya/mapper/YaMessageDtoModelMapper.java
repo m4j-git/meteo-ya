@@ -4,6 +4,7 @@
 package ru.m4j.meteo.ya.mapper;
 
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -35,7 +36,7 @@ public class YaMessageDtoModelMapper {
         @Override
         protected List<YaPartDto> convert(final List<YaPart> source) {
             if (source == null) {
-                return null;
+                return Collections.emptyList();
             }
             return partListDtoFromPartList(source);
         }
@@ -45,7 +46,7 @@ public class YaMessageDtoModelMapper {
         @Override
         protected List<YaPart> convert(final List<YaPartDto> source) {
             if (source == null) {
-                return null;
+                return Collections.emptyList();
             }
             return partListDtoToPartList(source);
         }

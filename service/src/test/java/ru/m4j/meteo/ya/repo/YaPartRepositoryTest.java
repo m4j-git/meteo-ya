@@ -40,7 +40,7 @@ class YaPartRepositoryTest {
     }
 
     @Test
-    public void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes, @Qualifier("forecast_skinny") YaForecast fore,
+    void testCreateAndFindById(@Qualifier("message_skinny") YaMessage mes, @Qualifier("forecast_skinny") YaForecast fore,
             @Autowired YaPart part) {
         mes = repoM.save(mes);
         mes.addForecast(fore);

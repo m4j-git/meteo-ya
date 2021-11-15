@@ -3,12 +3,13 @@
  */
 package ru.m4j.meteo.ya.requester;
 
+import java.io.IOException;
 import java.net.URI;
 
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
 public interface YaMessageClient {
 
-    YaMessageDto request(URI uri);
+    YaMessageDto request(URI uri) throws IOException;
 
 }

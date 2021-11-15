@@ -48,7 +48,7 @@ class YaMessageJsonTest {
     }
 
     @Test
-    public void testFullMessageJson(@Qualifier("message") YaMessage entity) throws IOException {
+    void testFullMessageJson(@Qualifier("message") YaMessage entity) throws IOException {
         YaMessageDto dto = readJson();
         dto.setInfo(null);
         entity.setMessageUuid(null);
@@ -59,7 +59,7 @@ class YaMessageJsonTest {
     }
 
     @Test
-    public void testJacksonMapper() throws IOException {
+    void testJacksonMapper() throws IOException {
         YaMessageDto dto = readJson();
         assertTrue(dto.getNow().toEpochMilli() > 0);
         String json = jacksonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);

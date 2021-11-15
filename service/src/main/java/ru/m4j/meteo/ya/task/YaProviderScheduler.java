@@ -17,7 +17,7 @@ import ru.m4j.meteo.ya.service.YaLocationService;
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")
 public class YaProviderScheduler {
 
-    private static final int mFixedRate = 3600 * 4;
+    private static final int FIXED_RATE = 3600 * 4;
 
     private final YaMessageRequester requester;
     private final YaLocationService locationService;
@@ -27,7 +27,7 @@ public class YaProviderScheduler {
         this.locationService = locationService;
     }
 
-    @Scheduled(fixedRate = 1000 * mFixedRate, initialDelay = 1000)
+    @Scheduled(fixedRate = 1000 * FIXED_RATE, initialDelay = 1000)
     public void run() {
         List<LocationDto> gns = locationService.requestLocations();
         for (final LocationDto gn : gns) {
