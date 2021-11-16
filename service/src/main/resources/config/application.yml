@@ -37,9 +37,9 @@ spring:
 #   Server Settings
 ##################
 server:
-  port: 8080
-  servlet:
-    context-path: /meteo-ya
+  port: 8083
+  #servlet:
+    #context-path: /meteo-ya
 
 ##################
 #   Logging Settings
@@ -91,8 +91,7 @@ spring:
 ##################
 #   Server Settings
 ##################
-server:
-  port: 8083
+
 
 ##################
 #   Logging Settings
@@ -153,7 +152,6 @@ spring:
 #   Server Settings
 ##################
 server:
-  port: 8083
   shutdown: graceful  # а для встроенного??
   compression:
     enabled: true
