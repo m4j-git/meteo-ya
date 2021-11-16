@@ -112,7 +112,14 @@ logging:
 meteo:
   scheduling:
     enabled: false
-
+    
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://meteohost:8761/eureka/
+    healthcheck:
+      enabled: true
+    enabled: true
 --- #prod
 ##################
 #   Spring Settings
