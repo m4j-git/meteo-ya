@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
-@ConditionalOnProperty(name = "meteo.client", havingValue = "http")
+@ConditionalOnProperty(name = "meteo.provider.type", havingValue = "http")
 @Component
 public class YaMessageClientHttp implements YaMessageClient {
 

@@ -59,7 +59,8 @@ logging:
 meteo:
   scheduling:
     enabled: true
-  client: rest
+  provider:
+    type: resttemplate
 
 ##################
 #   Maven Settings
