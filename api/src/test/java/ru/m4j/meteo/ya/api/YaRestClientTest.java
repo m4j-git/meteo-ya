@@ -21,7 +21,9 @@ import org.springframework.boot.test.autoconfigure.web.client.AutoConfigureWebCl
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,12 +34,15 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 
 @RestClientTest(YaRestClientImpl.class)
 @AutoConfigureWebClient(registerRestTemplate = true)
+@ContextConfiguration(classes = TestConfiguration.class)
+@ComponentScan(basePackages = "ru.m4j.meteo.ya.api")
 class YaRestClientTest {
 
     private static final String testDataFile = "ya_v1.json";
     private static final String testDataPath = "src/test/data/";
 
     private final Integer geonameId = 1;
+
     @Autowired
     private YaRestClientImpl client;
     @Autowired
