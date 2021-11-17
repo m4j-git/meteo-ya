@@ -62,6 +62,14 @@ meteo:
   provider:
     type: resttemplate
 
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://meteohost:8761/eureka/
+    healthcheck:
+      enabled: true
+    enabled: false
+    
 ##################
 #   Maven Settings
 ##################
@@ -69,7 +77,8 @@ maven:
   branch-name: '@scmBranch@'
   build-number: '@buildNumber@'
   
---- #stage
+--- ################### stage ###################
+
 ##################
 #   Spring Settings
 ##################
@@ -93,7 +102,6 @@ spring:
 #   Server Settings
 ##################
 
-
 ##################
 #   Logging Settings
 ##################
@@ -115,12 +123,10 @@ meteo:
     
 eureka:
   client:
-    service-url: 
-      defaultZone: http://meteohost:8761/eureka/
-    healthcheck:
-      enabled: true
     enabled: true
---- #prod
+    
+--- ################### prod ###################
+
 ##################
 #   Spring Settings
 ##################
@@ -175,6 +181,11 @@ logging:
     max-history: 30
     max-size: 1MB  
     clean-history-on-start: true
+    
+eureka:
+  client:
+    enabled: true
+    
 ##################
 #   Management Settings
 ##################
@@ -189,7 +200,8 @@ management:
       exposure:
         include: '*'
 
---- #h2
+--- ################### h2 ###################
+
 ##################
 #   Spring Settings
 ##################
@@ -210,7 +222,8 @@ spring:
     console:
       enabled: true
 
---- #mysql
+--- ################### mysql ###################
+
 ##################
 #   Spring Settings
 ##################
