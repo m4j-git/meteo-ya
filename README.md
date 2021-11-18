@@ -1,8 +1,11 @@
 [![Java CI with Maven](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml/badge.svg)](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml)
 
-# Spring Boot App for YandexWeather
+# spring-boot-app for yandex-weathern api
 
-### Environment variables
+### cloning  the repository with submodule
+git clone --recurse-submodules -j8 git://github.com/m4j-git/meteo-ya.git
+
+### environment variables
 * METEO_USER
 * METEO_PASSWD
 * MYSQL_HOST
