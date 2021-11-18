@@ -1,6 +1,6 @@
 [![Java CI with Maven](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml/badge.svg)](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml)
 
-# Spring Boot App for Yandex Weather
+# Spring Boot App for YandexWeather
 
 ### Environment variables
 * METEO_USER
