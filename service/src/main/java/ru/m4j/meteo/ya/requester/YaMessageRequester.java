@@ -5,6 +5,7 @@ package ru.m4j.meteo.ya.requester;
 
 import java.net.URI;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -26,9 +27,12 @@ import ru.m4j.meteo.ya.service.YaMessageService;
 @Slf4j
 public class YaMessageRequester {
 
-    private static final String SCHEME = "https";
-    private static final String HOST = "api.weather.yandex.ru";
-    private static final String PATH = "/v1/informers/";
+    @Value("${meteo.provider.host:api.weather.yandex.ru}")
+    private String host;
+    @Value("${meteo.provider.scheme:https}")
+    private String scheme;
+    @Value("${meteo.provider.path:/v1/informers/}")
+    private String path;
 
     private final YaMessageService service;
     private final YaMessageClient client;
@@ -54,7 +58,7 @@ public class YaMessageRequester {
     }
 
     URI getUri(LocationDto geo) {
-        return UriComponentsBuilder.newInstance().scheme(SCHEME).host(HOST).path(PATH).queryParam("lat", geo.getLat()).queryParam("lon", geo.getLon())
+        return UriComponentsBuilder.newInstance().scheme(scheme).host(host).path(path).queryParam("lat", geo.getLat()).queryParam("lon", geo.getLon())
                 .buildAndExpand().toUri();
     }
 
