@@ -1,6 +1,6 @@
 [![Java CI with Maven](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml/badge.svg)](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml)
 
-# spring-boot-app for yandex-weathern api
+# spring-boot-app for yandex-weather api
 
 ### cloning  the repository with submodule
 git clone --recurse-submodules -j8 git://github.com/m4j-git/meteo-ya.git
