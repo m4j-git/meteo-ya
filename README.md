@@ -16,4 +16,4 @@
 
 ### Hosts
 
-meteohost
+* meteohost
