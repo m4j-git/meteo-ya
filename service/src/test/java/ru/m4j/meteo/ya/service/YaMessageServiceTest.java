@@ -23,8 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ru.m4j.meteo.share.app.GlobalConstants;
 import ru.m4j.meteo.ya.YaTestApplication;
-import ru.m4j.meteo.ya.app.YaTestConstants;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.repo.YaFactRepository;
@@ -36,7 +36,7 @@ import ru.m4j.meteo.ya.repo.YaPartRepository;
 @Transactional
 class YaMessageServiceTest {
 
-    private static final String testDataFile = "ya_v1.json";
+    private static final String TEST_DATA_FILE = "ya_v1.json";
 
     private final Integer geonameId = 1;
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
@@ -64,7 +64,7 @@ class YaMessageServiceTest {
         assertEquals(0, factRepo.count());
         assertEquals(0, msgRepo.count());
         YaMessageDto dto;
-        final FileInputStream fis = new FileInputStream(YaTestConstants.testDataPath + testDataFile);
+        final FileInputStream fis = new FileInputStream(GlobalConstants.TEST_DATA_PATH + TEST_DATA_FILE);
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
             dto = jacksonMapper.readValue(rd, YaMessageDto.class);
         }

@@ -21,15 +21,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ru.m4j.meteo.share.app.GlobalConstants;
 import ru.m4j.meteo.ya.YaTestApplication;
-import ru.m4j.meteo.ya.app.YaTestConstants;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
 @SpringBootTest(classes = YaTestApplication.class)
 class YaMessageJsonTest {
 
-    private static final String testDataFile = "ya_v1.json";
+    private static final String TEST_DATA_FILE = "ya_v1.json";
     @Autowired
     private ObjectMapper jacksonMapper;
     @Autowired
@@ -41,7 +41,7 @@ class YaMessageJsonTest {
     }
 
     private YaMessageDto readJson() throws IOException {
-        final FileInputStream fis = new FileInputStream(YaTestConstants.testDataPath + testDataFile);
+        final FileInputStream fis = new FileInputStream(GlobalConstants.TEST_DATA_PATH + TEST_DATA_FILE);
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
             return jacksonMapper.readValue(rd, YaMessageDto.class);
         }
