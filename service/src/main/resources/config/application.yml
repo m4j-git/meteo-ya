@@ -120,10 +120,12 @@ logging:
 meteo:
   scheduling:
     enabled: false
-    
+  provider:
+    type: resttemplate
+        
 eureka:
   client:
-    enabled: true
+    enabled: false
     
 --- ################### prod ###################
 
@@ -182,6 +184,15 @@ logging:
     max-size: 1MB  
     clean-history-on-start: true
     
+##################
+#   Meteo Settings
+##################
+meteo:
+  scheduling:
+    enabled: true
+  provider:
+    type: feign
+        
 eureka:
   client:
     enabled: true
