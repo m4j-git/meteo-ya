@@ -25,7 +25,7 @@ Building
 * YANDEX_API_KEY
 
 ##### /etc/hosts
-* meteohost
+* meteo-host
 
 ##### Check out (with submodule) and build:
     git clone --recurse-submodules -j8 git://github.com/m4j-git/meteo-ya.git

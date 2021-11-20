@@ -29,28 +29,28 @@ public class YaRestResourceImpl implements YaRestResource {
     }
 
     @Override
-    @ApiOperation(notes = "Yandex messages", value = "get list of weather messages")
+    @ApiOperation(notes = "yandex messages", value = "get list of weather messages")
     @GetMapping(value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<YaMessageDto> getMessages(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
             @RequestParam(required = false) String dateTo) {
         return messageService.getMessages(geonameId, dateFrom, dateTo);
     }
 
-    @ApiOperation(notes = "Yandex messages", value = "get weather message")
+    @ApiOperation(notes = "yandex messages", value = "get weather message")
     @GetMapping(value = "/messages/one/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public YaMessageDto getMessage(@PathVariable(value = "uuid") String uuid) {
         return messageService.getMessage(uuid);
     }
 
-    @ApiOperation(notes = "Yandex messages", value = "get last weather message")
+    @ApiOperation(notes = "yandex messages", value = "get last weather message")
     @GetMapping(value = "/messages/last", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public YaMessageDto getLastMessage(@RequestParam Integer geonameId) {
         return messageService.getLastMessage(geonameId);
     }
 
-    @ApiOperation(notes = "Yandex messages", value = "get fact weather messages")
+    @ApiOperation(notes = "yandex messages", value = "get fact weather messages")
     @GetMapping(value = "/messages/facts", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public List<YaFactDto> getFacts(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,

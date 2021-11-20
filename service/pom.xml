@@ -60,9 +60,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>
-				spring-cloud-starter-netflix-eureka-client
-			</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -131,7 +129,7 @@
 			<artifactId>jquery</artifactId>
 			<version>3.6.0</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>

@@ -36,7 +36,7 @@ class YaRestResourceTest {
     private final Integer geonameId = 1;
     private final String host = "localhost";
     private final String scheme = "http";
-    private final String path = "/api/v1";
+    private final String path = "/meteo-ya/api/v1";
 
     @LocalServerPort
     private int randomServerPort;

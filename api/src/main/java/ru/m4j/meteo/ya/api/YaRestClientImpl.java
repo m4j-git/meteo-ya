@@ -27,11 +27,11 @@ public class YaRestClientImpl implements YaRestResource {
 
     private final RestTemplate restTemplate;
 
-    @Value("${meteo.ya-rest-client.host:meteohost}")
+    @Value("${meteo.ya-rest-client.host:meteo-host}")
     private String host;
     @Value("${meteo.ya-rest-client.scheme:http}")
     private String scheme;
-    @Value("${meteo.ya-rest-client.path:/api/v1}")
+    @Value("${meteo.ya-rest-client.path:/meteo-ya/api/v1}")
     private String path;
     @Value("${meteo.ya-rest-client.port:8083}")
     private Integer port;

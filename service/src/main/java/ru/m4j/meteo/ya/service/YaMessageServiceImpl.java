@@ -9,6 +9,8 @@ import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +33,7 @@ public class YaMessageServiceImpl implements YaMessageService {
     }
 
     @Override
+    @Transactional
     public void saveMessageToDb(final YaMessageDto dto, Integer geonameId) {
         validGeoname(geonameId);
         final YaMessage message = dao.saveMessage(mapper.messageDtoToMessage(dto), geonameId);
@@ -38,6 +41,7 @@ public class YaMessageServiceImpl implements YaMessageService {
     }
 
     @Override
+    @Transactional
     public List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo) {
         validGeoname(geonameId);
         LocalDateTime ldtFrom = dateFromMapper(dateFrom);
@@ -46,20 +50,16 @@ public class YaMessageServiceImpl implements YaMessageService {
         return mapper.factsDtoFromFacts(entityList);
     }
 
-    //FIXME optional
     @Override
+    @Transactional
     public YaMessageDto getLastMessage(Integer geonameId) {
         validGeoname(geonameId);
-        try {
-            final YaMessage ent = dao.findLastMessage(geonameId);
-            return mapper.messageDtoFromMessage(ent);
-        } catch (Exception e) {
-            log.warn(e.getMessage());
-            return null;
-        }
+        final YaMessage ent = dao.findLastMessage(geonameId);
+        return mapper.messageDtoFromMessage(ent);
     }
 
     @Override
+    @Transactional
     public YaMessageDto getMessage(String messageUuid) {
         validMessage(messageUuid);
         final YaMessage ent = dao.findMessageByUuid(UUID.fromString(messageUuid));
@@ -67,6 +67,7 @@ public class YaMessageServiceImpl implements YaMessageService {
     }
 
     @Override
+    @Transactional
     public List<YaMessageDto> getMessages(Integer geonameId, String dateFrom, String dateTo) {
         validGeoname(geonameId);
         LocalDateTime ldtFrom = dateFromMapper(dateFrom);

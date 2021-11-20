@@ -20,19 +20,19 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 public interface YaFeignClientImpl extends YaRestResource {
 
     @Override
-    @GetMapping(value = "/api/v1/messages", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/meteo-ya/api/v1/messages", consumes = MediaType.APPLICATION_JSON_VALUE)
     List<YaMessageDto> getMessages(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
             @RequestParam(required = false) String dateTo);
 
     @Override
-    @GetMapping(value = "/api/v1/messages/one/{uuid}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/meteo-ya/api/v1/messages/one/{uuid}", consumes = MediaType.APPLICATION_JSON_VALUE)
     YaMessageDto getMessage(@PathVariable(value = "uuid") String uuid);
 
-    @GetMapping(value = "/api/v1/messages/last", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/meteo-ya/api/v1/messages/last", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Override
     YaMessageDto getLastMessage(@RequestParam Integer geonameId);
 
-    @GetMapping(value = "/api/v1/messages/facts", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/meteo-ya/api/v1/messages/facts", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Override
     List<YaFactDto> getFacts(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
             @RequestParam(required = false) String dateTo);
