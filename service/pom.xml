@@ -224,8 +224,6 @@
 				<spring.profiles.active>prod</spring.profiles.active>
 				<skip.tests>true</skip.tests>
 			</properties>
-			<dependencies>
-			</dependencies>
 		</profile>
 		<profile>
 			<id>mysql</id>

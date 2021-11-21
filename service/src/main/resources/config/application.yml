@@ -5,14 +5,14 @@ spring:
   application:
     name: meteo-ya
   profiles:
-    active:
+    active: 
       - '@spring.profiles.active@'
       - '@spring.profiles.db@'
   jpa:
     generate-ddl: false
     open-in-view: false
     properties:
-      hibernate:
+      hibernate: 
         "[format_sql]": true
         type: info
         "[use_sql_comments]": true
@@ -46,11 +46,11 @@ server:
 ##################
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     org:
       hibernate: INFO
       springframework:
-        security: INFO
+        security: DEBUG
     ru:    
       m4j: DEBUG
 ##################
@@ -146,7 +146,7 @@ spring:
     #   Admin client Settings
     ##################
     admin:
-      client:
+      client: 
         url: http://meteo-host:8090/meteo-adm
         username: ${METEO_USER}
         password: ${METEO_PASSWD}
