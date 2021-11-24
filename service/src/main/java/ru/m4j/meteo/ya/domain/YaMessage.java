@@ -71,11 +71,11 @@ public class YaMessage implements Serializable {
     @NotNull
     private OffsetDateTime nowDt;
 
-    @Setter(value = AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     @OneToOne(mappedBy = "message", cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, orphanRemoval = true)
     private YaFact fact;
 
-    @Setter(value = AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     @OneToOne(mappedBy = "message", cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, orphanRemoval = true)
     private YaForecast forecast;
 

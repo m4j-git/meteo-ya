@@ -49,17 +49,17 @@ class YaDaoTest {
     @BeforeEach
     public void setUp() {
         assertThat(dao).isNotNull();
-        assertEquals(0, partRepo.count());
-        assertEquals(0, foreRepo.count());
-        assertEquals(0, factRepo.count());
-        assertEquals(0, msgRepo.count());
+        assertThat(partRepo.count()).isZero();
+        assertThat(foreRepo.count()).isZero();
+        assertThat(factRepo.count()).isZero();
+        assertThat(msgRepo.count()).isZero();
     }
 
     @Test
     void testCreateMessageSkinny(@Qualifier("message_skinny") YaMessage mes) {
         YaMessage ent = dao.saveMessage(mes, geonameId);
-        assertEquals(1, msgRepo.count());
-        assertEquals(geonameId, ent.getGeonameId());
+        assertThat(msgRepo.count()).isEqualTo(1);
+        assertThat(ent.getGeonameId()).isEqualTo(geonameId);
     }
 
     @Test

@@ -39,7 +39,7 @@ public class YaRestResourceImpl implements YaRestResource {
     @ApiOperation(notes = "yandex messages", value = "get weather message")
     @GetMapping(value = "/messages/one/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
-    public YaMessageDto getMessage(@PathVariable(value = "uuid") String uuid) {
+    public YaMessageDto getMessage(@PathVariable("uuid") String uuid) {
         return messageService.getMessage(uuid);
     }
 

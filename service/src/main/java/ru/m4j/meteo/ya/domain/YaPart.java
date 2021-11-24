@@ -83,7 +83,7 @@ public class YaPart implements Serializable {
     /**
      * icon
      * Код иконки погоды.
-     * Иконка доступна по адресу  https://yastatic.net/weather/i/icons/blueye/color/svg/<значение из поля icon>.svg.
+     * Иконка доступна по адресу  https://yastatic.net/weather/i/icons/blueye/color/svg/значение из поля icon.svg.
      * Строка
      */
     @NotNull

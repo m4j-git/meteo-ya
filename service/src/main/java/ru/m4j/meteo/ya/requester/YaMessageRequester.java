@@ -16,11 +16,10 @@ import ru.m4j.meteo.ya.service.YaMessageService;
 
 /**
  * GET https://api.weather.yandex.ru/v1/informers?
- * lat=<широта>
- * & lon=<долгота>
- * & [lang=<язык ответа>]
- * <p>
- * X-Yandex-API-Key: <значение ключа>
+ * lat=широта
+ * & lon=долгота
+ * & [lang=язык ответа]
+ * X-Yandex-API-Key: значение ключа
  */
 
 @Service

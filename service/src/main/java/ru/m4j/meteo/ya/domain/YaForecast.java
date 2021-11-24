@@ -93,7 +93,7 @@ public class YaForecast implements Serializable {
     @NotNull
     private String moonText;
 
-    @Setter(value = AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "forecast", cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, orphanRemoval = true)
     private final List<YaPart> parts = new ArrayList<>();
 
