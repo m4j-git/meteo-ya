@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.repo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterEach;
@@ -34,9 +33,9 @@ class YaPartRepositoryTest {
     @BeforeEach
     public void setUp() {
         assertThat(repo).isNotNull();
-        assertEquals(0, repo.count());
-        assertEquals(0, repoF.count());
-        assertEquals(0, repoM.count());
+        assertThat(0).isEqualTo(repo.count());
+        assertThat(0).isEqualTo(repoF.count());
+        assertThat(0).isEqualTo(repoM.count());
     }
 
     @Test
@@ -47,19 +46,19 @@ class YaPartRepositoryTest {
         fore = repoF.save(fore);
         fore.addPart(part);
         part = repo.save(part);
-        assertEquals(1, repo.count());
+        assertThat(1).isEqualTo(repo.count());
         assertNotNull(part.getPartId());
         final YaPart findById = repo.findById(part.getPartId()).orElseThrow();
-        assertEquals(part, findById);
+        assertThat(part).isEqualTo(findById);
     }
 
     @AfterEach
     public void tearDown() {
         repo.deleteAll();
         repoM.deleteAll();
-        assertEquals(0, repo.count());
-        assertEquals(0, repoF.count());
-        assertEquals(0, repoM.count());
+        assertThat(0).isEqualTo(repo.count());
+        assertThat(0).isEqualTo(repoF.count());
+        assertThat(0).isEqualTo(repoM.count());
     }
 
 }

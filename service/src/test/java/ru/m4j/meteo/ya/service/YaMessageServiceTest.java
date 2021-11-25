@@ -3,7 +3,7 @@
  */
 package ru.m4j.meteo.ya.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.BufferedReader;
@@ -59,10 +59,10 @@ class YaMessageServiceTest {
     @BeforeEach
     public void setUp() throws IOException {
         assertNotNull(service);
-        assertEquals(0, partRepo.count());
-        assertEquals(0, foreRepo.count());
-        assertEquals(0, factRepo.count());
-        assertEquals(0, msgRepo.count());
+        assertThat(0).isEqualTo(partRepo.count());
+        assertThat(0).isEqualTo(foreRepo.count());
+        assertThat(0).isEqualTo(factRepo.count());
+        assertThat(0).isEqualTo(msgRepo.count());
         YaMessageDto dto;
         final FileInputStream fis = new FileInputStream(GlobalConstants.TEST_DATA_PATH + TEST_DATA_FILE);
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
@@ -71,10 +71,10 @@ class YaMessageServiceTest {
         assertNotNull(dto.getNow());
         dto.setMessageUuid(UUID.fromString(messageUuid));
         service.saveMessageToDb(dto, geonameId);
-        assertEquals(2, partRepo.count());
-        assertEquals(1, foreRepo.count());
-        assertEquals(1, factRepo.count());
-        assertEquals(1, msgRepo.count());
+        assertThat(2).isEqualTo(partRepo.count());
+        assertThat(1).isEqualTo(foreRepo.count());
+        assertThat(1).isEqualTo(factRepo.count());
+        assertThat(1).isEqualTo(msgRepo.count());
     }
 
     @Test
@@ -88,14 +88,14 @@ class YaMessageServiceTest {
     @Test
     void testGetFacts() {
         final List<YaFactDto> fact2List = service.getFacts(geonameId, null, null);
-        assertEquals(1, fact2List.size());
+        assertThat(1).isEqualTo(fact2List.size());
         assertNotNull(fact2List.get(0));
     }
 
     @Test
     void testGetMessages() {
         final List<YaMessageDto> ent2List = service.getMessages(geonameId, null, null);
-        assertEquals(1, ent2List.size());
+        assertThat(1).isEqualTo(ent2List.size());
         assertNotNull(ent2List.get(0));
     }
 
@@ -108,10 +108,10 @@ class YaMessageServiceTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertEquals(0, partRepo.count());
-        assertEquals(0, foreRepo.count());
-        assertEquals(0, factRepo.count());
-        assertEquals(0, msgRepo.count());
+        assertThat(0).isEqualTo(partRepo.count());
+        assertThat(0).isEqualTo(foreRepo.count());
+        assertThat(0).isEqualTo(factRepo.count());
+        assertThat(0).isEqualTo(msgRepo.count());
     }
 
 }

@@ -3,7 +3,7 @@
  */
 package ru.m4j.meteo.ya.requester;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
@@ -49,7 +49,7 @@ class YaMessageRequesterTest {
     @BeforeEach
     public void setUp() {
         assertNotNull(requester);
-        assertEquals(0, msgRepo.count());
+        assertThat(0).isEqualTo(msgRepo.count());
     }
 
     @Test
@@ -69,7 +69,7 @@ class YaMessageRequesterTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertEquals(0, msgRepo.count());
+        assertThat(0).isEqualTo(msgRepo.count());
     }
 
 }

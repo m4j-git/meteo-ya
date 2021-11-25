@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.repo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.Instant;
@@ -37,8 +36,8 @@ class YaFactRepositoryTest {
     @BeforeEach
     public void setUp() {
         assertThat(repo).isNotNull();
-        assertEquals(0, repo.count());
-        assertEquals(0, repoM.count());
+        assertThat(0).isEqualTo(repo.count());
+        assertThat(0).isEqualTo(repoM.count());
     }
 
     @Test
@@ -46,27 +45,27 @@ class YaFactRepositoryTest {
         mes = repoM.save(mes);
         mes.addFact(fact);
         fact = repo.save(fact);
-        assertEquals(1, repo.count());
+        assertThat(1).isEqualTo(repo.count());
         assertNotNull(fact.getFactId());
         final YaFact findById = repo.findById(fact.getFactId()).orElseThrow();
-        assertEquals(fact, findById);
+        assertThat(fact).isEqualTo(findById);
     }
 
     @Test
     void testFindFacts(@Qualifier("message") YaMessage mes) {
         mes = repoM.save(mes);
-        assertEquals(1, repo.count());
+        assertThat(1).isEqualTo(repo.count());
         final List<YaFact> findFacts = repo.findFacts(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
             LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
-        assertEquals(1, findFacts.size());
-        assertEquals(mes.getFact(), findFacts.get(0));
+        assertThat(1).isEqualTo(findFacts.size());
+        assertThat(mes.getFact()).isEqualTo(findFacts.get(0));
     }
 
     @AfterEach
     public void tearDown() {
         repoM.deleteAll();
-        assertEquals(0, repo.count());
-        assertEquals(0, repoM.count());
+        assertThat(0).isEqualTo(repo.count());
+        assertThat(0).isEqualTo(repoM.count());
     }
 
 }
