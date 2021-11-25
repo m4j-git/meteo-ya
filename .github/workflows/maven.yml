@@ -30,3 +30,4 @@ jobs:
         run: mvn -B package  -P dev,h2 --file pom.xml
         env:
           YANDEX_API_KEY: ${{ secrets.YANDEX_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
