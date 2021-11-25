@@ -26,7 +26,7 @@ public interface YaFeignClientImpl extends YaRestResource {
 
     @Override
     @GetMapping(value = "/meteo-ya/api/v1/messages/one/{uuid}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    YaMessageDto getMessage(@PathVariable(value = "uuid") String uuid);
+    YaMessageDto getMessage(@PathVariable("uuid") String uuid);
 
     @GetMapping(value = "/meteo-ya/api/v1/messages/last", consumes = MediaType.APPLICATION_JSON_VALUE)
     @Override
