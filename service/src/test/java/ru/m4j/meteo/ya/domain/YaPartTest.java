@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ class YaPartTest {
 
     @Test
     void testFact(@Autowired YaPart part) {
-        assertNotNull(part);
+        assertThat(part).isNotNull();
         assertThat(part.hashCode()).isZero();
         assertThat(part.toString().length()).isGreaterThan(100);
     }

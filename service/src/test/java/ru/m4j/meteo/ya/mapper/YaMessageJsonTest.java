@@ -3,9 +3,7 @@
  */
 package ru.m4j.meteo.ya.mapper;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -37,7 +35,7 @@ class YaMessageJsonTest {
 
     @BeforeEach
     public void setUp() {
-        assertNotNull(mapper);
+        assertThat(mapper).isNotNull();
     }
 
     private YaMessageDto readJson() throws IOException {
@@ -54,16 +52,16 @@ class YaMessageJsonTest {
         entity.setMessageUuid(null);
         entity.setCreatedOn(null);
         final YaMessageDto dto2 = mapper.messageDtoFromMessage(entity);
-        assertNotNull(dto2);
-        assertEquals(dto, dto2);
+        assertThat(dto2).isNotNull();
+        assertThat(dto).isEqualTo(dto2);
     }
 
     @Test
     void testJacksonMapper() throws IOException {
         YaMessageDto dto = readJson();
-        assertTrue(dto.getNow().toEpochMilli() > 0);
+        assertThat(dto.getNow().toEpochMilli()).isPositive();
         String json = jacksonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(dto);
-        assertTrue(json.length() > 10);
+        assertThat(json.length() > 10).isTrue();
     }
 
 }

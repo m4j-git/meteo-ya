@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.repo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +38,7 @@ class YaForecastRepositoryTest {
         mes.addForecast(fore);
         fore = repo.save(fore);
         assertThat(repo.count()).isEqualTo(1);
-        assertNotNull(fore.getForecastId());
+        assertThat(fore.getForecastId()).isNotNull();
         final YaForecast findById = repo.findById(fore.getForecastId()).orElseThrow();
         assertThat(fore).isEqualTo(findById);
     }

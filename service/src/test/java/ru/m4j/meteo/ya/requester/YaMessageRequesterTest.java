@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.requester;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import java.io.BufferedReader;
@@ -48,15 +47,15 @@ class YaMessageRequesterTest {
 
     @BeforeEach
     public void setUp() {
-        assertNotNull(requester);
-        assertThat(0).isEqualTo(msgRepo.count());
+        assertThat(requester).isNotNull();
+        assertThat(msgRepo.count()).isZero();
     }
 
     @Test
     void testRequestProvider(@Autowired LocationDto location) throws IOException {
         when(client.request(requester.getUri(location))).thenReturn(readJson());
         final YaMessageDto result = requester.requestProvider(location);
-        assertNotNull(result.getNow());
+        assertThat(result.getNow()).isNotNull();
     }
 
     private YaMessageDto readJson() throws IOException {
@@ -69,7 +68,7 @@ class YaMessageRequesterTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertThat(0).isEqualTo(msgRepo.count());
+        assertThat(msgRepo.count()).isZero();
     }
 
 }

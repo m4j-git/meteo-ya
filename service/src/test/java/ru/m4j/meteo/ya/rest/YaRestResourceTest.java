@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.net.URI;
 
@@ -51,12 +50,12 @@ class YaRestResourceTest {
 
     @BeforeEach
     public void setUp(@Qualifier("message") YaMessage mes) {
-        assertEquals(0, factRepo.count());
-        assertEquals(0, msgRepo.count());
+        assertThat(factRepo.count()).isZero();
+        assertThat(msgRepo.count()).isZero();
         Integer geonameId = 1;
         dao.saveMessage(mes, geonameId);
-        assertEquals(1, factRepo.count());
-        assertEquals(1, msgRepo.count());
+        assertThat(factRepo.count()).isEqualTo(1);
+        assertThat(msgRepo.count()).isEqualTo(1);
         assertThat(restTemplate).isNotNull();
         restTemplate.getRestTemplate().setErrorHandler(new YaRestTemplateResponseErrorHandler());
     }
@@ -102,8 +101,8 @@ class YaRestResourceTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertEquals(0, factRepo.count());
-        assertEquals(0, msgRepo.count());
+        assertThat(factRepo.count()).isZero();
+        assertThat(msgRepo.count()).isZero();
     }
 
 }

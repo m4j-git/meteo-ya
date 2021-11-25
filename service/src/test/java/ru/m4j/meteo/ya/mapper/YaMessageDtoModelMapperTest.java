@@ -3,9 +3,8 @@
  */
 package ru.m4j.meteo.ya.mapper;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -40,7 +39,7 @@ class YaMessageDtoModelMapperTest {
 
     @BeforeEach
     public void setUp() {
-        assertNotNull(mapper);
+        assertThat(mapper).isNotNull();
     }
 
     private YaMessageDto readJson() throws IOException {
@@ -60,10 +59,11 @@ class YaMessageDtoModelMapperTest {
         final YaMessageDto dto2 = mapper.messageDtoFromMessage(entity);
         dto2.setMessageUuid(null);
         dto2.setCreatedOn(null);
-        assertNotNull(dto2);
-        assertEquals(dto, dto2);
-        assertEquals(dto.hashCode(), dto2.hashCode());
-        assertTrue(dto.toString().length() > 0);
+        assertThat(dto2).isNotNull();
+        assertAll(
+            () -> assertThat(dto).isEqualTo(dto2),
+            () -> assertThat(dto).hasSameHashCodeAs(dto2));
+        assertThat(dto.toString()).isNotEmpty();
     }
 
     @Test
@@ -73,9 +73,10 @@ class YaMessageDtoModelMapperTest {
         final YaFact entity = mapper.factDtoToFact(dto1);
         System.out.println(entity);
         final YaFactDto dto2 = mapper.factDtoFromFact(entity);
-        assertNotNull(dto2);
-        assertEquals(dto1, dto2);
-        assertEquals(dto1.hashCode(), dto2.hashCode());
+        assertThat(dto2).isNotNull();
+        assertAll(
+            () -> assertThat(dto1).isEqualTo(dto2),
+            () -> assertThat(dto1).hasSameHashCodeAs(dto2));
     }
 
     @Test
@@ -84,9 +85,10 @@ class YaMessageDtoModelMapperTest {
         final YaForecastDto dto1 = dto.getForecast();
         final YaForecast entity = mapper.forecastDtoToForecast(dto1);
         final YaForecastDto dto2 = mapper.forecastDtoFromForecast(entity);
-        assertNotNull(dto2);
-        assertEquals(dto1, dto2);
-        assertEquals(dto1.hashCode(), dto2.hashCode());
+        assertThat(dto2).isNotNull();
+        assertAll(
+            () -> assertThat(dto1).isEqualTo(dto2),
+            () -> assertThat(dto1).hasSameHashCodeAs(dto2));
     }
 
     @Test
@@ -97,10 +99,11 @@ class YaMessageDtoModelMapperTest {
         final YaMessageDto dto2 = mapper.messageDtoFromMessage(entity);
         dto2.setMessageUuid(null);
         dto2.setCreatedOn(null);
-        assertNotNull(dto2);
-        assertEquals(dto, dto2);
-        assertEquals(dto.hashCode(), dto2.hashCode());
-        assertTrue(dto.toString().length() > 0);
+        assertThat(dto2).isNotNull();
+        assertAll(
+            () -> assertThat(dto).isEqualTo(dto2),
+            () -> assertThat(dto).hasSameHashCodeAs(dto2));
+        assertThat(dto.toString()).isNotEmpty();
     }
 
 }

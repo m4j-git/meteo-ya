@@ -4,7 +4,6 @@
 package ru.m4j.meteo.ya.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,8 +16,8 @@ class YaForecastTest {
 
     @Test
     void testForecast(@Qualifier("forecast") YaForecast fore) {
-        assertNotNull(fore);
-        assertNotNull(fore.getParts());
+        assertThat(fore).isNotNull().isNotNull();
+        assertThat(fore.getParts()).isNotNull();
         assertThat(fore.hashCode()).isZero();
         assertThat(fore.toString().length()).isGreaterThan(100);
     }
