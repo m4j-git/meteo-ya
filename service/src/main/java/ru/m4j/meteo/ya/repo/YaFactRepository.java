@@ -16,7 +16,7 @@ import ru.m4j.meteo.ya.domain.YaFact;
 public interface YaFactRepository extends JpaRepository<YaFact, Long>, JpaSpecificationExecutor<YaFact> {
 
     @Query("select fact from YaFact as fact where fact.message.messageId in "
-            + "(select messageId from YaMessage where geonameId=:geoname_id and createdOn BETWEEN :date_from AND :date_to)")
+        + "(select messageId from YaMessage where geonameId=:geoname_id and createdOn BETWEEN :date_from AND :date_to)")
     List<YaFact> findFacts(@Param("geoname_id") Integer geonameId, @Param("date_from") LocalDateTime dateFrom,
-            @Param("date_to") LocalDateTime dateTo);
+        @Param("date_to") LocalDateTime dateTo);
 }

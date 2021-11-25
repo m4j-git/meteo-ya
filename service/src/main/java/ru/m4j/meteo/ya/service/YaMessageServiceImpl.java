@@ -78,7 +78,7 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     private LocalDateTime dateToMapper(String dateTo) {
         return dateTo != null ? LocalDateTime.parse(dateTo)
-                : LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault());
+            : LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault());
     }
 
     private LocalDateTime dateFromMapper(String dateFrom) {

@@ -89,7 +89,7 @@ class YaDaoTest {
     void testFindFacts(@Qualifier("message") YaMessage mes) {
         final YaMessage ent = dao.saveMessage(mes, geonameId);
         final List<YaFact> fact2List = dao.findFacts(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertEquals(1, fact2List.size());
         assertEquals(ent.getFact(), fact2List.get(0));
         assertNotNull(fact2List.get(0).getFactId());
@@ -99,8 +99,8 @@ class YaDaoTest {
     void testFindFactsViaSpecification(@Qualifier("message") YaMessage mes) {
         final YaMessage ent = dao.saveMessage(mes, geonameId);
         final List<YaFact> fact2List = dao.findFactsViaSpecification(geonameId,
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertEquals(1, fact2List.size());
         assertEquals(ent.getFact(), fact2List.get(0));
         assertNotNull(fact2List.get(0).getFactId());
@@ -111,7 +111,7 @@ class YaDaoTest {
         final YaMessage ent = dao.saveMessage(mes, geonameId);
         assertEquals(1, msgRepo.count());
         final List<YaMessage> ent2List = dao.findMessages(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertEquals(1, ent2List.size());
         assertEquals(ent, ent2List.get(0));
     }
@@ -121,8 +121,8 @@ class YaDaoTest {
         final YaMessage ent = dao.saveMessage(mes, geonameId);
         assertEquals(1, msgRepo.count());
         final List<YaMessage> ent2List = dao.findMessagesViaSpecification(geonameId,
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
+            LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertEquals(1, ent2List.size());
         assertEquals(ent, ent2List.get(0));
     }

@@ -59,18 +59,18 @@ public class YaMessageDtoModelMapper {
     @PostConstruct
     public void init() {
         modelMapper.createTypeMap(YaMessageDto.class, YaMessage.class).addMapping(YaMessageDto::getFact, YaMessage::addFact)
-                .addMapping(YaMessageDto::getForecast, YaMessage::addForecast);
+            .addMapping(YaMessageDto::getForecast, YaMessage::addForecast);
 
         modelMapper.createTypeMap(YaFactDto.class, YaFact.class)
-                .addMappings(mapper -> mapper.using((MappingContext<String, YaSeason> context) -> YaSeason.fromString(context.getSource()))
-                        .map(YaFactDto::getSeason, YaFact::setSeason))
-                .addMappings(mapper -> mapper.using((MappingContext<String, YaDaytime> context) -> YaDaytime.fromString(context.getSource()))
-                        .map(YaFactDto::getDaytime, YaFact::setDaytime));
+            .addMappings(mapper -> mapper.using((MappingContext<String, YaSeason> context) -> YaSeason.fromString(context.getSource()))
+                .map(YaFactDto::getSeason, YaFact::setSeason))
+            .addMappings(mapper -> mapper.using((MappingContext<String, YaDaytime> context) -> YaDaytime.fromString(context.getSource()))
+                .map(YaFactDto::getDaytime, YaFact::setDaytime));
 
         modelMapper.createTypeMap(YaForecastDto.class, YaForecast.class)
-                .addMappings(mapper -> mapper.using(partListDtoToPartList).map(YaForecastDto::getParts, YaForecast::addParts));
+            .addMappings(mapper -> mapper.using(partListDtoToPartList).map(YaForecastDto::getParts, YaForecast::addParts));
         modelMapper.createTypeMap(YaForecast.class, YaForecastDto.class)
-                .addMappings(mapper -> mapper.using(partListDtoFromPartList).map(YaForecast::getParts, YaForecastDto::setParts));
+            .addMappings(mapper -> mapper.using(partListDtoFromPartList).map(YaForecast::getParts, YaForecastDto::setParts));
     }
 
     public YaMessage messageDtoToMessage(final YaMessageDto dto) {

@@ -58,12 +58,12 @@ public class YaMessageRequester {
 
     URI getUri(LocationDto geo) {
         return UriComponentsBuilder.newInstance()
-                .scheme(scheme)
-                .host(host)
-                .path(path)
-                .queryParam("lat", geo.getLat())
-                .queryParam("lon", geo.getLon())
-                .buildAndExpand().toUri();
+            .scheme(scheme)
+            .host(host)
+            .path(path)
+            .queryParam("lat", geo.getLat())
+            .queryParam("lon", geo.getLon())
+            .buildAndExpand().toUri();
     }
 
 }

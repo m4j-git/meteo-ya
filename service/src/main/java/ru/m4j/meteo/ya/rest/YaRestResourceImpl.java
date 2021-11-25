@@ -32,7 +32,7 @@ public class YaRestResourceImpl implements YaRestResource {
     @ApiOperation(notes = "yandex messages", value = "get list of weather messages")
     @GetMapping(value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<YaMessageDto> getMessages(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
-            @RequestParam(required = false) String dateTo) {
+        @RequestParam(required = false) String dateTo) {
         return messageService.getMessages(geonameId, dateFrom, dateTo);
     }
 
@@ -54,7 +54,7 @@ public class YaRestResourceImpl implements YaRestResource {
     @GetMapping(value = "/messages/facts", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public List<YaFactDto> getFacts(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
-            @RequestParam(required = false) String dateTo) {
+        @RequestParam(required = false) String dateTo) {
         return messageService.getFacts(geonameId, dateFrom, dateTo);
     }
 
