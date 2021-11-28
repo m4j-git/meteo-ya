@@ -20,3 +20,12 @@
         $("body").toggleClass("sb-sidenav-toggled");
     });
 })(jQuery);
+
+
+
+window.onload = run;
+
+function run() {
+   // alert('Добрый день')
+
+}

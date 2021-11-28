@@ -1,58 +1,65 @@
 <!DOCTYPE html/>
-<html
-  lang="ru"
-  xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="header-head">
-    <meta charset="utf-8"/>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
-    <title>YandexWeather</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.1/css/bootstrap.css}"/>
-    <link rel="stylesheet" th:href="@{/css/meteo.css}"/>
-    <script crossorigin="anonymous"
-            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
-    <link rel="icon" th:href="@{favicon.png}" type="image/x-icon">
+<meta charset="utf-8" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<title>Yandex Weather</title>
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.1/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/meteo.css}" />
+<script crossorigin="anonymous" th:src="@{/webjars/font-awesome/5.15.4/js/all.min.js}"></script>
+<link rel="icon" th:href="@{favicon.png}" type="image/x-icon">
 </head>
 
 
-<body class="sb-nav-fixed">
+<body>
+	<main>
+		<div class="container">
+			<div class="card mb-4">
+				<div class="card-body" th:object="${weather.fact}">
+					<div class="container">
+						<div class="row">
+							<div class="col-md display-4">Погода: Калининград</div>
+						</div>
+						<div class="row justify-content-start">
+							<div class="col-md fs-1"  th:text="|Сейчас *{obsTime}|">Сейчас 15:24</div>
+							<div class="col-md fs-3">Вчера в это время +5</div>
+						</div>
+						<div class="row justify-content-start">
+							<div class="col-md display-4" th:text="*{temp}">>+2</div>
+							<div class="col-md fs-1">X</div>
+							<div class="col-md">
+								<div class="row">
+									<div class="col-md" th:text="*{condition}">Облачно с прояснениями</div>
+								</div>
+								<div class="row">
+									<div class="col-md" th:text="|Ощущается как *{feelsLike}|">Ощущается как -3</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md justify-content-start" th:text="|*{windSpeed} м/с, *{windDir}|">5,0 м/с, С</div>
+							<div class="col-md justify-content-start" th:text="|порывы до *{windGust} м/с|">5,0 м/с</div>
+							<div class="col-md justify-content-start" th:text="|*{humidity}%|">93%</div>
+							<div class="col-md justify-content-start" th:text="|*{pressureMm} мм рт. ст |">744 мм рт. ст.</div>
+							<div class="col-md justify-content-start" th:text="|*{tempWater}?: --|"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      <main>
-        <div class="container-fluid">
-          <h2 class="mt-4">Фактическая погода на 15:00 (MSK) 23.04.2021г. Москва.</h2>
-          <div class="card mb-4">
-            <div class="card-body">
-              <p class="mb-0">
-                Дата/время: <span th:text="${weather.fact.obsTime}">--</span>
-              </p>
-              <p class="mb-0">
-                Температура: <span th:text="${weather.fact.temp}">--</span> C.
-              </p>
-              <p class="mb-0">
-                Температура (ощущается как): <span th:text="${weather.fact.feelsLike}">--</span> C.
-              </p>
-              <p class="mb-0">
-                Температура воды: <span th:text="${weather.fact.tempWater}">--</span> C.
-              </p>
-              <p class="mb-0">
-                Давление: <span th:text="${weather.fact.pressureMm}">--</span> мм.
-              </p>
-              <p class="mb-0">
-                Влажность: <span th:text="${weather.fact.humidity}">--</span> %.
-              </p>
-            </div>
-          </div>
-        </div>
-      </main>
+	</main>
 
-  <div >
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script th:href="@{/webjars/bootstrap/4.6.1/dist/js/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/js/scripts.js}"></script>
-</div>
+
+	<div>
+		<script th:src="@{/webjars/jquery/3.6.0/jquery.slim.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/4.6.1/js/bootstrap.bundle.min.js}"></script>
+		<script th:src="@{/js/scripts.js}"></script>
+	</div>
 
 </body>
 </html>
