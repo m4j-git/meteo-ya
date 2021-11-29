@@ -18,34 +18,36 @@
 <body>
 	<main>
 		<div class="container">
-			<div class="card mb-4">
+			<div class="card mb-4 max-width: 75%">
 				<div class="card-body" th:object="${weather.fact}">
 					<div class="container">
 						<div class="row">
 							<div class="col-md display-4">Погода: Калининград</div>
 						</div>
-						<div class="row justify-content-start">
-							<div class="col-md fs-4"  th:text="|Сейчас *{obsTime}|">Сейчас 15:24</div>
+						<div class="row justify-content-center">
+							<div class="col-md fs-4" th:text="|Сейчас *{obsTime}|">Сейчас 15:24</div>
 							<div class="col-md fs-4">Вчера в это время +5</div>
 						</div>
-						<div class="row justify-content-start">
-							<div class="col-md display-4" th:text="*{temp}">>+2</div>
-							<div class="col-md fs-1">X</div>
-							<div class="col-md">
+						<div class="d-flex flex-row">
+						  <div class="p-2  display-4 " th:text="*{temp}">>+2</div>
+							<div class="p-2 align-items-center">
+								<img width="64" th:src="@{/static/img/weather_icon/svg/color_white_solid/bkn_d.svg}" alt="">
+							</div>
+							<div class="p-2">
 								<div class="row">
-									<div class="col-md" th:text="*{condition}">Облачно с прояснениями</div>
+									<div class="col-md fs-5" th:text="*{condition}">Облачно с прояснениями</div>
 								</div>
 								<div class="row">
-									<div class="col-md" th:text="|Ощущается как *{feelsLike}|">Ощущается как -3</div>
+									<div class="col-md fs-5" th:text="|Ощущается как *{feelsLike}|">Ощущается как -3</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md justify-content-start" th:text="|*{windSpeed} м/с, *{windDir}|">5,0 м/с, С</div>
-							<div class="col-md justify-content-start" th:text="|порывы до *{windGust} м/с|">5,0 м/с</div>
-							<div class="col-md justify-content-start" th:text="|*{humidity}%|">93%</div>
-							<div class="col-md justify-content-start" th:text="|*{pressureMm} мм рт. ст |">744 мм рт. ст.</div>
-							<div class="col-md justify-content-start" th:text="*{tempWater} ?: _"></div>
+						<div class="row justify-content-around" >
+							<div class="col-md" th:text="|*{windSpeed} м/с, *{windDir}|">5,0 м/с, С</div>
+							<div class="col-md-3" th:text="|порывы до *{windGust} м/с|">5,0 м/с</div>
+							<div class="col-md" th:text="|*{humidity}%|">93%</div>
+							<div class="col-md" th:text="|*{pressureMm} мм рт. ст |">744 мм рт. ст.</div>
+							<div class="col-md " th:text="*{tempWater} ?: _"></div>
 						</div>
 					</div>
 				</div>

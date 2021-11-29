@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g fill="#FFF" fill-rule="evenodd">
+    <polygon stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="8.5 16.75 9.25 17.5 8.5 18.25 7.75 17.5"/>
+    <polygon stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="11.5 19.75 12.25 20.5 11.5 21.25 10.75 20.5"/>
+    <polygon stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="14.5 16.75 15.25 17.5 14.5 18.25 13.75 17.5"/>
+    <path d="M7,14 C4.790861,14 3,12.209139 3,10 C3,7.790861 4.790861,6 7,6 C7.41665567,6 7.81843235,6.06370454 8.19612127,6.18190486 C8.75960062,4.33975064 10.4733425,3 12.5,3 C14.9852814,3 17,5.01471863 17,7.5 C17,7.73456947 16.9820524,7.96494706 16.9474555,8.18983445 C17.2749642,8.06711064 17.6296448,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 L7,14 Z"/>
+  </g>
+</svg>

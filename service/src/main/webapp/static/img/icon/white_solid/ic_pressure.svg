@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>xxxhdpi/ic_pressure</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_pressure" fill="#FFFFFF">
+            <path d="M13.8873668,9.051973 C13.3427886,8.70260282 12.6950545,8.5 12,8.5 C10.0670034,8.5 8.5,10.0670034 8.5,12 C8.5,13.9329966 10.0670034,15.5 12,15.5 C13.9329966,15.5 15.5,13.9329966 15.5,12 C15.5,11.3049455 15.2973972,10.6572114 14.948027,10.1126332 L17.0303301,8.03033009 C17.3232233,7.73743687 17.3232233,7.26256313 17.0303301,6.96966991 C16.7374369,6.6767767 16.2625631,6.6767767 15.9696699,6.96966991 L13.8873668,9.051973 Z M12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 Z M3,12.5 L5,12.5 L5,11 L3,11 L3,12.5 Z M19,12.5 L21,12.5 L21,11 L19,11 L19,12.5 Z M12.75,5 L12.75,3 L11.25,3 L11.25,5 L12.75,5 Z" id="Combined-Shape" fill-rule="nonzero"></path>
+            <circle id="Oval-6" cx="12" cy="12" r="2"></circle>
+        </g>
+    </g>
+</svg>

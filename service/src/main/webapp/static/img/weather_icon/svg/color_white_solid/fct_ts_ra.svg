@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="fct_ts_ra-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFCA3C"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#BCF2FE" d="M6.5,12 C8.43299662,12 10,10.3210678 10,8.25 C10,6.17893219 6.5,2 6.5,2 C6.5,2 3,6.17893219 3,8.25 C3,10.3210678 4.56700338,12 6.5,12 Z"/>
+    <polygon fill="url(#fct_ts_ra-a)" points="13.5 7 12.5 15 16 15 16 21 21.25 11 17.25 11 18.144 7"/>
+  </g>
+</svg>

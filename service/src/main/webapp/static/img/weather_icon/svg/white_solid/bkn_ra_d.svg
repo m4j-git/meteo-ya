@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#FFF" d="M13.1063824,5.23829199 C13.8347787,4.47532622 14.8618802,4 16,4 C18.209139,4 20,5.790861 20,8 C20,9.06379324 19.5847303,10.0305951 18.9074552,10.7471411 C18.3473293,10.3614407 17.6901061,10.1066122 16.9799277,10.0267975 C16.7865563,7.75754574 15.2153345,5.88133717 13.1063824,5.23829199 L13.1063824,5.23829199 Z"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.8712868,0.848749605 L14.8712868,2.34874961" transform="rotate(-10 14.871 1.599)"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.7282468,1.92551171 L19.7282468,3.42551171" transform="rotate(35 19.728 2.676)"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.6755117,3.52175316 L10.6755117,5.02175316" transform="rotate(-55 10.676 4.272)"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.3244883,10.9782468 L21.3244883,12.4782468" transform="rotate(-55 21.324 11.728)"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M22.4012504,6.12128685 L22.4012504,7.62128685" transform="rotate(80 22.401 6.871)"/>
+    <path fill="#FFF" d="M6,17 C3.92893219,17 2.25,15.3210678 2.25,13.25 C2.25,11.1789322 3.92893219,9.5 6,9.5 C6.55461758,9.5 7.08111389,9.62040147 7.55477694,9.83649241 C7.87085973,7.94312945 9.51689939,6.5 11.5,6.5 C13.709139,6.5 15.5,8.290861 15.5,10.5 C15.5,10.9473885 15.4265511,11.3776221 15.2910537,11.7793003 C15.6559242,11.6004278 16.066234,11.5 16.5,11.5 C18.0187831,11.5 19.25,12.7312169 19.25,14.25 C19.25,15.7687831 18.0187831,17 16.5,17 L6,17 Z"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.80000019 19.7536011L5.75 22.2530518M14.8000002 19.7536011L13.75 22.2530518M10.8000002 18.7536011L9.75 21.2530518"/>
+  </g>
+</svg>
