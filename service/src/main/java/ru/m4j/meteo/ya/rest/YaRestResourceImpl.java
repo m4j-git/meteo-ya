@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
-import ru.m4j.meteo.ya.api.YaRestResource;
+import ru.m4j.meteo.ya.client.YaRestResource;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaMessageService;

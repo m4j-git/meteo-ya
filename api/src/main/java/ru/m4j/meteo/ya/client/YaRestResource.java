@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2002-2021 meteo@m4j.ru
  */
-package ru.m4j.meteo.ya.api;
+package ru.m4j.meteo.ya.client;
 
 import java.util.List;
 
