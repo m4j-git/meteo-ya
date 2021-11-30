@@ -36,7 +36,7 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 @RestClientTest(YaRestClientImpl.class)
 @AutoConfigureWebClient(registerRestTemplate = true)
 @ContextConfiguration(classes = TestConfiguration.class)
-@ComponentScan(basePackages = "ru.m4j.meteo.ya.api")
+@ComponentScan(basePackages = "ru.m4j.meteo.ya.client")
 class YaRestClientTest {
 
     private static final String TEST_DATA_FILE = "ya_v1.json";
