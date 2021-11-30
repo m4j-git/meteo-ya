@@ -24,7 +24,7 @@ public class YaWeatherFormMapper {
         if (list == null) {
             return Collections.emptyList();
         }
-        return list.stream().filter(Objects::nonNull).map(p -> mapFact(p)).toList();
+        return list.stream().filter(Objects::nonNull).map(this::mapFact).toList();
     }
 
     public List<YaWeatherForm> mapParts(YaForecastDto fore) {
