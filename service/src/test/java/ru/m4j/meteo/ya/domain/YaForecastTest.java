@@ -15,11 +15,11 @@ import ru.m4j.meteo.ya.YaTestApplication;
 class YaForecastTest {
 
     @Test
-    void testForecast(@Qualifier("forecast") YaForecast fore) {
+    void entity_test(@Qualifier("forecast") YaForecast fore) {
         assertThat(fore).isNotNull().isNotNull();
         assertThat(fore.getParts()).isNotNull();
         assertThat(fore.hashCode()).isZero();
-        assertThat(fore.toString().length()).isGreaterThan(100);
+        assertThat(fore.toString()).isNotEmpty();
     }
 
 }

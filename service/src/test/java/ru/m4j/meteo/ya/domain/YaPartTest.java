@@ -15,10 +15,10 @@ import ru.m4j.meteo.ya.YaTestApplication;
 class YaPartTest {
 
     @Test
-    void testFact(@Autowired YaPart part) {
+    void entity_test(@Autowired YaPart part) {
         assertThat(part).isNotNull();
         assertThat(part.hashCode()).isZero();
-        assertThat(part.toString().length()).isGreaterThan(100);
+        assertThat(part.toString()).isNotEmpty();
     }
 
 }
