@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2002-2021 meteo@m4j.ru
  */
-package ru.m4j.meteo.ya.domain;
+package ru.m4j.meteo.ya.config;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -13,14 +13,20 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
+import ru.m4j.meteo.ya.domain.YaDaytime;
+import ru.m4j.meteo.ya.domain.YaFact;
+import ru.m4j.meteo.ya.domain.YaForecast;
+import ru.m4j.meteo.ya.domain.YaMessage;
+import ru.m4j.meteo.ya.domain.YaPart;
+import ru.m4j.meteo.ya.domain.YaSeason;
 import ru.m4j.meteo.ya.model.LocationDto;
 
-@Configuration
+@TestConfiguration
 public class YaTestBeanFactory {
     private final Integer geonameId = 1;
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";

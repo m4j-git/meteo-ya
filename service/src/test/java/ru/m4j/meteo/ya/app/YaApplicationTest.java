@@ -11,10 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.m4j.meteo.ya.YaTestApplication;
 
-@SpringBootTest(classes = YaTestApplication.class)
 @Slf4j
+@SpringBootTest
 class YaApplicationTest {
 
     @Autowired

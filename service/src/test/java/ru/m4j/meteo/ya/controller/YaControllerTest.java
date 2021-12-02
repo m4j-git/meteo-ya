@@ -11,11 +11,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -25,22 +20,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import lombok.extern.slf4j.Slf4j;
-import ru.m4j.meteo.share.app.GlobalConstants;
-import ru.m4j.meteo.ya.YaTestApplication;
+import ru.m4j.meteo.ya.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.config.YaWebSecurityTestConfig;
+import ru.m4j.meteo.ya.form.YaWeatherFormMapper;
 import ru.m4j.meteo.ya.model.LocationDto;
-import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaLocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
-@Slf4j
-@ContextConfiguration(classes = YaTestApplication.class)
+@ContextConfiguration(classes = { YaWeatherFormMapper.class, YaWebSecurityTestConfig.class, YaTestBeanSource.class })
 @WebMvcTest(controllers = { YaController.class })
 class YaControllerTest {
-
-    private static final String TEST_DATA_FILE = "ow_onecall.json";
 
     private final String geonameId = "1";
     @Autowired
@@ -48,14 +37,14 @@ class YaControllerTest {
     @MockBean
     private YaMessageService service;
     @Autowired
-    private ObjectMapper jacksonMapper;
+    private YaTestBeanSource src;
     @MockBean
     private YaLocationService locationService;
 
     @Test
     void showMessagePage_test() throws Exception {
         when(locationService.requestLocations()).thenReturn(List.of(new LocationDto(1, null, null, null)));
-        given(service.getLastMessage(geonameId)).willReturn(readJson());
+        given(service.getLastMessage(geonameId)).willReturn(src.readJson());
         mockMvc.perform(get("/")
             .param("geonameId", "1"))
             .andDo(print())
@@ -63,15 +52,6 @@ class YaControllerTest {
             .andExpect(model().hasNoErrors())
             .andExpect(model().attributeExists("weather"))
             .andExpect(view().name("index"));
-    }
-
-    private YaMessageDto readJson() throws IOException {
-        FileInputStream fis = new FileInputStream(GlobalConstants.TEST_DATA_PATH + TEST_DATA_FILE);
-        try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
-            YaMessageDto dto = jacksonMapper.readValue(rd, YaMessageDto.class);
-            log.debug("read json" + dto);
-            return dto;
-        }
     }
 
 }

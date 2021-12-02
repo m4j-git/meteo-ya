@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2002-2021 meteo@m4j.ru
+ */
+/*
   * Copyright (c) 2002-2021 meteo@m4j.ru
  */
 package ru.m4j.meteo.ya.service;
@@ -19,7 +22,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.m4j.meteo.ya.YaTestApplication;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
@@ -28,7 +30,7 @@ import ru.m4j.meteo.ya.repo.YaForecastRepository;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.repo.YaPartRepository;
 
-@SpringBootTest(classes = YaTestApplication.class)
+@SpringBootTest
 @Transactional
 class YaDaoTest {
 

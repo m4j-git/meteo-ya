@@ -19,13 +19,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.client.AutoConfigureWebClient;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
-import org.springframework.boot.test.context.TestConfiguration;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.client.MockRestServiceServer;
-import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -35,8 +32,8 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 
 @RestClientTest(YaRestClientImpl.class)
 @AutoConfigureWebClient(registerRestTemplate = true)
-@ContextConfiguration(classes = TestConfiguration.class)
-@ComponentScan(basePackages = "ru.m4j.meteo.ya.client")
+@ContextConfiguration(classes = YaRestClientImpl.class)
+@ComponentScan(basePackages = "ru.m4j.meteo.ya")
 class YaRestClientTest {
 
     private static final String TEST_DATA_FILE = "ya_v1.json";
@@ -87,15 +84,6 @@ class YaRestClientTest {
         server.expect(requestTo(client.getUri("messages", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
         List<YaMessageDto> wf = client.getMessages(geonameId, null, null);
         assertThat(wf.size()).isPositive();
-    }
-
-    @TestConfiguration
-    static class RestClientTestConfig {
-
-        @Bean
-        public YaRestClientImpl client(RestTemplate restTemplate) {
-            return new YaRestClientImpl(restTemplate);
-        }
     }
 
 }

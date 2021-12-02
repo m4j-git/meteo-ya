@@ -33,8 +33,8 @@ public class YaController {
     }
 
     @GetMapping("/")
-    public String showMessagePage(Model model, @ModelAttribute("location") String geonameId) {
-        YaMessageDto dto = service.getLastMessage(geonameId);
+    public String showMessagePage(Model model, @ModelAttribute("location") LocationDto location) {
+        YaMessageDto dto = service.getLastMessage(location.getGeonameId());
         YaMessageForm form = mapper.mapMessage(dto);
         model.addAttribute("weather", form);
         return "index";
