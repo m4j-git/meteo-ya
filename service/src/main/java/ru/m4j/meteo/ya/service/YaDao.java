@@ -5,6 +5,7 @@ package ru.m4j.meteo.ya.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -20,9 +21,9 @@ public interface YaDao {
 
     List<YaFact> findFactsViaSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo);
 
-    YaMessage findLastMessage(Integer geonameId);
+    Optional<YaMessage> findLastMessage(Integer geonameId);
 
-    YaMessage findMessageByUuid(UUID messageUuid);
+    Optional<YaMessage> findMessageByUuid(UUID messageUuid);
 
     List<YaMessage> findMessages(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo);
 

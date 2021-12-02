@@ -9,13 +9,13 @@ import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
 public interface YaMessageService {
-    void saveMessageToDb(YaMessageDto dto, Integer geonameId);
+    void saveMessageToDb(YaMessageDto dto, String geonameId);
 
-    List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo);
+    List<YaFactDto> getFacts(String geonameId, String dateFrom, String dateTo);
 
-    YaMessageDto getLastMessage(Integer geonameId);
+    YaMessageDto getLastMessage(String geonameId);
 
     YaMessageDto getMessage(String messageUuid);
 
-    List<YaMessageDto> getMessages(Integer geonameId, String dateFrom, String dateTo);
+    List<YaMessageDto> getMessages(String geonameId, String dateFrom, String dateTo);
 }

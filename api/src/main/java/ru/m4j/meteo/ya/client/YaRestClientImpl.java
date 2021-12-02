@@ -46,7 +46,7 @@ public class YaRestClientImpl implements YaRestResource {
     }
 
     @Override
-    public List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo) {
+    public List<YaFactDto> getFacts(String geonameId, String dateFrom, String dateTo) {
         URI uri = getUri("messages/facts", geonameId);
         ResponseEntity<YaFactDto[]> response = restTemplate.getForEntity(uri, YaFactDto[].class);
         if ((response.getStatusCode() == HttpStatus.OK) && response.hasBody()) {
@@ -56,18 +56,18 @@ public class YaRestClientImpl implements YaRestResource {
     }
 
     @Override
-    public YaMessageDto getLastMessage(Integer geonameId) {
+    public YaMessageDto getLastMessage(String geonameId) {
         URI uri = getUri("messages/last", geonameId);
         ResponseEntity<YaMessageDto> response = restTemplate.getForEntity(uri, YaMessageDto.class);
         if ((response.getStatusCode() == HttpStatus.OK) && response.hasBody()) {
-            log.debug(response.getBody().toString());
+            log.debug("response " + response.getBody());
             return response.getBody();
         }
         return null;
     }
 
     @Override
-    public List<YaMessageDto> getMessages(Integer geonameId, String dateFrom, String dateTo) {
+    public List<YaMessageDto> getMessages(String geonameId, String dateFrom, String dateTo) {
         URI uri = getUri("messages", geonameId);
         ResponseEntity<YaMessageDto[]> response = restTemplate.getForEntity(uri, YaMessageDto[].class);
         if ((response.getStatusCode() == HttpStatus.OK) && response.hasBody()) {

@@ -37,7 +37,7 @@ class YaMessageServiceTest {
 
     private static final String TEST_DATA_FILE = "ya_v1.json";
 
-    private final Integer geonameId = 1;
+    private final String geonameId = "1";
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
 
     @Autowired
@@ -86,21 +86,21 @@ class YaMessageServiceTest {
 
     @Test
     void testGetFacts() {
-        final List<YaFactDto> fact2List = service.getFacts(geonameId, null, null);
+        List<YaFactDto> fact2List = service.getFacts(geonameId, null, null);
         assertThat(fact2List.size()).isEqualTo(1);
         assertThat(fact2List.get(0)).isNotNull();
     }
 
     @Test
     void testGetMessages() {
-        final List<YaMessageDto> ent2List = service.getMessages(geonameId, null, null);
+        List<YaMessageDto> ent2List = service.getMessages(geonameId, null, null);
         assertThat(ent2List.size()).isEqualTo(1);
         assertThat(ent2List.get(0)).isNotNull();
     }
 
     @Test
     void testGetMessage() {
-        final YaMessageDto dto = service.getMessage("11111111-1111-1111-1111-111111111111");
+        YaMessageDto dto = service.getMessage("11111111-1111-1111-1111-111111111111");
         assertThat(dto).isNotNull();
     }
 

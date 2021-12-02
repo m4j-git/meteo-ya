@@ -18,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.m4j.meteo.share.app.GlobalConstants;
 import ru.m4j.meteo.ya.YaTestApplication;
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -27,6 +28,7 @@ import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaForecastDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
+@Slf4j
 @SpringBootTest(classes = YaTestApplication.class)
 class YaMessageDtoModelMapperTest {
 
@@ -58,9 +60,10 @@ class YaMessageDtoModelMapperTest {
         final YaMessageDto dto2 = mapper.messageDtoFromMessage(entity);
         dto2.setMessageUuid(null);
         dto2.setCreatedOn(null);
-        assertThat(dto2).isNotNull();
-        assertThat(dto).isEqualTo(dto2).hasSameHashCodeAs(dto2);
-        assertThat(dto.toString()).isNotEmpty();
+        assertThat(dto2).isNotNull()
+            .isEqualTo(dto)
+            .hasSameHashCodeAs(dto);
+        log.info("dto" + dto2);
     }
 
     @Test
@@ -70,8 +73,9 @@ class YaMessageDtoModelMapperTest {
         final YaFact entity = mapper.factDtoToFact(dto1);
         System.out.println(entity);
         final YaFactDto dto2 = mapper.factDtoFromFact(entity);
-        assertThat(dto2).isNotNull();
-        assertThat(dto1).isEqualTo(dto2).hasSameHashCodeAs(dto2);
+        assertThat(dto2).isNotNull()
+            .isEqualTo(dto1)
+            .hasSameHashCodeAs(dto1);
     }
 
     @Test
@@ -80,8 +84,9 @@ class YaMessageDtoModelMapperTest {
         final YaForecastDto dto1 = dto.getForecast();
         final YaForecast entity = mapper.forecastDtoToForecast(dto1);
         final YaForecastDto dto2 = mapper.forecastDtoFromForecast(entity);
-        assertThat(dto2).isNotNull();
-        assertThat(dto1).isEqualTo(dto2).hasSameHashCodeAs(dto2);
+        assertThat(dto2).isNotNull()
+            .isEqualTo(dto1)
+            .hasSameHashCodeAs(dto1);
     }
 
     @Test
@@ -92,9 +97,10 @@ class YaMessageDtoModelMapperTest {
         final YaMessageDto dto2 = mapper.messageDtoFromMessage(entity);
         dto2.setMessageUuid(null);
         dto2.setCreatedOn(null);
-        assertThat(dto2).isNotNull();
-        assertThat(dto).isEqualTo(dto2).hasSameHashCodeAs(dto2);
-        assertThat(dto.toString()).isNotEmpty();
+        assertThat(dto2).isNotNull()
+            .isEqualTo(dto)
+            .hasSameHashCodeAs(dto);
+        log.info("dto" + dto);
     }
 
 }

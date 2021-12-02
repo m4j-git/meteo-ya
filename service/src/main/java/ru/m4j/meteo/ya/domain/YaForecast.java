@@ -9,7 +9,6 @@ import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -26,11 +25,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ya_forecast")
 public class YaForecast implements Serializable {
@@ -39,6 +40,7 @@ public class YaForecast implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @EqualsAndHashCode.Include
     private Long forecastId;
 
     /**
@@ -110,23 +112,6 @@ public class YaForecast implements Serializable {
         getParts().add(part);
         part.setForecast(this);
         return part;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof YaForecast)) {
-            return false;
-        }
-        YaForecast other = (YaForecast) o;
-        return (forecastId != null) && forecastId.equals(other.getForecastId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(forecastId);
     }
 
     @Override

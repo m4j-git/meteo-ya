@@ -14,6 +14,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.m4j.meteo.share.misc.ErrorAttribute;
+import ru.m4j.meteo.share.misc.ResourceNotFoundException;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.mapper.YaMessageDtoModelMapper;
@@ -34,45 +36,42 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     @Override
     @Transactional
-    public void saveMessageToDb(final YaMessageDto dto, Integer geonameId) {
-        validGeoname(geonameId);
-        final YaMessage message = dao.saveMessage(mapper.messageDtoToMessage(dto), geonameId);
+    public void saveMessageToDb(final YaMessageDto dto, String geonameId) {
+        YaMessage message = dao.saveMessage(mapper.messageDtoToMessage(dto), Integer.parseInt(geonameId));
         log.info("save yandex weather message to db - ok, id= {}", message.getMessageId());
     }
 
     @Override
     @Transactional
-    public List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo) {
-        validGeoname(geonameId);
+    public List<YaFactDto> getFacts(String geonameId, String dateFrom, String dateTo) {
         LocalDateTime ldtFrom = dateFromMapper(dateFrom);
         LocalDateTime ldtTo = dateToMapper(dateTo);
-        final List<YaFact> entityList = dao.findFacts(geonameId, ldtFrom, ldtTo);
+        List<YaFact> entityList = dao.findFacts(Integer.parseInt(geonameId), ldtFrom, ldtTo);
         return mapper.factsDtoFromFacts(entityList);
     }
 
     @Override
     @Transactional
-    public YaMessageDto getLastMessage(Integer geonameId) {
-        validGeoname(geonameId);
-        final YaMessage ent = dao.findLastMessage(geonameId);
+    public YaMessageDto getLastMessage(String geonameId) {
+        YaMessage ent = dao.findLastMessage(Integer.parseInt(geonameId)).orElseThrow(
+            () -> new ResourceNotFoundException(ErrorAttribute.MESSAGE_ERROR_CODE, ErrorAttribute.RESOURCE_NOT_FOUND_ERROR, geonameId));
         return mapper.messageDtoFromMessage(ent);
     }
 
     @Override
     @Transactional
     public YaMessageDto getMessage(String messageUuid) {
-        validMessage(messageUuid);
-        final YaMessage ent = dao.findMessageByUuid(UUID.fromString(messageUuid));
+        YaMessage ent = dao.findMessageByUuid(UUID.fromString(messageUuid)).orElseThrow(
+            () -> new ResourceNotFoundException(ErrorAttribute.MESSAGE_ERROR_CODE, ErrorAttribute.RESOURCE_NOT_FOUND_ERROR, messageUuid));
         return mapper.messageDtoFromMessage(ent);
     }
 
     @Override
     @Transactional
-    public List<YaMessageDto> getMessages(Integer geonameId, String dateFrom, String dateTo) {
-        validGeoname(geonameId);
+    public List<YaMessageDto> getMessages(String geonameId, String dateFrom, String dateTo) {
         LocalDateTime ldtFrom = dateFromMapper(dateFrom);
         LocalDateTime ldtTo = dateToMapper(dateTo);
-        final List<YaMessage> ent = dao.findMessages(geonameId, ldtFrom, ldtTo);
+        List<YaMessage> ent = dao.findMessages(Integer.parseInt(geonameId), ldtFrom, ldtTo);
         return mapper.messagesDtoFromMessages(ent);
     }
 
@@ -83,18 +82,6 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     private LocalDateTime dateFromMapper(String dateFrom) {
         return dateFrom != null ? LocalDateTime.parse(dateFrom) : LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault());
-    }
-
-    private void validGeoname(Integer geonameId) {
-        if (geonameId == null) {
-            throw new IllegalArgumentException("geonameId  is null");
-        }
-    }
-
-    private void validMessage(String messageId) {
-        if (messageId == null) {
-            throw new IllegalArgumentException("messageId  is null");
-        }
     }
 
 }

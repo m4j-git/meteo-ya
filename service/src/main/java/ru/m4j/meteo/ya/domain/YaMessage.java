@@ -6,7 +6,6 @@ package ru.m4j.meteo.ya.domain;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.util.Objects;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -26,11 +25,13 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ya_message")
 @EntityListeners(AuditingEntityListener.class)
@@ -41,6 +42,7 @@ public class YaMessage implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "message_id")
+    @EqualsAndHashCode.Include
     private Long messageId;
 
     @CreatedDate
@@ -87,23 +89,6 @@ public class YaMessage implements Serializable {
     public void addForecast(final YaForecast forecast) {
         this.forecast = forecast;
         forecast.setMessage(this);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof YaMessage)) {
-            return false;
-        }
-        YaMessage other = (YaMessage) o;
-        return (messageId != null) && messageId.equals(other.getMessageId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(messageId);
     }
 
     @Override

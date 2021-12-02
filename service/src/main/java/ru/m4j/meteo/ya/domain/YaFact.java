@@ -5,7 +5,6 @@ package ru.m4j.meteo.ya.domain;
 
 import java.io.Serializable;
 import java.time.OffsetDateTime;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,11 +21,13 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "ya_fact")
 public class YaFact implements Serializable {
@@ -35,6 +36,7 @@ public class YaFact implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @EqualsAndHashCode.Include
     private Long factId;
 
     /**
@@ -213,23 +215,6 @@ public class YaFact implements Serializable {
     @OneToOne
     @JoinColumn(name = "message_id", referencedColumnName = "message_id", nullable = false, unique = true, updatable = false)
     private YaMessage message;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof YaFact)) {
-            return false;
-        }
-        YaFact other = (YaFact) o;
-        return (factId != null) && factId.equals(other.getFactId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(factId);
-    }
 
     @Override
     public String toString() {

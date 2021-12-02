@@ -41,7 +41,7 @@ class YaRestClientTest {
 
     private static final String TEST_DATA_FILE = "ya_v1.json";
 
-    private final Integer geonameId = 1;
+    private final String geonameId = "1";
 
     @Autowired
     private YaRestClientImpl client;
@@ -64,8 +64,8 @@ class YaRestClientTest {
         factList.add(dto.getFact());
         String json = jacksonMapper.writeValueAsString(factList);
 
-        this.server.expect(requestTo(client.getUri("messages/facts", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
-        List<YaFactDto> wf = this.client.getFacts(geonameId, null, null);
+        server.expect(requestTo(client.getUri("messages/facts", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
+        List<YaFactDto> wf = client.getFacts(geonameId, null, null);
         assertThat(wf.size()).isPositive();
     }
 
@@ -74,8 +74,8 @@ class YaRestClientTest {
         YaMessageDto dto = readJson();
         String json = jacksonMapper.writeValueAsString(dto);
 
-        this.server.expect(requestTo(client.getUri("messages/last", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
-        YaMessageDto wf = this.client.getLastMessage(geonameId);
+        server.expect(requestTo(client.getUri("messages/last", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
+        YaMessageDto wf = client.getLastMessage(geonameId);
         assertThat(wf.getFact().getTemp()).isNotNull();
     }
 
@@ -84,8 +84,8 @@ class YaRestClientTest {
         YaMessageDto dto = readJson();
         YaMessageDto[] mesList = new YaMessageDto[] { dto };
         String json = jacksonMapper.writeValueAsString(mesList);
-        this.server.expect(requestTo(client.getUri("messages", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
-        List<YaMessageDto> wf = this.client.getMessages(geonameId, null, null);
+        server.expect(requestTo(client.getUri("messages", geonameId))).andRespond(withSuccess(json, MediaType.APPLICATION_JSON));
+        List<YaMessageDto> wf = client.getMessages(geonameId, null, null);
         assertThat(wf.size()).isPositive();
     }
 

@@ -63,7 +63,7 @@ public class YaWeatherFormMapper {
     }
 
     private String mapDt(Instant instant) {
-        return LocalTime.from(instant.atZone(ZoneId.systemDefault())).toString();
+        return String.valueOf(LocalTime.from(instant.atZone(ZoneId.systemDefault())));
     }
 
     private String mapTemperature(Integer temperature) {
@@ -71,10 +71,10 @@ public class YaWeatherFormMapper {
             return null;
         }
         if (temperature > 0) {
-            return "+" + temperature.toString();
+            return "+" + temperature;
         }
         if (temperature < 0) {
-            return "-" + temperature.toString();
+            return "-" + temperature;
         }
         return "0";
     }

@@ -35,17 +35,18 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaLocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
-@WebMvcTest(controllers = { YaController.class })
-@ContextConfiguration(classes = YaTestApplication.class)
 @Slf4j
+@ContextConfiguration(classes = YaTestApplication.class)
+@WebMvcTest(controllers = { YaController.class })
 class YaControllerTest {
 
-    private final Integer geonameId = 1;
+    private static final String TEST_DATA_FILE = "ow_onecall.json";
+
+    private final String geonameId = "1";
     @Autowired
     private MockMvc mockMvc;
     @MockBean
     private YaMessageService service;
-    private static final String TEST_DATA_FILE = "ow_onecall.json";
     @Autowired
     private ObjectMapper jacksonMapper;
     @MockBean
@@ -65,10 +66,10 @@ class YaControllerTest {
     }
 
     private YaMessageDto readJson() throws IOException {
-        final FileInputStream fis = new FileInputStream(GlobalConstants.TEST_DATA_PATH + TEST_DATA_FILE);
+        FileInputStream fis = new FileInputStream(GlobalConstants.TEST_DATA_PATH + TEST_DATA_FILE);
         try (BufferedReader rd = new BufferedReader(new InputStreamReader(fis, StandardCharsets.UTF_8))) {
             YaMessageDto dto = jacksonMapper.readValue(rd, YaMessageDto.class);
-            log.debug(dto.toString());
+            log.debug("read json" + dto);
             return dto;
         }
     }

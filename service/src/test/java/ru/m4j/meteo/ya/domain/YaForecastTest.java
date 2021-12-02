@@ -9,8 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.m4j.meteo.ya.YaTestApplication;
 
+@Slf4j
 @SpringBootTest(classes = YaTestApplication.class)
 class YaForecastTest {
 
@@ -18,8 +20,7 @@ class YaForecastTest {
     void entity_test(@Qualifier("forecast") YaForecast fore) {
         assertThat(fore).isNotNull().isNotNull();
         assertThat(fore.getParts()).isNotNull();
-        assertThat(fore.hashCode()).isZero();
-        assertThat(fore.toString()).isNotEmpty();
+        log.info("forecast: " + fore);
     }
 
 }

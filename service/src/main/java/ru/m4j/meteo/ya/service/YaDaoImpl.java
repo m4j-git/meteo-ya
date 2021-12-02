@@ -5,6 +5,7 @@ package ru.m4j.meteo.ya.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -80,13 +81,16 @@ public class YaDaoImpl implements YaDao {
 
     @Override
     @Transactional
-    public YaMessage findLastMessage(Integer geonameId) {
-        return (YaMessage) em.createQuery(QUERY_LAST_MESSAGE).setMaxResults(1).setParameter("geoname_id", geonameId).getSingleResult();
+    public Optional<YaMessage> findLastMessage(Integer geonameId) {
+        return Optional.ofNullable((YaMessage) em.createQuery(QUERY_LAST_MESSAGE)
+            .setMaxResults(1)
+            .setParameter("geoname_id", geonameId)
+            .getSingleResult());
     }
 
     @Override
-    public YaMessage findMessageByUuid(UUID messageUuid) {
-        return messageRepo.findMessageByUuid(messageUuid).orElseThrow();
+    public Optional<YaMessage> findMessageByUuid(UUID messageUuid) {
+        return messageRepo.findMessageByUuid(messageUuid);
     }
 
     @Override
