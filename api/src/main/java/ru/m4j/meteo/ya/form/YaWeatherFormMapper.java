@@ -74,7 +74,7 @@ public class YaWeatherFormMapper {
             return "+" + temperature;
         }
         if (temperature < 0) {
-            return "-" + temperature;
+            return String.valueOf(temperature);
         }
         return "0";
     }

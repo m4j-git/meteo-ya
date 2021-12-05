@@ -27,11 +27,11 @@ import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.service.YaLocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
-@ContextConfiguration(classes = { YaWeatherFormMapper.class, YaWebSecurityTestConfig.class, YaTestBeanSource.class })
+@ContextConfiguration(classes = { YaController.class, YaWeatherFormMapper.class, YaWebSecurityTestConfig.class, YaTestBeanSource.class })
 @WebMvcTest(controllers = { YaController.class })
 class YaControllerTest {
 
-    private final String geonameId = "1";
+    private final Integer geonameId = 1;
     @Autowired
     private MockMvc mockMvc;
     @MockBean
@@ -46,12 +46,11 @@ class YaControllerTest {
         when(locationService.requestLocations()).thenReturn(List.of(new LocationDto(1, null, null, null)));
         given(service.getLastMessage(geonameId)).willReturn(src.readJson());
         mockMvc.perform(get("/")
-            .param("geonameId", "1"))
+            .queryParam("geonameId", "1"))
             .andDo(print())
             .andExpect(status().isOk())
             .andExpect(model().hasNoErrors())
             .andExpect(model().attributeExists("weather"))
-            .andExpect(view().name("index"));
+            .andExpect(view().name("ya"));
     }
-
 }

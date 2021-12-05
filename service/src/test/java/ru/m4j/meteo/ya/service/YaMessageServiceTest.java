@@ -28,7 +28,7 @@ import ru.m4j.meteo.ya.repo.YaPartRepository;
 @Transactional
 class YaMessageServiceTest {
 
-    private final String geonameId = "1";
+    private final Integer geonameId = 1;
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
 
     @Autowired

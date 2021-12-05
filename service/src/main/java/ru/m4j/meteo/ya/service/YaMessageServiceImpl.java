@@ -36,25 +36,25 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     @Override
     @Transactional
-    public void saveMessageToDb(final YaMessageDto dto, String geonameId) {
-        YaMessage message = dao.saveMessage(mapper.messageDtoToMessage(dto), Integer.parseInt(geonameId));
+    public void saveMessageToDb(final YaMessageDto dto, Integer geonameId) {
+        YaMessage message = dao.saveMessage(mapper.messageDtoToMessage(dto), geonameId);
         log.info("save yandex weather message to db - ok, id= {}", message.getMessageId());
     }
 
     @Override
     @Transactional
-    public List<YaFactDto> getFacts(String geonameId, String dateFrom, String dateTo) {
+    public List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo) {
         LocalDateTime ldtFrom = dateFromMapper(dateFrom);
         LocalDateTime ldtTo = dateToMapper(dateTo);
-        List<YaFact> entityList = dao.findFacts(Integer.parseInt(geonameId), ldtFrom, ldtTo);
+        List<YaFact> entityList = dao.findFacts(geonameId, ldtFrom, ldtTo);
         return mapper.factsDtoFromFacts(entityList);
     }
 
     @Override
     @Transactional
-    public YaMessageDto getLastMessage(String geonameId) {
-        YaMessage ent = dao.findLastMessage(Integer.parseInt(geonameId)).orElseThrow(
-            () -> new ResourceNotFoundException(ErrorAttribute.MESSAGE_ERROR_CODE, ErrorAttribute.RESOURCE_NOT_FOUND_ERROR, geonameId));
+    public YaMessageDto getLastMessage(Integer geonameId) {
+        YaMessage ent = dao.findLastMessage(geonameId).orElseThrow(
+            () -> new ResourceNotFoundException(ErrorAttribute.MESSAGE_ERROR_CODE, ErrorAttribute.RESOURCE_NOT_FOUND_ERROR, String.valueOf(geonameId)));
         return mapper.messageDtoFromMessage(ent);
     }
 
@@ -68,10 +68,10 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     @Override
     @Transactional
-    public List<YaMessageDto> getMessages(String geonameId, String dateFrom, String dateTo) {
+    public List<YaMessageDto> getMessages(Integer geonameId, String dateFrom, String dateTo) {
         LocalDateTime ldtFrom = dateFromMapper(dateFrom);
         LocalDateTime ldtTo = dateToMapper(dateTo);
-        List<YaMessage> ent = dao.findMessages(Integer.parseInt(geonameId), ldtFrom, ldtTo);
+        List<YaMessage> ent = dao.findMessages(geonameId, ldtFrom, ldtTo);
         return mapper.messagesDtoFromMessages(ent);
     }
 

@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.m4j.meteo.ya.form.YaMessageForm;
 import ru.m4j.meteo.ya.form.YaWeatherFormMapper;
 import ru.m4j.meteo.ya.model.LocationDto;
@@ -17,6 +19,7 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaLocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
+@Slf4j
 @Controller
 @RequestMapping("/")
 @SessionAttributes("location")
@@ -33,11 +36,12 @@ public class YaController {
     }
 
     @GetMapping("/")
-    public String showMessagePage(Model model, @ModelAttribute("location") LocationDto location) {
-        YaMessageDto dto = service.getLastMessage(location.getGeonameId());
+    public String showMessagePage(Model model, @ModelAttribute("location") LocationDto location, @RequestParam("geonameId") Integer geonameId) {
+        log.info("request:" + location);
+        YaMessageDto dto = service.getLastMessage(geonameId);
         YaMessageForm form = mapper.mapMessage(dto);
         model.addAttribute("weather", form);
-        return "index";
+        return "ya";
     }
 
     @ModelAttribute("location")

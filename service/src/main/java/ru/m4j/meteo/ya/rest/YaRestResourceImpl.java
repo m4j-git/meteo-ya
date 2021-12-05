@@ -31,7 +31,7 @@ public class YaRestResourceImpl implements YaRestResource {
     @Override
     @ApiOperation(notes = "yandex messages", value = "get list of weather messages")
     @GetMapping(value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<YaMessageDto> getMessages(@RequestParam String geonameId, @RequestParam(required = false) String dateFrom,
+    public List<YaMessageDto> getMessages(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
         @RequestParam(required = false) String dateTo) {
         return messageService.getMessages(geonameId, dateFrom, dateTo);
     }
@@ -46,14 +46,14 @@ public class YaRestResourceImpl implements YaRestResource {
     @ApiOperation(notes = "yandex messages", value = "get last weather message")
     @GetMapping(value = "/messages/last", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
-    public YaMessageDto getLastMessage(@RequestParam String geonameId) {
+    public YaMessageDto getLastMessage(@RequestParam Integer geonameId) {
         return messageService.getLastMessage(geonameId);
     }
 
     @ApiOperation(notes = "yandex messages", value = "get fact weather messages")
     @GetMapping(value = "/messages/facts", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
-    public List<YaFactDto> getFacts(@RequestParam String geonameId, @RequestParam(required = false) String dateFrom,
+    public List<YaFactDto> getFacts(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
         @RequestParam(required = false) String dateTo) {
         return messageService.getFacts(geonameId, dateFrom, dateTo);
     }

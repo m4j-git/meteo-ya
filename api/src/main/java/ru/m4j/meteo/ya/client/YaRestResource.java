@@ -10,11 +10,11 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 
 public interface YaRestResource {
 
-    List<YaMessageDto> getMessages(String geonameId, String dateFrom, String dateTo);
+    List<YaMessageDto> getMessages(Integer geonameId, String dateFrom, String dateTo);
 
     YaMessageDto getMessage(String uuid);
 
-    YaMessageDto getLastMessage(String geonameId);
+    YaMessageDto getLastMessage(Integer geonameId);
 
-    List<YaFactDto> getFacts(String geonameId, String dateFrom, String dateTo);
+    List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo);
 }

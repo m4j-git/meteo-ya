@@ -13,11 +13,6 @@ if [ "$1" = "prod" ]; then
   mvn install -P prod,mysql -T 1C -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
 fi
 
-if [ "$1" = "old" ]; then
-  mvn clean
-  mvn install -P prod,postgres -T 1C -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
-fi
-
 if [ "$1" = "stage" ]; then
   mvn clean
   mvn install -P stage,mysql -T 1C -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
@@ -86,15 +81,87 @@ EOF
   echo 'Bye'
 fi
 
-#git submodule foreach --recursive 'git push' && git push
 
+FILE_NAME=meteo-ya.jar
+LOG_DIR=$(pwd)/logs
 
-#mvn spring-boot:run
+get_pid(){
+    pid=`ps -ef|grep $FILE_NAME|grep -v grep|grep -v kill|awk '{print $2}'`
+    echo "$pid"
+}
 
-#mvn versions:display-dependency-updates
-#mvn pmd:pmd
-#mvn pmd:cpd
-#mvn findbugs:gui
-#mvn jxr:jxr
+start_up(){
+    pid=$(get_pid)
+    if [ "$pid" ]
+    then
+        echo "Blog already startup!"
+    else
+        nohup java -jar ./$FILE_NAME --spring.profiles.active=prod > /dev/null 2>&1 &
+    fi
+}
 
-#chromium --disable-web-security --user-data-dir="/tmp/chrome_dev_test" -–allow-file-access-from-files  --disable-gpu
+shut_down(){
+    pid=$(get_pid)
+    if [ "$pid" ]
+    then
+        kill -9 $pid
+        echo "Stop success!"
+    else
+        echo "Blog is not running!"
+    fi
+}
+
+show_log(){
+    if [ ! -d "${LOG_DIR}" ]; then
+        mkdir $LOG_DIR
+        touch $LOG_DIR/blog.log
+    fi
+    tail -f $LOG_DIR/blog.log
+}
+
+show_help(){
+    echo -e "Usage: sh blog.sh start|stop|restart|status|log"
+    exit
+}
+
+show_status(){
+    pid=$(get_pid)
+    if [ "$pid" ]
+    then
+        echo "Blog is running with pid: $pid"
+    else
+        echo "Blog is not running!"
+    fi
+}
+
+if [ ! -n "$1" ] ;then
+    show_help
+else
+    case "$1" in
+        "start")
+            start_up
+            sleep 1
+            show_log
+            ;;
+        "stop")
+            shut_down
+            ;;
+        "restart")
+            shut_down
+            sleep 1
+            start_up
+            sleep 1
+            show_log
+            ;;
+        "status")
+            show_status
+            ;;
+        "log")
+            show_log
+            ;;
+        *)
+            echo 'Invalid command!'
+            show_help
+            ;;
+    esac
+fi
