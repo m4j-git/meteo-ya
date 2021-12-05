@@ -16,7 +16,7 @@ import ru.m4j.meteo.ya.form.YaMessageForm;
 import ru.m4j.meteo.ya.form.YaWeatherFormMapper;
 import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.service.YaLocationService;
+import ru.m4j.meteo.ya.service.LocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
 @Slf4j
@@ -26,10 +26,10 @@ import ru.m4j.meteo.ya.service.YaMessageService;
 public class YaController {
 
     private final YaMessageService service;
-    private final YaLocationService locationService;
+    private final LocationService locationService;
     private final YaWeatherFormMapper mapper;
 
-    public YaController(YaMessageService service, YaLocationService locationService, YaWeatherFormMapper mapper) {
+    public YaController(YaMessageService service, LocationService locationService, YaWeatherFormMapper mapper) {
         this.service = service;
         this.locationService = locationService;
         this.mapper = mapper;

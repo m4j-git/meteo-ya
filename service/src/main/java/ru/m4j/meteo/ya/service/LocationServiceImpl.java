@@ -16,11 +16,11 @@ import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.LocationsDto;
 
 @Service
-public class YaLocationServiceImpl implements YaLocationService {
+public class LocationServiceImpl implements LocationService {
 
     private final ResourceLoader resourceLoader;
 
-    public YaLocationServiceImpl(ResourceLoader resourceLoader) {
+    public LocationServiceImpl(ResourceLoader resourceLoader) {
         super();
         this.resourceLoader = resourceLoader;
     }

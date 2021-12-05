@@ -24,7 +24,7 @@ import ru.m4j.meteo.ya.config.YaTestBeanSource;
 import ru.m4j.meteo.ya.config.YaWebSecurityTestConfig;
 import ru.m4j.meteo.ya.form.YaWeatherFormMapper;
 import ru.m4j.meteo.ya.model.LocationDto;
-import ru.m4j.meteo.ya.service.YaLocationService;
+import ru.m4j.meteo.ya.service.LocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
 
 @ContextConfiguration(classes = { YaController.class, YaWeatherFormMapper.class, YaWebSecurityTestConfig.class, YaTestBeanSource.class })
@@ -39,7 +39,7 @@ class YaControllerTest {
     @Autowired
     private YaTestBeanSource src;
     @MockBean
-    private YaLocationService locationService;
+    private LocationService locationService;
 
     @Test
     void showMessagePage_test() throws Exception {

@@ -7,7 +7,7 @@ import java.util.List;
 
 import ru.m4j.meteo.ya.model.LocationDto;
 
-public interface YaLocationService {
+public interface LocationService {
 
     List<LocationDto> requestLocations();
 

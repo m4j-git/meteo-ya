@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.requester.YaMessageRequester;
-import ru.m4j.meteo.ya.service.YaLocationService;
+import ru.m4j.meteo.ya.service.LocationService;
 
 @Service
 @ConditionalOnProperty(name = "meteo.scheduling.enabled", havingValue = "true")
@@ -20,9 +20,9 @@ public class YaProviderScheduler {
     private static final int FIXED_RATE = 3600 * 4;
 
     private final YaMessageRequester requester;
-    private final YaLocationService locationService;
+    private final LocationService locationService;
 
-    public YaProviderScheduler(YaMessageRequester requester, YaLocationService locationService) {
+    public YaProviderScheduler(YaMessageRequester requester, LocationService locationService) {
         this.requester = requester;
         this.locationService = locationService;
     }
