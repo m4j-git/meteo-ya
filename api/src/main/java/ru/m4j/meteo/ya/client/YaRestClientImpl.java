@@ -20,9 +20,9 @@ import lombok.extern.slf4j.Slf4j;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
+@Slf4j
 @ConditionalOnProperty(name = "meteo.client.type", havingValue = "resttemplate", matchIfMissing = false)
 @Service
-@Slf4j
 public class YaRestClientImpl implements YaRestResource {
 
     private final RestTemplate restTemplate;
