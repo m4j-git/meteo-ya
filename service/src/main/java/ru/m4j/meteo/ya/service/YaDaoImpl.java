@@ -30,6 +30,7 @@ public class YaDaoImpl implements YaDao {
     private final YaForecastRepository foreRepo;
     private final YaPartRepository partRepo;
     private final EntityManager em;
+
     private static final String QUERY_LAST_MESSAGE = "select msg from YaMessage as msg where msg.geonameId=:geoname_id "
         + "ORDER BY msg.createdOn desc";
 
