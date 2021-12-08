@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import ru.m4j.meteo.ya.client.YaRestResource;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
@@ -29,28 +29,28 @@ public class YaRestResourceImpl implements YaRestResource {
     }
 
     @Override
-    @ApiOperation(notes = "yandex messages", value = "get list of weather messages")
+    @Operation(tags = "yandex messages", summary = "get list of weather messages")
     @GetMapping(value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<YaMessageDto> getMessages(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
         @RequestParam(required = false) String dateTo) {
         return messageService.getMessages(geonameId, dateFrom, dateTo);
     }
 
-    @ApiOperation(notes = "yandex messages", value = "get weather message")
+    @Operation(tags = "yandex messages", summary = "get weather message")
     @GetMapping(value = "/messages/one/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public YaMessageDto getMessage(@PathVariable("uuid") String uuid) {
         return messageService.getMessage(uuid);
     }
 
-    @ApiOperation(notes = "yandex messages", value = "get last weather message")
+    @Operation(tags = "yandex messages", summary = "get last weather message")
     @GetMapping(value = "/messages/last", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public YaMessageDto getLastMessage(@RequestParam Integer geonameId) {
         return messageService.getLastMessage(geonameId);
     }
 
-    @ApiOperation(notes = "yandex messages", value = "get fact weather messages")
+    @Operation(tags = "yandex messages", summary = "get fact weather messages")
     @GetMapping(value = "/messages/facts", produces = MediaType.APPLICATION_JSON_VALUE)
     @Override
     public List<YaFactDto> getFacts(@RequestParam Integer geonameId, @RequestParam(required = false) String dateFrom,
