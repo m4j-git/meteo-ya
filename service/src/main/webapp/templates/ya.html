@@ -21,6 +21,14 @@
 			<div class="card mb-4 max-width: 75%">
 				<div class="card-body" th:object="${weather.fact}">
 					<div class="container">
+
+						<form method="GET" th:action="@{/}">
+							<select class="custom-select" id="geonameId" name="geonameId">
+								<option selected value="0">Выберите...</option>
+								<option th:each="location : ${locations}" th:text="${location.geoname}" th:value="${location.geonameId}">1</option>
+							</select> <input type="submit">
+						</form>
+
 						<div class="row">
 							<div class="col-md display-4">Погода: Калининград</div>
 						</div>
@@ -28,7 +36,7 @@
 							<div class="col-md fs-4" th:text="|Сейчас *{obsTime}|">Сейчас 15:24</div>
 						</div>
 						<div class="d-flex flex-row">
-						  <div class="p-2  display-4 " th:text="*{temp}">>+2</div>
+							<div class="p-2  display-4 " th:text="*{temp}">>+2</div>
 							<div class="p-2 align-items-center">
 								<img width="64" th:src="@{/static/img/weather_icon/svg/color_white_solid/bkn_d.svg}" alt="">
 							</div>
@@ -41,7 +49,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row justify-content-around" >
+						<div class="row justify-content-around">
 							<div class="col-md" th:text="|*{windSpeed} м/с, *{windDir}|">5,0 м/с, С</div>
 							<div class="col-md-3" th:text="|порывы до *{windGust} м/с|">5,0 м/с</div>
 							<div class="col-md" th:text="|*{humidity}%|">93%</div>
