@@ -51,6 +51,7 @@ if [ "$1" = "build-docker" ]; then
       -v /opt/meteo/meteo-ya/logs:/opt/meteo/logs \
       -e METEO_USER=${METEO_USER} \
       -e METEO_PASSWD=${METEO_PASSWD} \
+      -e YANDEX_API_KEY=${YANDEX_API_KEY} \
       --name ${CONTAINER_NAME} \
       ${IMAGE_NAME} 
 fi
