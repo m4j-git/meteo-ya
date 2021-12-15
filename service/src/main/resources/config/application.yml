@@ -65,7 +65,7 @@ meteo:
 eureka:
   client:
     service-url: 
-      defaultZone: http://meteo-host:8761/eureka/
+      defaultZone: http://meteo-eu-host:8761/eureka/
     healthcheck:
       enabled: true
     enabled: false
@@ -147,7 +147,7 @@ spring:
     ##################
     admin:
       client: 
-        url: http://meteo-host:8090/meteo-adm
+        url: http://meteo-adm-host:8090/meteo-adm
         username: ${METEO_USER}
         password: ${METEO_PASSWD}
         instance:
@@ -155,7 +155,7 @@ spring:
             user:
               name: ${METEO_USER}
               password: ${METEO_PASSWD}
-          service-base-url: http://meteo-host:8083
+          service-base-url: http://meteo-ya-host:8083
 
 ##################
 #   Server Settings
@@ -222,7 +222,7 @@ spring:
       on-profile: h2        
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:meteo-ya-dev
+    url: jdbc:h2:mem:meteo-ya
     username: ${METEO_USER}
     password: ${METEO_PASSWD}
   jpa:
