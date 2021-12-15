@@ -27,7 +27,7 @@ public class YaRestClientImpl implements YaRestResource {
 
     private final RestTemplate restTemplate;
 
-    @Value("${meteo.ya-rest-client.host:meteo-host}")
+    @Value("${meteo.ya-rest-client.host:meteo-ya-host}")
     private String host;
     @Value("${meteo.ya-rest-client.scheme:http}")
     private String scheme;
