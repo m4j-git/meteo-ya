@@ -40,6 +40,9 @@ server:
   port: 8083
   servlet:
     context-path: /meteo-ya
+  tomcat:
+    threads:
+      max: 10
 
 ##################
 #   Logging Settings
