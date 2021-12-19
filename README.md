@@ -1,5 +1,5 @@
 [![Java CI with Maven](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml/badge.svg)](https://github.com/m4j-git/meteo-ya/actions/workflows/maven.yml)
-[![CodeQL](https://github.com/m4j-git/meteo-ya/actions/workflows/codeql.yaml/badge.svg)](https://github.com/m4j-git/meteo-ya/actions/workflows/codeql.yaml)
+[![CodeQL](https://github.com/m4j-git/meteo-ya/actions/workflows/codeql.yml/badge.svg)](https://github.com/m4j-git/meteo-ya/actions/workflows/codeql.yml)
 # spring-boot-app for yandex-weather api
 
 Description
