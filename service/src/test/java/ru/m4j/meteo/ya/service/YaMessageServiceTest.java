@@ -13,19 +13,19 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.domain.YaFact;
+import ru.m4j.meteo.ya.domain.YaForecast;
+import ru.m4j.meteo.ya.domain.YaMessage;
+import ru.m4j.meteo.ya.domain.YaPart;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.repo.YaFactRepository;
-import ru.m4j.meteo.ya.repo.YaForecastRepository;
-import ru.m4j.meteo.ya.repo.YaMessageRepository;
-import ru.m4j.meteo.ya.repo.YaPartRepository;
 
 @SpringBootTest
-@Transactional
+//@Transactional
 class YaMessageServiceTest {
 
     private final Integer geonameId = 1;
@@ -34,33 +34,26 @@ class YaMessageServiceTest {
     @Autowired
     private YaMessageService service;
     @Autowired
+    @Qualifier("dao-v1")
     private YaDao dao;
     @Autowired
     private YaTestBeanSource src;
-    @Autowired
-    private YaFactRepository factRepo;
-    @Autowired
-    private YaMessageRepository msgRepo;
-    @Autowired
-    private YaForecastRepository foreRepo;
-    @Autowired
-    private YaPartRepository partRepo;
 
     @BeforeEach
     public void setUp() throws IOException {
         assertThat(service).isNotNull();
-        assertThat(partRepo.count()).isZero();
-        assertThat(foreRepo.count()).isZero();
-        assertThat(factRepo.count()).isZero();
-        assertThat(msgRepo.count()).isZero();
+        assertThat(dao.count(YaPart.class)).isZero();
+        assertThat(dao.count(YaForecast.class)).isZero();
+        assertThat(dao.count(YaFact.class)).isZero();
+        assertThat(dao.count(YaMessage.class)).isZero();
         YaMessageDto dto = src.readJson();
         assertThat(dto.getNow()).isNotNull();
         dto.setMessageUuid(UUID.fromString(messageUuid));
         service.saveMessageToDb(dto, geonameId);
-        assertThat(partRepo.count()).isEqualTo(2);
-        assertThat(foreRepo.count()).isEqualTo(1);
-        assertThat(factRepo.count()).isEqualTo(1);
-        assertThat(msgRepo.count()).isEqualTo(1);
+        assertThat(dao.count(YaPart.class)).isEqualTo(2);
+        assertThat(dao.count(YaForecast.class)).isEqualTo(1);
+        assertThat(dao.count(YaFact.class)).isEqualTo(1);
+        assertThat(dao.count(YaMessage.class)).isEqualTo(1);
     }
 
     @Test
@@ -94,10 +87,10 @@ class YaMessageServiceTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertThat(partRepo.count()).isZero();
-        assertThat(foreRepo.count()).isZero();
-        assertThat(factRepo.count()).isZero();
-        assertThat(msgRepo.count()).isZero();
+        assertThat(dao.count(YaPart.class)).isZero();
+        assertThat(dao.count(YaForecast.class)).isZero();
+        assertThat(dao.count(YaFact.class)).isZero();
+        assertThat(dao.count(YaMessage.class)).isZero();
     }
 
 }

@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
@@ -22,14 +23,14 @@ import ru.m4j.meteo.ya.mapper.YaMessageDtoModelMapper;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
-@Service
 @Slf4j
+@Service
 public class YaMessageServiceImpl implements YaMessageService {
 
     private final YaDao dao;
     private final YaMessageDtoModelMapper mapper;
 
-    public YaMessageServiceImpl(YaDao dao, YaMessageDtoModelMapper mapper) {
+    public YaMessageServiceImpl(@Qualifier("dao-v1") YaDao dao, YaMessageDtoModelMapper mapper) {
         this.dao = dao;
         this.mapper = mapper;
     }

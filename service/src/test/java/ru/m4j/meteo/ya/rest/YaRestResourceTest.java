@@ -20,11 +20,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
-import ru.m4j.meteo.ya.repo.YaFactRepository;
-import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.service.YaDao;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -39,22 +38,19 @@ class YaRestResourceTest {
     @LocalServerPort
     private int randomServerPort;
     @Autowired
-    private YaMessageRepository msgRepo;
-    @Autowired
-    private YaFactRepository factRepo;
-    @Autowired
     private TestRestTemplate restTemplate;
     @Autowired
+    @Qualifier("dao-v1")
     private YaDao dao;
 
     @BeforeEach
     public void setUp(@Qualifier("message") YaMessage mes) {
-        assertThat(factRepo.count()).isZero();
-        assertThat(msgRepo.count()).isZero();
+        assertThat(dao.count(YaFact.class)).isZero();
+        assertThat(dao.count(YaMessage.class)).isZero();
         Integer geonameId = 1;
         dao.saveMessage(mes, geonameId);
-        assertThat(factRepo.count()).isEqualTo(1);
-        assertThat(msgRepo.count()).isEqualTo(1);
+        assertThat(dao.count(YaFact.class)).isEqualTo(1);
+        assertThat(dao.count(YaMessage.class)).isEqualTo(1);
         assertThat(restTemplate).isNotNull();
         restTemplate.getRestTemplate().setErrorHandler(new YaRestTemplateResponseErrorHandler());
     }
@@ -100,8 +96,8 @@ class YaRestResourceTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertThat(factRepo.count()).isZero();
-        assertThat(msgRepo.count()).isZero();
+        assertThat(dao.count(YaFact.class)).isZero();
+        assertThat(dao.count(YaMessage.class)).isZero();
     }
 
 }

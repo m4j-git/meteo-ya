@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,7 @@ class YaMessageRequesterTest {
     @Autowired
     private YaTestBeanSource src;
     @Autowired
+    @Qualifier("dao-v1")
     private YaDao dao;
     @Autowired
     private YaMessageRepository msgRepo;

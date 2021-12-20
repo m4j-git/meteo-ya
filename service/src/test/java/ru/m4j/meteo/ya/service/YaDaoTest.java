@@ -17,59 +17,49 @@ import java.util.UUID;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import ru.m4j.meteo.ya.domain.YaFact;
+import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
-import ru.m4j.meteo.ya.repo.YaFactRepository;
-import ru.m4j.meteo.ya.repo.YaForecastRepository;
-import ru.m4j.meteo.ya.repo.YaMessageRepository;
-import ru.m4j.meteo.ya.repo.YaPartRepository;
 
-@SpringBootTest
 @Transactional
-class YaDaoTest {
+abstract class YaDaoTest {
 
     private final Integer geonameId = 2;
-    @Autowired
+
+    //@Autowired
     private YaDao dao;
-    @Autowired
-    private YaFactRepository factRepo;
-    @Autowired
-    private YaMessageRepository msgRepo;
-    @Autowired
-    private YaForecastRepository foreRepo;
-    @Autowired
-    private YaPartRepository partRepo;
+
+    abstract YaDao getDao();
 
     @BeforeEach
     public void setUp() {
+        dao = getDao();
         assertThat(dao).isNotNull();
-        assertThat(partRepo.count()).isZero();
-        assertThat(foreRepo.count()).isZero();
-        assertThat(factRepo.count()).isZero();
-        assertThat(msgRepo.count()).isZero();
+        assertThat(dao.count(YaPart.class)).isZero();
+        assertThat(dao.count(YaForecast.class)).isZero();
+        assertThat(dao.count(YaFact.class)).isZero();
+        assertThat(dao.count(YaMessage.class)).isZero();
     }
 
     @Test
     void testCreateMessageSkinny(@Qualifier("message_skinny") YaMessage mes) {
         YaMessage ent = dao.saveMessage(mes, geonameId);
-        assertThat(msgRepo.count()).isEqualTo(1);
+        assertThat(dao.count(YaMessage.class)).isEqualTo(1);
         assertThat(ent.getGeonameId()).isEqualTo(geonameId);
     }
 
     @Test
     void testCreateMessage(@Qualifier("message") YaMessage ent) {
         ent = dao.saveMessage(ent, geonameId);
-        assertThat(factRepo.count()).isEqualTo(1);
+        assertThat(dao.count(YaFact.class)).isEqualTo(1);
         assertThat(ent.getFact().getFactId()).isNotNull();
-        assertThat(foreRepo.count()).isEqualTo(1);
+        assertThat(dao.count(YaForecast.class)).isEqualTo(1);
         assertThat(ent.getForecast().getForecastId()).isNotNull();
-        assertThat(partRepo.count()).isEqualTo(2);
+        assertThat(dao.count(YaPart.class)).isEqualTo(2);
         YaPart[] parts = new YaPart[ent.getForecast().getParts().size()];
         parts = ent.getForecast().getParts().toArray(parts);
         assertThat(parts).hasSize(2);
@@ -96,32 +86,10 @@ class YaDaoTest {
     }
 
     @Test
-    void testFindFactsViaSpecification(@Qualifier("message") YaMessage mes) {
-        YaMessage ent = dao.saveMessage(mes, geonameId);
-        List<YaFact> fact2List = dao.findFactsViaSpecification(geonameId,
-            LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-            LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
-        assertThat(fact2List.size()).isEqualTo(1);
-        assertThat(ent.getFact()).isEqualTo(fact2List.get(0));
-        assertThat(fact2List.get(0).getFactId()).isNotNull();
-    }
-
-    @Test
     void testFindMessages(@Qualifier("message") YaMessage mes) {
         YaMessage ent = dao.saveMessage(mes, geonameId);
-        assertThat(msgRepo.count()).isEqualTo(1);
+        assertThat(dao.count(YaMessage.class)).isEqualTo(1);
         List<YaMessage> ent2List = dao.findMessages(geonameId, LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
-            LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
-        assertThat(ent2List.size()).isEqualTo(1);
-        assertThat(ent).isEqualTo(ent2List.get(0));
-    }
-
-    @Test
-    void testFindMessagesViaSpecification(@Qualifier("message") YaMessage mes) {
-        YaMessage ent = dao.saveMessage(mes, geonameId);
-        assertThat(msgRepo.count()).isEqualTo(1);
-        List<YaMessage> ent2List = dao.findMessagesViaSpecification(geonameId,
-            LocalDateTime.ofInstant(Instant.ofEpochSecond(0), ZoneId.systemDefault()),
             LocalDateTime.ofInstant(Instant.ofEpochSecond(Integer.MAX_VALUE), ZoneId.systemDefault()));
         assertThat(ent2List.size()).isEqualTo(1);
         assertThat(ent).isEqualTo(ent2List.get(0));
@@ -140,10 +108,10 @@ class YaDaoTest {
     @AfterEach
     public void tearDown() {
         dao.deleteMessages();
-        assertThat(partRepo.count()).isZero();
-        assertThat(foreRepo.count()).isZero();
-        assertThat(factRepo.count()).isZero();
-        assertThat(msgRepo.count()).isZero();
+        assertThat(dao.count(YaPart.class)).isZero();
+        assertThat(dao.count(YaForecast.class)).isZero();
+        assertThat(dao.count(YaFact.class)).isZero();
+        assertThat(dao.count(YaMessage.class)).isZero();
     }
 
 }

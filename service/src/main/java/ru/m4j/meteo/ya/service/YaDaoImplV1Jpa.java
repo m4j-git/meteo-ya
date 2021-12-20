@@ -9,32 +9,34 @@ import java.util.Optional;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.Join;
 import javax.transaction.Transactional;
 
-import org.springframework.data.jpa.domain.Specification;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import ru.m4j.meteo.ya.domain.YaFact;
+import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
+import ru.m4j.meteo.ya.domain.YaPart;
 import ru.m4j.meteo.ya.repo.YaFactRepository;
 import ru.m4j.meteo.ya.repo.YaForecastRepository;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.repo.YaPartRepository;
 
+@Qualifier("dao-v1")
 @Repository
-public class YaDaoImpl implements YaDao {
+public class YaDaoImplV1Jpa implements YaDao {
 
-    private final YaMessageRepository messageRepo;
-    private final YaFactRepository factRepo;
-    private final YaForecastRepository foreRepo;
-    private final YaPartRepository partRepo;
-    private final EntityManager em;
+    protected final YaMessageRepository messageRepo;
+    protected final YaFactRepository factRepo;
+    protected final YaForecastRepository foreRepo;
+    protected final YaPartRepository partRepo;
+    protected final EntityManager em;
 
     private static final String QUERY_LAST_MESSAGE = "select msg from YaMessage as msg where msg.geonameId=:geoname_id "
         + "ORDER BY msg.createdOn desc";
 
-    public YaDaoImpl(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo,
+    public YaDaoImplV1Jpa(YaMessageRepository messageRepo, YaFactRepository factRepo, YaForecastRepository foreRepo, YaPartRepository partRepo,
         EntityManager em) {
         this.messageRepo = messageRepo;
         this.factRepo = factRepo;
@@ -76,12 +78,6 @@ public class YaDaoImpl implements YaDao {
 
     @Override
     @Transactional
-    public List<YaFact> findFactsViaSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
-        return factRepo.findAll(factSpecification(geonameId, dateFrom, dateTo));
-    }
-
-    @Override
-    @Transactional
     public Optional<YaMessage> findLastMessage(Integer geonameId) {
         return Optional.ofNullable((YaMessage) em.createQuery(QUERY_LAST_MESSAGE)
             .setMaxResults(1)
@@ -101,21 +97,20 @@ public class YaDaoImpl implements YaDao {
     }
 
     @Override
-    @Transactional
-    public List<YaMessage> findMessagesViaSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
-        return messageRepo.findAll(messageSpecification(geonameId, dateFrom, dateTo));
-    }
-
-    public Specification<YaFact> factSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
-        return (root, query, builder) -> {
-            Join<YaFact, YaMessage> join = root.join("message");
-            return builder.and(builder.equal(join.get("geonameId"), geonameId), builder.between(join.get("createdOn"), dateFrom, dateTo));
-        };
-    }
-
-    public Specification<YaMessage> messageSpecification(Integer geonameId, LocalDateTime dateFrom, LocalDateTime dateTo) {
-        return (root, query, builder) -> builder.and(builder.equal(root.get("geonameId"), geonameId),
-            builder.between(root.get("createdOn"), dateFrom, dateTo));
+    public long count(Class<?> clazz) {
+        if (clazz == YaMessage.class) {
+            return messageRepo.count();
+        }
+        if (clazz == YaFact.class) {
+            return factRepo.count();
+        }
+        if (clazz == YaForecast.class) {
+            return foreRepo.count();
+        }
+        if (clazz == YaPart.class) {
+            return partRepo.count();
+        }
+        throw new IllegalStateException();
     }
 
 }
