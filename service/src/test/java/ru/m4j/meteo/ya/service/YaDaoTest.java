@@ -31,13 +31,10 @@ abstract class YaDaoTest {
     private final Integer geonameId = 2;
 
     //@Autowired
-    private YaDao dao;
-
-    abstract YaDao getDao();
+    protected YaDao dao;
 
     @BeforeEach
     public void setUp() {
-        dao = getDao();
         assertThat(dao).isNotNull();
         assertThat(dao.count(YaPart.class)).isZero();
         assertThat(dao.count(YaForecast.class)).isZero();

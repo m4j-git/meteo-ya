@@ -6,21 +6,15 @@
  */
 package ru.m4j.meteo.ya.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootTest
 //@Transactional
 class YaDaoImplV2JpaSpecTest extends YaDaoTest {
 
-    @Autowired
-    @Qualifier("dao-v2")
-    private YaDao dao;
-
-    @Override
-    YaDao getDao() {
-        return dao;
+    YaDaoImplV2JpaSpecTest(ApplicationContext context) {
+        dao = (YaDao) context.getBean("yaDaoImplV2JpaSpec");
     }
 
 }

@@ -40,7 +40,6 @@ class YaRestResourceTest {
     @Autowired
     private TestRestTemplate restTemplate;
     @Autowired
-    @Qualifier("dao-v1")
     private YaDao dao;
 
     @BeforeEach

@@ -11,7 +11,7 @@ import java.util.UUID;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -23,8 +23,8 @@ import ru.m4j.meteo.ya.repo.YaForecastRepository;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.repo.YaPartRepository;
 
-@Qualifier("dao-v1")
 @Repository
+@Primary
 public class YaDaoImplV1Jpa implements YaDao {
 
     protected final YaMessageRepository messageRepo;

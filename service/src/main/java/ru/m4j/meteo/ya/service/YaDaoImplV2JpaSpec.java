@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.Join;
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +20,6 @@ import ru.m4j.meteo.ya.repo.YaForecastRepository;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.repo.YaPartRepository;
 
-@Qualifier("dao-v2")
 @Repository
 public class YaDaoImplV2JpaSpec extends YaDaoImplV1Jpa {
 

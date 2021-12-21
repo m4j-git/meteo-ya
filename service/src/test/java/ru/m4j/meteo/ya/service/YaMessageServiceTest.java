@@ -13,7 +13,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
@@ -34,7 +33,6 @@ class YaMessageServiceTest {
     @Autowired
     private YaMessageService service;
     @Autowired
-    @Qualifier("dao-v1")
     private YaDao dao;
     @Autowired
     private YaTestBeanSource src;

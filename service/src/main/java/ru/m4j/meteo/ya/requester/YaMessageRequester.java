@@ -22,8 +22,8 @@ import ru.m4j.meteo.ya.service.YaMessageService;
  * X-Yandex-API-Key: значение ключа
  */
 
-@Service
 @Slf4j
+@Service
 public class YaMessageRequester {
 
     @Value("${meteo.provider.host:api.weather.yandex.ru}")

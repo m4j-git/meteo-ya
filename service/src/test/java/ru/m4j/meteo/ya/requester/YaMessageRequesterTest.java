@@ -12,9 +12,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
@@ -33,11 +33,14 @@ class YaMessageRequesterTest {
     private YaMessageRequester requester;
     @Autowired
     private YaTestBeanSource src;
-    @Autowired
-    @Qualifier("dao-v1")
+
     private YaDao dao;
     @Autowired
     private YaMessageRepository msgRepo;
+
+    YaMessageRequesterTest(ApplicationContext context) {
+        dao = (YaDao) context.getBean("yaDaoImplV1Jpa");
+    }
 
     @BeforeEach
     public void setUp() {
