@@ -12,14 +12,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ru.m4j.meteo.ya.config.YaTestBeanFactory;
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.config.YaTestDomainConfiguration;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
-@SpringBootTest
+@SpringBootTest(classes = { YaTestDomainConfiguration.class })
+@Import(YaTestBeanFactory.class)
 class YaMessageJsonTest {
 
     @Autowired

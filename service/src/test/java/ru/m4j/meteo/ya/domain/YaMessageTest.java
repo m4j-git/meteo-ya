@@ -8,11 +8,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.m4j.meteo.ya.config.YaTestBeanFactory;
+import ru.m4j.meteo.ya.config.YaTestDomainConfiguration;
 
 @Slf4j
-@SpringBootTest
+@SpringBootTest(classes = { YaTestDomainConfiguration.class })
+@Import(YaTestBeanFactory.class)
 class YaMessageTest {
 
     @Test

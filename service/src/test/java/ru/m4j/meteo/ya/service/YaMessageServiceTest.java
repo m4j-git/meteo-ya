@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
@@ -23,8 +24,7 @@ import ru.m4j.meteo.ya.domain.YaPart;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
-@SpringBootTest
-//@Transactional
+@SpringBootTest(classes = YaTestDaoConfiguration.class)
 class YaMessageServiceTest {
 
     private final Integer geonameId = 1;

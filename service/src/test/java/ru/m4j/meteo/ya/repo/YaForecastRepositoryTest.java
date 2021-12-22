@@ -13,10 +13,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 
-@SpringBootTest
+@SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
 class YaForecastRepositoryTest {
 
