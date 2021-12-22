@@ -55,7 +55,7 @@ logging:
       springframework:
         security: WARN
     ru:    
-      m4j: WARN
+      m4j: INFO
 ##################
 #   Meteo Settings
 ##################
