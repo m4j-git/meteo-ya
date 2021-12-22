@@ -18,6 +18,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import ru.m4j.meteo.ya.domain.YaFact;
@@ -27,6 +29,7 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaDao;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 class YaRestResourceTest {
 
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";

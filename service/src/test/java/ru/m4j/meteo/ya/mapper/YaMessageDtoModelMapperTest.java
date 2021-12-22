@@ -60,7 +60,6 @@ class YaMessageDtoModelMapperTest {
         YaMessageDto dto = src.readJson();
         final YaFactDto dto1 = dto.getFact();
         final YaFact entity = mapper.factDtoToFact(dto1);
-        System.out.println(entity);
         final YaFactDto dto2 = mapper.factDtoFromFact(entity);
         assertThat(dto2).isNotNull()
             .isEqualTo(dto1)

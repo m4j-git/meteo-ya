@@ -23,6 +23,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.web.client.RestTemplate;
@@ -38,6 +40,7 @@ import ru.m4j.meteo.ya.model.YaMessageDto;
 @AutoConfigureWebClient(registerRestTemplate = true)
 @ContextConfiguration(classes = { YaRestClientImpl.class })
 @Import(RestClientTestConfig.class)
+@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 class YaRestClientTest {
 
     private static final String TEST_DATA_FILE = "ya_v1.json";

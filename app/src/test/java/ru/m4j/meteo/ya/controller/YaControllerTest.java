@@ -17,6 +17,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -29,6 +31,7 @@ import ru.m4j.meteo.ya.service.YaMessageService;
 
 @ContextConfiguration(classes = { YaController.class, YaWeatherFormMapper.class, YaWebSecurityTestConfig.class, YaTestBeanSource.class })
 @WebMvcTest(controllers = { YaController.class })
+@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 class YaControllerTest {
 
     private final Integer geonameId = 1;

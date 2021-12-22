@@ -14,6 +14,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
 import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
@@ -25,6 +27,7 @@ import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
+@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 class YaMessageServiceTest {
 
     private final Integer geonameId = 1;

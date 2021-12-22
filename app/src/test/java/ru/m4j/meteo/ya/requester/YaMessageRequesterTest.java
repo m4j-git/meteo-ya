@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
 import ru.m4j.meteo.ya.config.YaTestBeanSource;
@@ -25,6 +27,7 @@ import ru.m4j.meteo.ya.service.YaDao;
 
 @SpringBootTest
 @Transactional
+@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 class YaMessageRequesterTest {
 
     @MockBean

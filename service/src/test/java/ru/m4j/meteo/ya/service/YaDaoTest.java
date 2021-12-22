@@ -18,19 +18,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.annotation.Transactional;
 
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
 
-@Transactional
 abstract class YaDaoTest {
 
     private final Integer geonameId = 2;
 
-    //@Autowired
     protected YaDao dao;
 
     @BeforeEach
@@ -50,8 +47,8 @@ abstract class YaDaoTest {
     }
 
     @Test
-    void testCreateMessage(@Qualifier("message") YaMessage ent) {
-        ent = dao.saveMessage(ent, geonameId);
+    void testCreateMessage(@Qualifier("message") YaMessage mes) {
+        YaMessage ent = dao.saveMessage(mes, geonameId);
         assertThat(dao.count(YaFact.class)).isEqualTo(1);
         assertThat(ent.getFact().getFactId()).isNotNull();
         assertThat(dao.count(YaForecast.class)).isEqualTo(1);
