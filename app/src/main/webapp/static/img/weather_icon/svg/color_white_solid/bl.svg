@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="#FFF" stroke-width="1.25" d="M5.5,2.63 L5.5,6.37"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M5.5,2.63 L5.5,6.37" transform="rotate(-60 5.5 4.5)"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M5.5,2.63 L5.5,6.37" transform="rotate(60 5.5 4.5)"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M18.5,2.63 L18.5,6.37"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M18.5,2.63 L18.5,6.37" transform="rotate(-60 18.5 4.5)"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M18.5,2.63 L18.5,6.37" transform="rotate(60 18.5 4.5)"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M18.5,17.63 L18.5,21.37"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M18.5,17.63 L18.5,21.37" transform="rotate(-60 18.5 19.5)"/>
+    <path stroke="#FFF" stroke-width="1.25" d="M18.5,17.63 L18.5,21.37" transform="rotate(60 18.5 19.5)"/>
+    <path stroke="#BCF2FE" stroke-width="1.5" d="M6.75,11.75 L11.0159545,11.75 C12.2585951,11.75 13.2659545,10.7426407 13.2659545,9.5 C13.2659545,8.25735931 12.2585951,7.25 11.0159545,7.25 C10.5877618,7.25 10.1875059,7.36961115 9.84677603,7.577244"/>
+    <path stroke="#BCF2FE" stroke-width="1.5" d="M3.75,18.25 L11.5012972,18.25 C12.4677955,18.25 13.2512972,17.4664983 13.2512972,16.5 C13.2512972,15.5335017 12.4677955,14.75 11.5012972,14.75 C11.1682585,14.75 10.8569483,14.8430309 10.5919362,15.0045231" transform="matrix(1 0 0 -1 0 33)"/>
+    <path stroke="#BCF2FE" stroke-width="1.5" d="M14.75,13.25 L16.5012972,13.25 C17.4677955,13.25 18.2512972,12.4664983 18.2512972,11.5 C18.2512972,10.5335017 17.4677955,9.75 16.5012972,9.75 C16.1682585,9.75 15.8569483,9.84303089 15.5919362,10.0045231"/>
+  </g>
+</svg>

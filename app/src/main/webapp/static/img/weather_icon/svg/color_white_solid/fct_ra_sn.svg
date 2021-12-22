@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#BCF2FE" d="M6.5,12 C8.43299662,12 10,10.3210678 10,8.25 C10,6.17893219 6.5,2 6.5,2 C6.5,2 3,6.17893219 3,8.25 C3,10.3210678 4.56700338,12 6.5,12 Z"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M20.6949156,15.7020226 L9.69491565,15.7020226" transform="rotate(15 15.195 15.702)"/>
+    <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" points="11.365 13.382 11.926 14.826 10.718 15.796"/>
+    <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" points="19.025 18.022 18.464 16.578 19.672 15.608"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M20.6949156,15.7020226 L9.69491565,15.7020226" transform="rotate(75 15.195 15.702)"/>
+    <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" points="15.289 11.225 14.319 12.433 12.875 11.872"/>
+    <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" points="15.1 20.179 16.071 18.971 17.515 19.532"/>
+    <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M20.6949156,15.7020226 L9.69491565,15.7020226" transform="rotate(-45 15.195 15.702)"/>
+    <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" points="11.27 17.859 12.802 18.095 13.038 19.626"/>
+    <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" points="19.119 13.545 17.588 13.309 17.352 11.778"/>
+  </g>
+</svg>

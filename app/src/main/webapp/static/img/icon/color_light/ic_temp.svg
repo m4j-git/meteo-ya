@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>xxxhdpi/ic_temp</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_temp">
+            <circle id="Oval-7" fill="#97B7E6" cx="11.5" cy="16.5" r="6"></circle>
+            <path d="M11.5,2 C13.5710678,2 15.25,3.67893219 15.25,5.75 L15.25,13.25 C15.25,15.3210678 13.5710678,17 11.5,17 C9.42893219,17 7.75,15.3210678 7.75,13.25 L7.75,5.75 C7.75,3.67893219 9.42893219,2 11.5,2 Z" id="Rectangle" fill="#97B7E6"></path>
+            <circle id="Oval-7" fill="#FFFFFF" cx="11.5" cy="16.5" r="4.5"></circle>
+            <path d="M11.5,3.5 C12.7426407,3.5 13.75,4.50735931 13.75,5.75 L13.75,13.25 C13.75,14.4926407 12.7426407,15.5 11.5,15.5 C10.2573593,15.5 9.25,14.4926407 9.25,13.25 L9.25,5.75 C9.25,4.50735931 10.2573593,3.5 11.5,3.5 Z" id="Rectangle" fill="#FFFFFF"></path>
+            <circle id="Oval-7" fill="#F66049" cx="11.5" cy="16.5" r="3"></circle>
+            <path d="M11.5,8 C11.9142136,8 12.25,8.33578644 12.25,8.75 L12.25,16.25 C12.25,16.6642136 11.9142136,17 11.5,17 C11.0857864,17 10.75,16.6642136 10.75,16.25 L10.75,8.75 C10.75,8.33578644 11.0857864,8 11.5,8 Z" id="Rectangle" fill="#F66049"></path>
+        </g>
+    </g>
+</svg>

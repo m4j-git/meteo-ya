@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="ovc_ts_h-a" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFBE1D"/>
+      <stop offset="100%" stop-color="#FAAF00"/>
+    </linearGradient>
+    <radialGradient id="ovc_ts_h-b" cx="88.2%" cy="11.315%" fx="88.2%" fy="11.315%">
+      <stop offset="0%" stop-color="#9699C7"/>
+      <stop offset="100%" stop-color="#9499C9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ovc_ts_h-c" cx="8.171%" cy="-6.535%" r="63.588%" fx="8.171%" fy="-6.535%">
+      <stop offset="0%" stop-color="#9699C7"/>
+      <stop offset="100%" stop-color="#9499C9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ovc_ts_h-d" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#A4C5F4"/>
+      <stop offset="100%" stop-color="#A7C7F2"/>
+    </linearGradient>
+    <radialGradient id="ovc_ts_h-e" cx="88.2%" cy="9.456%" r="48.142%" fx="88.2%" fy="9.456%">
+      <stop offset="0%" stop-color="#486DA8"/>
+      <stop offset="100%" stop-color="#486DA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ovc_ts_h-f" cx="14.445%" cy="0%" fx="14.445%" fy="0%">
+      <stop offset="0%" stop-color="#486DA8"/>
+      <stop offset="100%" stop-color="#486DA8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ovc_ts_h-g" x1="50%" x2="50%" y1="0%" y2="122.366%">
+      <stop offset="0%" stop-color="#A4C5F4"/>
+      <stop offset="100%" stop-color="#A7C7F2"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <polygon fill="url(#ovc_ts_h-a)" points="14 13 10 13 9 18 12 18 12 23 16 16 12.81 15.976"/>
+    <circle cx="7" cy="10" r="4" fill="url(#ovc_ts_h-b)" opacity=".2"/>
+    <circle cx="17.5" cy="11.5" r="2.5" fill="url(#ovc_ts_h-c)" opacity=".2"/>
+    <path fill="url(#ovc_ts_h-d)" d="M7,14 C4.790861,14 3,12.209139 3,10 C3,7.790861 4.790861,6 7,6 C7.41665567,6 7.81843235,6.06370454 8.19612127,6.18190486 C8.75960062,4.33975064 10.4733425,3 12.5,3 C14.9852814,3 17,5.01471863 17,7.5 C17,7.73456947 16.9820524,7.96494706 16.9474555,8.18983445 C17.2749642,8.06711064 17.6296448,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 L7,14 Z"/>
+    <circle cx="7" cy="10" r="4" fill="url(#ovc_ts_h-e)" opacity=".344"/>
+    <circle cx="18" cy="11" r="3" fill="url(#ovc_ts_h-f)" opacity=".2"/>
+    <circle cx="12.5" cy="7.5" r="4.5" fill="url(#ovc_ts_h-g)"/>
+    <polygon fill="#67C8E2" stroke="#67C8E2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="5.5 16.75 6.25 17.5 5.5 18.25 4.75 17.5"/>
+    <polygon fill="#67C8E2" stroke="#67C8E2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" points="17.5 18.75 18.25 19.5 17.5 20.25 16.75 19.5"/>
+  </g>
+</svg>

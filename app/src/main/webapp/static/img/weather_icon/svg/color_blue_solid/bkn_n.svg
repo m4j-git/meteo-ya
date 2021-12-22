@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="bkn_n-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFBE1D"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </linearGradient>
+    <radialGradient id="bkn_n-b" cx="38.236%" cy="10.579%" r="93.609%" fx="38.236%" fy="10.579%">
+      <stop offset="0%" stop-color="#F03C00" stop-opacity="0"/>
+      <stop offset="72.663%" stop-color="#F03C00" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F03C00"/>
+    </radialGradient>
+    <radialGradient id="bkn_n-c" cx="88.2%" cy="11.315%" fx="88.2%" fy="11.315%">
+      <stop offset="0%" stop-color="#9699C7"/>
+      <stop offset="100%" stop-color="#9499C9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bkn_n-d" cx="8.171%" cy="-6.535%" r="63.588%" fx="8.171%" fy="-6.535%">
+      <stop offset="0%" stop-color="#9699C7"/>
+      <stop offset="100%" stop-color="#9499C9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bkn_n-e" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#A4C5F4"/>
+      <stop offset="100%" stop-color="#A7C7F2"/>
+    </linearGradient>
+    <radialGradient id="bkn_n-f" cx="88.2%" cy="9.456%" r="48.142%" fx="88.2%" fy="9.456%">
+      <stop offset="0%" stop-color="#486DA8"/>
+      <stop offset="100%" stop-color="#486DA8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bkn_n-g" cx="14.445%" cy="0%" fx="14.445%" fy="0%">
+      <stop offset="0%" stop-color="#486DA8"/>
+      <stop offset="100%" stop-color="#486DA8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bkn_n-h" x1="50%" x2="50%" y1="0%" y2="122.366%">
+      <stop offset="0%" stop-color="#A4C5F4"/>
+      <stop offset="100%" stop-color="#A7C7F2"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="url(#bkn_n-a)" d="M7.50825261,4.36674739 C9.1927071,5.07743807 10.375,6.74439938 10.375,8.6875 C10.375,11.2763348 8.27633476,13.375 5.6875,13.375 C3.74439938,13.375 2.07743807,12.1927071 1.36674739,10.5082526 C1.92652786,10.7444304 2.54176585,10.875 3.1875,10.875 C5.77633476,10.875 7.875,8.77633476 7.875,6.1875 C7.875,5.54176585 7.74443042,4.92652786 7.50825261,4.36674739 L7.50825261,4.36674739 Z"/>
+    <circle cx="5.688" cy="8.688" r="4.688" fill="url(#bkn_n-b)" opacity=".3"/>
+    <circle cx="8" cy="15" r="4" fill="url(#bkn_n-c)" opacity=".2"/>
+    <circle cx="18.5" cy="16.5" r="2.5" fill="url(#bkn_n-d)" opacity=".2"/>
+    <path fill="url(#bkn_n-e)" d="M8,19 C5.790861,19 4,17.209139 4,15 C4,12.790861 5.790861,11 8,11 C8.41665567,11 8.81843235,11.0637045 9.19612127,11.1819049 C9.75960062,9.33975064 11.4733425,8 13.5,8 C15.9852814,8 18,10.0147186 18,12.5 C18,12.7345695 17.9820524,12.9649471 17.9474555,13.1898344 C18.2749642,13.0671106 18.6296448,13 19,13 C20.6568542,13 22,14.3431458 22,16 C22,17.6568542 20.6568542,19 19,19 L8,19 Z"/>
+    <circle cx="8" cy="15" r="4" fill="url(#bkn_n-f)" opacity=".344"/>
+    <circle cx="19" cy="16" r="3" fill="url(#bkn_n-g)" opacity=".2"/>
+    <circle cx="13.5" cy="12.5" r="4.5" fill="url(#bkn_n-h)"/>
+  </g>
+</svg>

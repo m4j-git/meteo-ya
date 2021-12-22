@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <radialGradient id="fg_d-a" cy="50.21%" r="48.457%" fx="50%" fy="50.21%">
+      <stop offset=".062%" stop-color="#FFCE47"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="12" cy="12" r="5" fill="url(#fg_d-a)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.4190543,2.19930642 L15.4190543,5.26957619" transform="rotate(22.5 15.42 3.734)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.57327285,18.7264847 L8.57327285,21.7967545" transform="rotate(22.5 8.573 20.262)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.2607277,7.04097986 L20.2607277,10.1112496" transform="rotate(67.5 20.26 8.576)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.73354939,13.8867613 L3.73354939,16.957031" transform="rotate(67.5 3.734 15.422)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.2607277,13.8881401 L20.2607277,16.9584099" transform="rotate(112.5 20.26 15.423)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.73354939,7.04235871 L3.73354939,10.1126285" transform="rotate(112.5 3.734 8.577)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.571894,2.19930642 L8.571894,5.26957619" transform="rotate(-22.5 8.572 3.734)"/>
+    <path stroke="#FFB300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.4176754,18.7264847 L15.4176754,21.7967545" transform="rotate(-22.5 15.418 20.262)"/>
+    <path fill="#FFF" fill-rule="nonzero" d="M2,19.000991 L2,19 C2.55228475,19 3,18.5522847 3,18 C3,17.4477153 2.55228475,17 2,17 C1.44771525,17 1,16.5522847 1,16 C1,15.4477153 1.44771525,15 2,15 C2.55228475,15 3,14.5522847 3,14 C3,13.4477153 2.55228475,13 2,13 C1.44771525,13 1,12.5522847 1,12 C1,11.4477153 1.44771525,11 2,11 L10,11 C10.5522847,11 11,11.4477153 11,12 C11,12.5522847 10.5522847,13 10,13 C9.44771525,13 9,13.4477153 9,14 C9,14.5522847 9.44771525,15 10,15 L16,15 C16.5522847,15 17,15.4477153 17,16 C17,16.5522847 16.5522847,17 16,17 C15.4477153,17 15,17.4477153 15,18 C15,18.5522847 15.4477153,19 16,19 L20.0449219,19 C20.5972066,19 21.0449219,19.4477153 21.0449219,20 C21.0449219,20.5522847 20.5972066,21 20.0449219,21 L2.04492188,21 C1.49263713,21 1.04492188,20.5522847 1.04492188,20 C1.04492188,19.4627692 1.46856246,19.024485 2,19.000991 L2,19.000991 Z" opacity=".7"/>
+  </g>
+</svg>
