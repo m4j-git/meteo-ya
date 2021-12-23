@@ -22,12 +22,12 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import ru.m4j.meteo.ya.config.YaTestBeanSource;
 import ru.m4j.meteo.ya.config.YaWebSecurityTestConfig;
 import ru.m4j.meteo.ya.form.YaWeatherFormMapper;
 import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.service.LocationService;
 import ru.m4j.meteo.ya.service.YaMessageService;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
 
 @ContextConfiguration(classes = { YaController.class, YaWeatherFormMapper.class, YaWebSecurityTestConfig.class, YaTestBeanSource.class })
 @WebMvcTest(controllers = { YaController.class })

@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2002-2021 meteo@m4j.ru
  */
-package ru.m4j.meteo.ya.config;
+package ru.m4j.meteo.ya.srv.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

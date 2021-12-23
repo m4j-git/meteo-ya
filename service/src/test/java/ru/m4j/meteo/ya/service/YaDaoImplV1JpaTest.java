@@ -12,7 +12,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
+import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
@@ -20,7 +20,7 @@ import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
 class YaDaoImplV1JpaTest extends YaDaoTest {
 
     YaDaoImplV1JpaTest(ApplicationContext context) {
-        dao = (YaDao) context.getBean("yaDaoImplV1Jpa");
+        super((YaDao) context.getBean("yaDaoImplV1Jpa"));
     }
 
 }

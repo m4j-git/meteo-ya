@@ -19,11 +19,11 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.m4j.meteo.ya.config.YaTestBeanSource;
 import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
 import ru.m4j.meteo.ya.service.YaDao;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
 
 @SpringBootTest
 @Transactional
@@ -31,7 +31,7 @@ import ru.m4j.meteo.ya.service.YaDao;
 class YaMessageRequesterTest {
 
     @MockBean
-    YaMessageClient client;
+    private YaMessageClient client;
     @Autowired
     private YaMessageRequester requester;
     @Autowired
@@ -46,7 +46,7 @@ class YaMessageRequesterTest {
     }
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         assertThat(requester).isNotNull();
         assertThat(msgRepo.count()).isZero();
     }
@@ -54,12 +54,12 @@ class YaMessageRequesterTest {
     @Test
     void testRequestProvider(@Autowired LocationDto location) throws IOException {
         when(client.request(requester.getUri(location))).thenReturn(src.readJson());
-        final YaMessageDto result = requester.requestProvider(location);
+        YaMessageDto result = requester.requestProvider(location);
         assertThat(result.getNow()).isNotNull();
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         dao.deleteMessages();
         assertThat(msgRepo.count()).isZero();
     }

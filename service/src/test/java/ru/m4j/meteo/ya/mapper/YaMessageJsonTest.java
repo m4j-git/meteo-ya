@@ -16,11 +16,11 @@ import org.springframework.context.annotation.Import;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ru.m4j.meteo.ya.config.YaTestBeanFactory;
-import ru.m4j.meteo.ya.config.YaTestBeanSource;
-import ru.m4j.meteo.ya.config.YaTestDomainConfiguration;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanFactory;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.srv.config.YaTestDomainConfiguration;
 
 @SpringBootTest(classes = { YaTestDomainConfiguration.class })
 @Import(YaTestBeanFactory.class)
@@ -34,7 +34,7 @@ class YaMessageJsonTest {
     private YaTestBeanSource src;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         assertThat(mapper).isNotNull();
     }
 

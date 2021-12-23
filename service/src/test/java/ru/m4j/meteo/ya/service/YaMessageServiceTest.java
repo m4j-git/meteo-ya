@@ -17,14 +17,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-import ru.m4j.meteo.ya.config.YaTestBeanSource;
-import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
@@ -41,7 +41,7 @@ class YaMessageServiceTest {
     private YaTestBeanSource src;
 
     @BeforeEach
-    public void setUp() throws IOException {
+    void setUp() throws IOException {
         assertThat(service).isNotNull();
         assertThat(dao.count(YaPart.class)).isZero();
         assertThat(dao.count(YaForecast.class)).isZero();
@@ -86,7 +86,7 @@ class YaMessageServiceTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         dao.deleteMessages();
         assertThat(dao.count(YaPart.class)).isZero();
         assertThat(dao.count(YaForecast.class)).isZero();

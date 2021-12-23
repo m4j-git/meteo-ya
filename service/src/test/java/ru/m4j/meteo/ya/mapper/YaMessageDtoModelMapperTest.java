@@ -14,15 +14,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.m4j.meteo.ya.config.YaTestBeanFactory;
-import ru.m4j.meteo.ya.config.YaTestBeanSource;
-import ru.m4j.meteo.ya.config.YaTestDomainConfiguration;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaForecastDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanFactory;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
+import ru.m4j.meteo.ya.srv.config.YaTestDomainConfiguration;
 
 @Slf4j
 @SpringBootTest(classes = { YaTestDomainConfiguration.class })
@@ -35,7 +35,7 @@ class YaMessageDtoModelMapperTest {
     private YaMessageDtoModelMapper mapper;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         assertThat(mapper).isNotNull();
     }
 

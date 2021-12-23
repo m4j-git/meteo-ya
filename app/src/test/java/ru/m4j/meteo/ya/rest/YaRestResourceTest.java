@@ -46,7 +46,7 @@ class YaRestResourceTest {
     private YaDao dao;
 
     @BeforeEach
-    public void setUp(@Qualifier("message") YaMessage mes) {
+    void setUp(@Qualifier("message") YaMessage mes) {
         assertThat(dao.count(YaFact.class)).isZero();
         assertThat(dao.count(YaMessage.class)).isZero();
         Integer geonameId = 1;
@@ -96,7 +96,7 @@ class YaRestResourceTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         dao.deleteMessages();
         assertThat(dao.count(YaFact.class)).isZero();
         assertThat(dao.count(YaMessage.class)).isZero();

@@ -24,14 +24,18 @@ import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
 
-abstract class YaDaoTest {
+public abstract class YaDaoTest {
 
     private final Integer geonameId = 2;
 
-    protected YaDao dao;
+    private final YaDao dao;
+
+    YaDaoTest(YaDao dao) {
+        this.dao = dao;
+    }
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         assertThat(dao).isNotNull();
         assertThat(dao.count(YaPart.class)).isZero();
         assertThat(dao.count(YaForecast.class)).isZero();
@@ -100,7 +104,7 @@ abstract class YaDaoTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         dao.deleteMessages();
         assertThat(dao.count(YaPart.class)).isZero();
         assertThat(dao.count(YaForecast.class)).isZero();

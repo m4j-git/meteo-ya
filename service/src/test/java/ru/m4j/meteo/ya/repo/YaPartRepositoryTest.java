@@ -15,10 +15,10 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.m4j.meteo.ya.config.YaTestDaoConfiguration;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
+import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
@@ -33,7 +33,7 @@ class YaPartRepositoryTest {
     private YaPartRepository repo;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         assertThat(repo).isNotNull();
         assertThat(repo.count()).isZero();
         assertThat(repoF.count()).isZero();
@@ -55,7 +55,7 @@ class YaPartRepositoryTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         repo.deleteAll();
         repoM.deleteAll();
         assertThat(repo.count()).isZero();

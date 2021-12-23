@@ -13,8 +13,8 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.m4j.meteo.ya.config.YaTestBeanFactory;
-import ru.m4j.meteo.ya.config.YaTestDomainConfiguration;
+import ru.m4j.meteo.ya.srv.config.YaTestBeanFactory;
+import ru.m4j.meteo.ya.srv.config.YaTestDomainConfiguration;
 
 @Slf4j
 @SpringBootTest(classes = { YaTestDomainConfiguration.class })

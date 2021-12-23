@@ -30,11 +30,9 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     private final YaDao dao;
     private final YaMessageDtoModelMapper mapper;
-    @Value("${meteo.servicer.dao:yaDaoImplV1Jpa")
-    private String path;
 
-    public YaMessageServiceImpl(ApplicationContext context, YaMessageDtoModelMapper mapper) {
-        dao = (YaDao) context.getBean("yaDaoImplV1Jpa");
+    public YaMessageServiceImpl(ApplicationContext context, YaMessageDtoModelMapper mapper, @Value("${meteo.service.dao:yaDaoImplV1Jpa}") String daoImpl) {
+        dao = (YaDao) context.getBean(daoImpl);
         this.mapper = mapper;
     }
 
