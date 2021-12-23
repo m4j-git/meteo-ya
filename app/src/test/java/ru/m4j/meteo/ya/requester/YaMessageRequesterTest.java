@@ -37,7 +37,7 @@ class YaMessageRequesterTest {
     @Autowired
     private YaTestBeanSource src;
 
-    private YaDao dao;
+    private final YaDao dao;
     @Autowired
     private YaMessageRepository msgRepo;
 
