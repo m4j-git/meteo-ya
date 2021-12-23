@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,8 +40,9 @@ public class YaForecast implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @Column(name = "forecast_id")
     private Long forecastId;
 
     /**
@@ -57,6 +59,7 @@ public class YaForecast implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "date_ts")
     private OffsetDateTime dateTs;
 
     /**
@@ -86,6 +89,7 @@ public class YaForecast implements Serializable {
      * Код фазы Луны.
      */
     @NotNull
+    @Column(name = "moon_code")
     private Byte moonCode;
 
     /**
@@ -93,6 +97,7 @@ public class YaForecast implements Serializable {
      * Текстовый код для фазы Луны.
      */
     @NotNull
+    @Column(name = "moon_text")
     private String moonText;
 
     @Setter(AccessLevel.NONE)

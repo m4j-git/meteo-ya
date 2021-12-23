@@ -214,43 +214,4 @@ management:
       exposure:
         include: '*'
 
---- ################### h2 ###################
-
-##################
-#   Spring Settings
-##################
-spring:
-  config:
-    activate:
-      on-profile: h2        
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:meteo-ya;MODE=MySQL
-    username: ${METEO_USER}
-    password: ${METEO_PASSWD}
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-  h2:
-    console:
-      enabled: true
-
---- ################### mysql ###################
-
-##################
-#   Spring Settings
-##################
-spring:
-  config:
-    activate:
-      on-profile: mysql      
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql-host:3306/meteo-ya?&serverTimezone=Europe/Moscow&useUnicode=true&characterEncoding=utf8&useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
-    username: ${METEO_USER}
-    password: ${METEO_PASSWD}
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL55Dialect        
+   

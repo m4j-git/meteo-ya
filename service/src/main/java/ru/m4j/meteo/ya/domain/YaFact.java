@@ -35,8 +35,9 @@ public class YaFact implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @Column(name = "fact_id")
     private Long factId;
 
     /**
@@ -53,6 +54,7 @@ public class YaFact implements Serializable {
      * Число -32 ... 22
      */
     @NotNull
+    @Column(name = "feels_like")
     private Short feelsLike;
 
     /**
@@ -61,6 +63,7 @@ public class YaFact implements Serializable {
      * Параметр возвращается для населенных пунктов, где данная информация актуальна.
      * Число null
      */
+    @Column(name = "temp_water")
     private Short tempWater;
 
     /**
@@ -125,6 +128,7 @@ public class YaFact implements Serializable {
      * Число 0 ... 11.0
      */
     @NotNull
+    @Column(name = "wind_speed")
     private Short windSpeed;
 
     /**
@@ -133,6 +137,7 @@ public class YaFact implements Serializable {
      * Число 0.6 .. 20.1
      */
     @NotNull
+    @Column(name = "wind_gust")
     private Short windGust;
 
     /**
@@ -141,7 +146,7 @@ public class YaFact implements Serializable {
      * Строка
      */
     @NotNull
-    @Column(length = 3)
+    @Column(name = "wind_dir", length = 3)
     private String windDir;
 
     /**
@@ -150,6 +155,7 @@ public class YaFact implements Serializable {
      * Число 731 ... 774
      */
     @NotNull
+    @Column(name = "pressure_mm")
     private Short pressureMm;
 
     /**
@@ -158,6 +164,7 @@ public class YaFact implements Serializable {
      * Число 974 ... 1031
      */
     @NotNull
+    @Column(name = "pressure_pa")
     private Short pressurePa;
 
     /**
@@ -209,6 +216,7 @@ public class YaFact implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "obs_time")
     private OffsetDateTime obsTime;
 
     @NotNull

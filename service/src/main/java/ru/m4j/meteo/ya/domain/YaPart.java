@@ -32,8 +32,9 @@ public class YaPart implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @Column(name = "part_id")
     private Long partId;
 
     /**
@@ -47,7 +48,7 @@ public class YaPart implements Serializable {
      * Строка.
      */
     @NotNull
-    @Column(length = 8)
+    @Column(name = "part_name", length = 8)
     private String partName;
 
     /**
@@ -56,6 +57,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "temp_min")
     private Short tempMin;
 
     /**
@@ -64,6 +66,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "temp_max")
     private Short tempMax;
 
     /**
@@ -72,6 +75,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "temp_avg")
     private Short tempAvg;
 
     /**
@@ -80,6 +84,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "feels_like")
     private Short feelsLike;
 
     /**
@@ -125,6 +130,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "wind_speed")
     private Short windSpeed;
 
     /**
@@ -133,6 +139,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "wind_gust")
     private Short windGust;
 
     /**
@@ -146,9 +153,9 @@ public class YaPart implements Serializable {
      * n
      * nw
      * ne
-     **/
+     */
     @NotNull
-    @Column(length = 3)
+    @Column(name = "wind_dir", length = 3)
     private String windDir;
 
     /**
@@ -157,6 +164,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "pressure_mm")
     private Short pressureMm;
 
     /**
@@ -165,6 +173,7 @@ public class YaPart implements Serializable {
      * Число
      */
     @NotNull
+    @Column(name = "pressure_pa")
     private Short pressurePa;
 
     /**
@@ -181,6 +190,7 @@ public class YaPart implements Serializable {
      * Число 0 ... 28.6
      */
     @NotNull
+    @Column(name = "prec_mm")
     private Short precMm;
 
     /**
@@ -189,6 +199,7 @@ public class YaPart implements Serializable {
      * Число 360 ... 360
      */
     @NotNull
+    @Column(name = "prec_period")
     private Short precPeriod;
 
     /**
@@ -197,6 +208,7 @@ public class YaPart implements Serializable {
      * Число 0 ... 100
      */
     @NotNull
+    @Column(name = "prec_prob")
     private Short precProb;
 
     @NotNull

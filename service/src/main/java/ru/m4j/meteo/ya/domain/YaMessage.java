@@ -40,21 +40,21 @@ public class YaMessage implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "message_id")
     @EqualsAndHashCode.Include
     private Long messageId;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false, columnDefinition = "timestamp")
+    @Column(name = "created_on", nullable = false, updatable = false, columnDefinition = "timestamp")
     private LocalDateTime createdOn;
 
     @NotNull
-    @Column(nullable = false, updatable = false, unique = true, columnDefinition = "varbinary")
+    @Column(name = "message_uuid", nullable = false, updatable = false, unique = true, columnDefinition = "varbinary")
     private UUID messageUuid;
 
     @NotNull
-    @Column(nullable = false, updatable = false)
+    @Column(name = "geoname_id", nullable = false, updatable = false)
     private Integer geonameId;
 
     /**
@@ -71,6 +71,7 @@ public class YaMessage implements Serializable {
      * Строка
      */
     @NotNull
+    @Column(name = "now_dt")
     private OffsetDateTime nowDt;
 
     @Setter(AccessLevel.NONE)
