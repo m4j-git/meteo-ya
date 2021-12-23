@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -24,6 +26,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestDomainConfiguration;
 
 @SpringBootTest(classes = { YaTestDomainConfiguration.class })
 @Import(YaTestBeanFactory.class)
+@DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 class YaMessageJsonTest {
 
     @Autowired
