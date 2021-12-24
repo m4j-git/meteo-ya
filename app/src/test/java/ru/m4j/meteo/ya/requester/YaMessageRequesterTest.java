@@ -19,6 +19,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
+import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.model.LocationDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.repo.YaMessageRepository;
@@ -28,7 +29,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
 @SpringBootTest
 @Transactional
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaMessageRequesterTest {
+class YaMessageRequesterTest extends AbstractContainerBaseTest {
 
     @MockBean
     private YaMessageClient client;

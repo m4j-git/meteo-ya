@@ -13,11 +13,12 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 
 @Slf4j
 @SpringBootTest
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaApplicationTest {
+class YaApplicationTest extends AbstractContainerBaseTest {
 
     @Autowired
     private Environment env;

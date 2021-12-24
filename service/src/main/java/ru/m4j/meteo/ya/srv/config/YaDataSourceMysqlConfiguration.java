@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2002-2021 meteo@m4j.ru
+ */
 package ru.m4j.meteo.ya.srv.config;
 
 import java.util.Properties;
@@ -14,7 +17,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import com.zaxxer.hikari.HikariDataSource;
 
-@Profile("mysql")
+@Profile("prod,stage")
 @Configuration
 public class YaDataSourceMysqlConfiguration {
 

@@ -7,7 +7,6 @@ spring:
   profiles:
     active: 
       - '@spring.profiles.active@'
-      - '@spring.profiles.db@'
   jpa:
     open-in-view: false
 

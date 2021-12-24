@@ -20,6 +20,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
+import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
@@ -27,7 +28,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaFactRepositoryTest {
+class YaFactRepositoryTest extends AbstractContainerBaseTest {
 
     private final Integer geonameId = 1;
     @Autowired

@@ -17,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
+import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
@@ -28,7 +29,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaMessageServiceTest {
+class YaMessageServiceTest extends AbstractContainerBaseTest {
 
     private final Integer geonameId = 1;
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
