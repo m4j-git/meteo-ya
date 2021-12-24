@@ -13,12 +13,12 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
+import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 
 @Slf4j
 @SpringBootTest
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaApplicationTest extends AbstractContainerBaseTest {
+class YaApplicationTest extends YaMysqlContainerBase {
 
     @Autowired
     private Environment env;

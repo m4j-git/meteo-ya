@@ -19,13 +19,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
+import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 
-public abstract class YaDaoTest extends AbstractContainerBaseTest {
+public abstract class YaDaoTest extends YaMysqlContainerBase {
 
     private final Integer geonameId = 2;
 

@@ -22,16 +22,16 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 import ru.m4j.meteo.ya.service.YaDao;
+import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaRestResourceTest extends AbstractContainerBaseTest {
+class YaRestResourceTest extends YaMysqlContainerBase {
 
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
     private final Integer geonameId = 1;

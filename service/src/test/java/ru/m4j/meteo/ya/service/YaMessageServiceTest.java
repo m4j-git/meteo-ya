@@ -17,19 +17,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.domain.YaFact;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
 import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
+import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
 import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaMessageServiceTest extends AbstractContainerBaseTest {
+class YaMessageServiceTest extends YaMysqlContainerBase {
 
     private final Integer geonameId = 1;
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";

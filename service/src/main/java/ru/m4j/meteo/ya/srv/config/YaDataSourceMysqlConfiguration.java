@@ -51,9 +51,9 @@ public class YaDataSourceMysqlConfiguration {
         vendorAdapter.setGenerateDdl(false);
         vendorAdapter.setShowSql(false);
 
-        jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.MySQL55Dialect");
-        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "validate");
-        jpaProperties.put(org.hibernate.cfg.Environment.USE_NEW_ID_GENERATOR_MAPPINGS, "false");
+        jpaProperties.put(org.hibernate.cfg.AvailableSettings.DIALECT, "org.hibernate.dialect.MySQL55Dialect");
+        jpaProperties.put(org.hibernate.cfg.AvailableSettings.HBM2DDL_AUTO, "validate");
+        jpaProperties.put(org.hibernate.cfg.AvailableSettings.USE_NEW_ID_GENERATOR_MAPPINGS, "false");
 
         return entityManagerFactoryBean;
     }

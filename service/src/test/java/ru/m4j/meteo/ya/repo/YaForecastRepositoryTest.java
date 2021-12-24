@@ -15,15 +15,15 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.m4j.meteo.share.misc.AbstractContainerBaseTest;
 import ru.m4j.meteo.ya.domain.YaForecast;
 import ru.m4j.meteo.ya.domain.YaMessage;
+import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaForecastRepositoryTest extends AbstractContainerBaseTest {
+class YaForecastRepositoryTest extends YaMysqlContainerBase {
 
     @Autowired
     private YaForecastRepository repo;
