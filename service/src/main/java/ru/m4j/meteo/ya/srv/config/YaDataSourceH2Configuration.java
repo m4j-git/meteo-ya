@@ -36,10 +36,6 @@ public class YaDataSourceH2Configuration {
         return dataSource;
     }
 
-    /*
-     *   jpa:
-    open-in-view: false
-         */
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -52,18 +48,11 @@ public class YaDataSourceH2Configuration {
 
         vendorAdapter.setGenerateDdl(false);
         vendorAdapter.setShowSql(false);
-
-        //org.hibernate.dialect.MySQL55Dialect
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
-        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_DATABASE_ACTION, "validate");
+        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "validate");
         jpaProperties.put(org.hibernate.cfg.Environment.USE_NEW_ID_GENERATOR_MAPPINGS, "false");
 
         return entityManagerFactoryBean;
     }
-
-    /* @Bean
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new JpaTransactionManager();
-    }*/
 
 }

@@ -36,10 +36,6 @@ public class YaDataSourceMysqlConfiguration {
         return dataSource;
     }
 
-    /*
-     *   jpa:
-    open-in-view: false
-         */
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -49,20 +45,14 @@ public class YaDataSourceMysqlConfiguration {
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
         entityManagerFactoryBean.setPackagesToScan("ru.m4j.meteo.**.domain");
-
         vendorAdapter.setGenerateDdl(false);
         vendorAdapter.setShowSql(false);
 
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.MySQL55Dialect");
-        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_DATABASE_ACTION, "validate");
+        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "validate");
         jpaProperties.put(org.hibernate.cfg.Environment.USE_NEW_ID_GENERATOR_MAPPINGS, "false");
 
         return entityManagerFactoryBean;
     }
-
-    /* @Bean
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new JpaTransactionManager();
-    }*/
 
 }
