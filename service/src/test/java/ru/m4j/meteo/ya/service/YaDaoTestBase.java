@@ -25,13 +25,13 @@ import ru.m4j.meteo.ya.domain.YaMessage;
 import ru.m4j.meteo.ya.domain.YaPart;
 import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 
-public abstract class YaDaoTest extends YaMysqlContainerBase {
+public abstract class YaDaoTestBase extends YaMysqlContainerBase {
 
     private final Integer geonameId = 2;
 
     private final YaDao dao;
 
-    YaDaoTest(YaDao dao) {
+    YaDaoTestBase(YaDao dao) {
         this.dao = dao;
     }
 

@@ -18,7 +18,7 @@ import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 @Slf4j
 @SpringBootTest
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaApplicationTest extends YaMysqlContainerBase {
+class YaApplicationIT extends YaMysqlContainerBase {
 
     @Autowired
     private Environment env;

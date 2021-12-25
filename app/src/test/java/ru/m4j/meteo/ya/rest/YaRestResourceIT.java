@@ -31,7 +31,7 @@ import ru.m4j.meteo.ya.srv.config.YaMysqlContainerBase;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaRestResourceTest extends YaMysqlContainerBase {
+class YaRestResourceIT extends YaMysqlContainerBase {
 
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
     private final Integer geonameId = 1;

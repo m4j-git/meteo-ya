@@ -17,9 +17,9 @@ import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaDaoImplV2JpaSpecTest extends YaDaoTest {
+class YaDaoImplV2JpaSpecIT extends YaDaoTestBase {
 
-    YaDaoImplV2JpaSpecTest(ApplicationContext context) {
+    YaDaoImplV2JpaSpecIT(ApplicationContext context) {
         super((YaDao) context.getBean("yaDaoImplV2JpaSpec"));
     }
 

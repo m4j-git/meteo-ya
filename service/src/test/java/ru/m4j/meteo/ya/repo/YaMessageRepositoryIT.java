@@ -27,7 +27,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @Transactional
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaMessageRepositoryTest extends YaMysqlContainerBase {
+class YaMessageRepositoryIT extends YaMysqlContainerBase {
 
     private final Integer geonameId = 1;
     @Autowired

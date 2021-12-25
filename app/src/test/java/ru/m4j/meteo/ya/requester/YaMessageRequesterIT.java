@@ -29,7 +29,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestBeanSource;
 @SpringBootTest
 @Transactional
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaMessageRequesterTest extends YaMysqlContainerBase {
+class YaMessageRequesterIT extends YaMysqlContainerBase {
 
     @MockBean
     private YaMessageClient client;
@@ -42,7 +42,7 @@ class YaMessageRequesterTest extends YaMysqlContainerBase {
     @Autowired
     private YaMessageRepository msgRepo;
 
-    YaMessageRequesterTest(ApplicationContext context) {
+    YaMessageRequesterIT(ApplicationContext context) {
         dao = (YaDao) context.getBean("yaDaoImplV1Jpa");
     }
 

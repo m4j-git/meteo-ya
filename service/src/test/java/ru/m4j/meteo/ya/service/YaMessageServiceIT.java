@@ -29,7 +29,7 @@ import ru.m4j.meteo.ya.srv.config.YaTestDaoConfiguration;
 
 @SpringBootTest(classes = YaTestDaoConfiguration.class)
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
-class YaMessageServiceTest extends YaMysqlContainerBase {
+class YaMessageServiceIT extends YaMysqlContainerBase {
 
     private final Integer geonameId = 1;
     private final String messageUuid = "11111111-1111-1111-1111-111111111111";
