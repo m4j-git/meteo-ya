@@ -12,7 +12,7 @@
 
 	<description>Spring Boot App for Yandex Weather</description>
 	<url>https://m4j.ru/meteo-ya</url>
-	<inceptionYear>2021</inceptionYear>
+	<inceptionYear>2022</inceptionYear>
 
 	<modules>
 		<module>api</module>
