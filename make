@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 set -e
 
 java -version
@@ -8,7 +8,7 @@ dir=`dirname $0`
 absdir=`cd $dir; pwd`
 cd $absdir
 
-skip='-Dmaven.test.skip -DskipITs'
+skip='-DskipITs'
 
 MODULE_NAME=meteo-ya
 echo "make $MODULE_NAME"
@@ -54,7 +54,7 @@ else
             mvn clean install -P stage $skip
             ;;
         "build-prod")
-              mvn clean jar:test-jar install -P prod $skip 
+              mvn clean install -P prod $skip 
             ;;
         "build-site")
             mvn site -P prod $skip
