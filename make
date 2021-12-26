@@ -8,27 +8,15 @@ dir=`dirname $0`
 absdir=`cd $dir; pwd`
 cd $absdir
 
-if [ "$1" = "build-prod" ]; then
-  mvn clean install -P prod -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
-fi
+skip='-Dmaven.test.skip -DskipITs'
 
-if [ "$1" = "build-stage" ]; then
-  mvn clean install -P stage -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
-fi
 
-if [ "$1" = "build-dev" ]; then
-  mvn clean install -P dev -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
-fi
+show_help(){
+    echo -e "Usage: ./make build|git|check|deploy|test"
+    exit
+}
 
-if [ "$1" = "test-dev" ]; then
-  mvn clean test -P dev -Dorg.slf4j.simpleLogger.defaultLogLevel=warn -DargLine="-Xms1024m -Xmx8192m"
-fi
-
-if [ "$1" = "build-site" ]; then
-  mvn site -P prod -Dmaven.test.skip -Dorg.slf4j.simpleLogger.defaultLogLevel=info -DargLine="-Xms1024m -Xmx8192m"
-fi
-
-if [ "$1" = "build-docker" ]; then
+build_docker(){
   CONTAINER_NAME=meteo-ya
   echo -e "\nSet docker container name as ${CONTAINER_NAME}\n"
   IMAGE_NAME=${CONTAINER_NAME}:latest
@@ -54,9 +42,33 @@ if [ "$1" = "build-docker" ]; then
       -e YANDEX_API_KEY=${YANDEX_API_KEY} \
       --name ${CONTAINER_NAME} \
       ${IMAGE_NAME} 
+}
+    
+if [ "$1" = "build-prod" ]; then
+  mvn clean install -P prod $skip 
 fi
 
-if [ "$1" = "test-wrk" ]; then
+if [ "$1" = "build-stage" ]; then
+  mvn clean install -P stage $skip 
+fi
+
+if [ "$1" = "build-dev" ]; then
+  mvn clean install -P dev $skip 
+fi
+
+if [ "$1" = "test-it" ]; then
+  mvn clean test verify -P dev 
+fi
+
+if [ "$1" = "build-site" ]; then
+  mvn site -P prod $skip 
+fi
+
+if [ "$1" = "build-docker" ]; then
+  build_docker
+fi
+
+if [ "$1" = "test-stress" ]; then
   ./wrk -t12 -c12 -d30s http://meteo-ya-host:8083/meteo-ya/?geonameId=1
 fi
 
