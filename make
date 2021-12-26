@@ -54,7 +54,7 @@ else
             mvn clean install -P stage $skip
             ;;
         "build-prod")
-              mvn clean install -P prod $skip 
+              mvn clean jar:test-jar install -P prod $skip 
             ;;
         "build-site")
             mvn site -P prod $skip
