@@ -10,6 +10,8 @@ cd $absdir
 
 skip='-Dmaven.test.skip -DskipITs'
 
+MODULE_NAME="meteo-ya"
+echo "make $MODULE_NAME"
 
 show_help(){
     echo -e "Usage: ./make build|git|check|deploy|test"
