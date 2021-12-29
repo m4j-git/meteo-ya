@@ -20,6 +20,7 @@
 		<module>client</module>
 		<module>service</module>
 		<module>app</module>
+		<module>cli</module>
 	</modules>
 
 	<scm>
