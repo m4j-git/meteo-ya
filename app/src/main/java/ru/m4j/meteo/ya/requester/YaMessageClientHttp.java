@@ -11,14 +11,18 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
+@Slf4j
 @ConditionalOnProperty(name = "meteo.provider.type", havingValue = "http")
 @Component
 public class YaMessageClientHttp implements YaMessageClient {
@@ -40,6 +44,11 @@ public class YaMessageClientHttp implements YaMessageClient {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             return jacksonMapper.readValue(rd, YaMessageDto.class);
         }
+    }
+
+    @PostConstruct
+    void init() {
+        log.info(this.getClass().getCanonicalName() + " inited");
     }
 
 }
