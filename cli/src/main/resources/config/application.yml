@@ -10,15 +10,6 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-logging:
-  level:
-    ROOT: WARN
-    org:
-      hibernate: WARN
-      springframework:
-        security: WARN
-    ru:    
-      m4j: INFO
 
 maven:
   branch-name: '@scmBranch@'
