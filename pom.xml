@@ -27,6 +27,13 @@
 		<connection>scm:git:https://github.com/m4j-git/meteo-ya</connection>
 		<url>https://github.com/m4j-git/meteo-ya</url>
 	</scm>
-
+	
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/m4j-git/meteo-share</url>
+		</repository>
+	</repositories>
 
 </project>
