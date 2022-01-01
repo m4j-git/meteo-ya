@@ -20,7 +20,9 @@ maven:
  
 eureka:
   client:
-      enabled: false          
-    
-
+      enabled: false
+                
+meteo:   
+  instance:
+    hostname: meteo-ya-host
    
