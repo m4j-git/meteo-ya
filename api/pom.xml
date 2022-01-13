@@ -1,7 +1,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>meteo-ya-api</artifactId>
 	<packaging>jar</packaging>
@@ -11,7 +11,7 @@
 		<groupId>ru.m4j.meteo</groupId>
 		<artifactId>meteo-share-bom-api</artifactId>
 		<version>22.1.1-SNAPSHOT</version>
-		<relativePath></relativePath>
+		<relativePath>../../meteo-share/bom/api</relativePath>
 	</parent>
 
 	<dependencies>
