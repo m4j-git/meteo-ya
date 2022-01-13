@@ -51,7 +51,7 @@ class YaMessageServiceIT extends YaMysqlContainerBase {
         YaMessageDto dto = src.readJson();
         assertThat(dto.getNow()).isNotNull();
         dto.setMessageUuid(UUID.fromString(messageUuid));
-        service.saveMessageToDb(dto, geonameId);
+        service.saveMessage(dto, geonameId);
         assertThat(dao.count(YaPart.class)).isEqualTo(2);
         assertThat(dao.count(YaForecast.class)).isEqualTo(1);
         assertThat(dao.count(YaFact.class)).isEqualTo(1);

@@ -38,7 +38,7 @@ public class YaMessageServiceImpl implements YaMessageService {
 
     @Override
     @Transactional
-    public void saveMessageToDb(final YaMessageDto dto, Integer geonameId) {
+    public void saveMessage(final YaMessageDto dto, Integer geonameId) {
         YaMessage message = dao.saveMessage(mapper.messageDtoToMessage(dto), geonameId);
         log.info("save yandex weather message to db - ok, id= {}", message.getMessageId());
     }

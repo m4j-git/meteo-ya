@@ -9,7 +9,8 @@ import ru.m4j.meteo.ya.model.YaFactDto;
 import ru.m4j.meteo.ya.model.YaMessageDto;
 
 public interface YaMessageService {
-    void saveMessageToDb(YaMessageDto dto, Integer geonameId);
+
+    void saveMessage(YaMessageDto dto, Integer geonameId);
 
     List<YaFactDto> getFacts(Integer geonameId, String dateFrom, String dateTo);
 
